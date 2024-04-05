@@ -1,0 +1,86 @@
+package day12;
+
+public class Student1{
+   private String name;
+   private String birth;
+   private String phone;
+   private int age;
+   private String branch;
+   private String[] subjects = new String[5];
+   private int[] duration = new int[5];
+   private int subjectCount = 0;
+   public final static String academyName = "Ezen";
+
+   public Student1(String name, String birth, String phone, int age, String branch) {
+      this.name = name;
+      this.birth = birth;
+      this.phone = phone;
+      this.age = age;
+      this.branch = branch;
+   }
+
+   public void addCourse(String subject, int duration) {
+      if (subjectCount < 5) {
+         this.subjects[subjectCount] = subject;
+         this.duration[subjectCount] = duration;
+         subjectCount++;
+      } else {
+         System.out.println("더 이상 수강과목을 추가할 수 없습니다.");
+      }
+   }
+
+   public void printStudentInfo() {
+      System.out.println("이름: " + name + ", 생년월일: " + birth + ", 전화번호: " + phone + ", 나이: " + age);
+   }
+
+   public void printAcademyInfo() {
+      System.out.println("학원명: " + academyName + ", 지점: " + branch);
+   }
+
+   public void printCourseInfo() {
+      for (int i = 0; i < subjectCount; i++) {
+         System.out.println("수강과목: " + subjects[i] + ", 기간: " + duration[i] + "개월");
+      }
+   }
+   
+   // getter and setter methods
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public String getBirth() {
+      return birth;
+   }
+
+   public void setBirth(String birth) {
+      this.birth = birth;
+   }
+
+   public String getPhone() {
+      return phone;
+   }
+
+   public void setPhone(String phone) {
+      this.phone = phone;
+   }
+
+   public int getAge() {
+      return age;
+   }
+
+   public void setAge(int age) {
+      this.age = age;
+   }
+
+   public String getBranch() {
+      return branch;
+   }
+
+   public void setBranch(String branch) {
+      this.branch = branch;
+   }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="signUp.css">
+    <link rel="stylesheet" href="headerFX.css">
+    <script src="headerFX.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../IMG/로고2.png" alt="메인로고"></a>
+                </div>
+                <nav class="hMenu">
+                    <div class="menu">
+                        <ul class="depth1">
+                            <li><a href="menu.html" class="dth1 ">주문/결제</a></li>
+                            <li><a href="special.html" class="dth1 ">MD상품</a></li>
+                            <li><a href="event.html" class="dth1  ">이벤트</a></li>
+                            <li><a href="board.html" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <div class="util">
+                        <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                        <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                        <!-- <a href="" class="lang" title="영문사이트로 이동">ENG</a> -->
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="signup container">
+            <h2>회원가입 페이지</h2>
+            <form id="signupForm">
+    
+                <div class="input-container">
+                    <input type="text" id="username" name="username" class="input-field" placeholder="아이디" required>
+                    <button id="checkDuplicateBtn" class="check-duplicate-btn">중복 확인</button>
+                </div>
+                <div class="error-message" id="usernameError"></div>
+                <div>
+                    <input type="email" id="emailPrefix" name="emailPrefix" class="input-field" placeholder="이메일" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" class="input-field" placeholder="비밀번호" required>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                <div>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="input-field" placeholder="비밀번호 확인" required>
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+                <input type="submit" value="회원가입" class="submit-btn">
+                <div class="link">
+                    <div class="alternative-login">
+                        <p>다른 방식으로 로그인</p>
+                        <div>
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                  </svg>
+                            </a>
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                                    <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+                                  </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const snowflakeCount = 40;
+            const container = document.body;
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                container.appendChild(snowflake);
+            }
+
+
+            const zoomElements = document.querySelectorAll('.zoom-effect');
+            zoomElements.forEach(element => {
+                element.addEventListener('mouseenter', function () {
+                    element.style.transform = 'scale(1.1)';
+                });
+                element.addEventListener('mouseleave', function () {
+                    element.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            const chick = document.createElement('div');
+            chick.className = 'chick';
+            chick.style.position = 'fixed';
+            chick.style.left = (event.clientX - 25) + 'px';
+            chick.style.top = (event.clientY - 25) + 'px';
+            chick.style.width = '97px';
+            chick.style.height = '97px';
+            chick.style.background = 'url("https://media4.giphy.com/media/sBVesL6N8u3qKfF95b/200w.webp") no-repeat';
+            chick.style.backgroundSize = 'cover';
+            chick.style.zIndex = '5000';
+            document.body.appendChild(chick);
+
+            setTimeout(function () {
+                chick.remove();
+            }, 3000);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            localStorage.setItem('skduddn', '1234');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const checkDuplicateBtn = document.getElementById('checkDuplicateBtn');
+            const signupForm = document.getElementById('signupForm');
+
+            checkDuplicateBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                const usernameInput = document.getElementById('username').value;
+                const storedUsername = localStorage.getItem(usernameInput);
+
+                if (storedUsername) {
+                    alert('이미 동일한 아이디가 존재합니다.');
+                } else {
+                    alert('사용 가능한 아이디입니다.');
+                }
+            });
+
+            signupForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const usernameInput = document.getElementById('username').value;
+                const passwordInput = document.getElementById('password').value;
+                const confirmPasswordInput = document.getElementById('confirmPassword').value;
+                const emailInput = document.getElementById('emailPrefix').value;
+
+                const storedUsername = localStorage.getItem(usernameInput);
+                if (storedUsername) {
+                    alert('이미 동일한 아이디가 존재합니다.');
+                    return; 
+                }
+
+                if (passwordInput !== confirmPasswordInput) {
+                    alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+                    return; 
+                }
+
+                localStorage.setItem(usernameInput, passwordInput);
+                alert('회원가입이 완료되었습니다.');
+
+                document.getElementById('username').value = '';
+                document.getElementById('emailPrefix').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('confirmPassword').value = '';
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

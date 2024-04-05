@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>가위 바위 보를 10번하여 승률 출력</h1>
+    <div>
+        <img src="../image/다운로드 (1).jpeg" alt="가위" onclick="game(1)">
+        <img src="../image/다운로드 (2).jpeg" alt="바위" onclick="game(2)">
+        <img src="../image/다운로드 (3).jpeg" alt="보" onclick="game(3)">
+    </div>
+    <h3>전적</h3>
+    <p id="record">승: 0, 무: 0, 패: 0</p>
+    <h3>10게임의 승률은 <span id="result"></span>%입니다.</h3>
+    <p id="gameresult"></p>
+    <script>
+        let win = 0;
+        let draw = 0;
+        let lose = 0;
+
+        function random() {
+            return Math.floor(Math.random() * 3) + 1;
+        }
+
+        function calc() {
+            const total = 10;
+            if (total === 0) {
+                return 0;
+            }
+            return ((win / total) * 100).toFixed(2);
+        }
+
+        function RSP(choice) {
+            switch (choice) {
+                case 1:
+                    return '가위';
+                case 2:
+                    return '바위';
+                case 3:
+                    return '보';
+                default:
+                    return '';
+            }
+        }
+
+        function game(playerch) {
+            let com = random();
+            let result;
+            
+            if (playerch === com) {
+                result = "무승부";
+                draw++;
+            } else if ((playerch === 1 && com === 3) || (playerch === 2 && com === 1) || (playerch === 3 && com === 2))
+             {
+                result = "승";
+                win++;
+            } else {
+                result = "패";
+                lose++;
+            }
+
+            document.getElementById('record').textContent = `승: ${win}, 무: ${draw}, 패: ${lose}`;
+            document.getElementById('result').innerText = calc();
+            document.getElementById('gameresult').innerText = `플레이어: ${RSP(playerch)}, 컴퓨터: ${RSP(com)}, 결과: ${result}`;
+            
+        }
+    </script>
+</body>
+</html>

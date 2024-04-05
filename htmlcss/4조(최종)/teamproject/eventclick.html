@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="eventclick.css">
+    <link rel="stylesheet" href="logoutbtn.css">
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="headerFX.css">
+    <script src="headerFX.js"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../IMG/로고2.png" alt="메인로고"></a>
+                </div>
+                <!-- 메뉴 -->
+                <nav class="hMenu">
+                    <div class="menu1">
+                        <ul class="depth1">
+                            <li><a href="menu.html" class="dth1 ">주문하기</a></li>
+                            <li><a href="special.html" class="dth1 ">MD상품</a></li>
+                            <li><a href="event.html" class="dth1  ">이벤트</a></li>
+                            <li><a href="board.html" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <!-- 유틸 -->
+                    <div class="util">
+                        <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                        <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                        <!-- <a href="" class="lang" title="영문사이트로 이동">ENG</a> -->
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="wrap" id="top">
+
+
+        <!-- <section>
+
+
+            <ul>
+
+                <li><a href=""><img src="../IMG/bg2.jpg" alt=""
+                            style="width: 400px; height: 300px; justify-content: center;"></a></li>
+
+
+
+            </ul>
+
+        </section> -->
+
+        <main>
+
+            <div class="con-box con1">
+
+
+
+
+                <!-- 이벤트 박스 -->
+
+                <img id="sp" src="../IMG/상세페이지2.jpg" alt="">
+
+
+
+
+
+
+
+        </main>
+
+        
+    </div>
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footArea">
+            <div class="info">
+                <ul>
+                    <li>인천광역시 남동구 인주대로 593 엔타스 12층</li>
+                    <li>대표자 EZEN</li>
+                    <li>사업자등록번호 000-00-00000</li>
+                    <li>ezen@ezen.com</li>
+                </ul>
+                <p>COPYRIGHT ⓒ 2024 ALL RIGHTS RESERVED BY EZEN</p>
+            </div>
+            <div class="sns">
+                <a href="" target="_blank" class="ico-inst" onclick="alert('인스타그램')">인스타그램</a>
+                <a href="" target="_blank" class="ico-fb" onclick="alert('페이스북')">페이스북</a>
+                <a href="" target="_blank" class="ico-you" onclick="alert('유튜브')">유튜브</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        function openFile(filename) {
+            // 내 워크스페이스에 있는 파일 경로를 사용하여 새 창으로 페이지를 연다.
+            window.open(filename, '_blank');
+        }
+
+
+        // 'top' 버튼을 클릭하면 상단으로 스크롤하는 기능
+        document.querySelector('.top').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- 래퍼 -->
+    <div class="wrapper">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../image/KakaoTalk_20240402_110010059.png" alt="메인로고"></a>
+                </div>
+                <!-- 메뉴 -->
+                <nav class="hMenu">
+                    <div class="menu">
+                        <ul class="depth1">
+                            <li><a href="menu.html" class="dth1 ">주문하기</a></li>
+                            <li><a href="" class="dth1 ">나만의 메뉴</a></li>
+                            <li><a href="event.html" class="dth1  ">이벤트</a></li>
+                            <li><a href="board.html" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <!-- 유틸 -->
+                    <div class="util" id="utilButtons">
+                        <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                        <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                        <a href="main_eng.html" class="lang" title="영문사이트로 이동">ENG</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- 컨테이너 -->
+        <div id="container">
+            <div class="content">
+                <!-- 슬라이더 -->
+                <div class="slide">
+                    <div class="slider">
+                        <div class="inner i1">
+                            <h2></h2>
+                        </div>
+                        <div class="inner i2">
+                            <h2></h2>
+                        </div>
+                        <div class="inner i3">
+                            <h2></h2>
+                        </div>
+                    </div>
+                    <button type="button" class="ctrl prev">이전 배너 보기</button>
+                    <button type="button" class="ctrl next">다음 배너 보기</button>
+                </div>
+                <div class="contArea">
+                    <!-- 메인타이틀 -->
+                    <h2 class="mTit">이벤트</h2>
+                    <!-- 메인이벤트 -->
+                    <ul class="mEvent">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aside">
+                <a href="" class="as1" title="카톡문의" onclick="alert('카톡문의')">카톡문의</a>
+                <a href="" class="as2" title="전화문의" onclick="alert('전화문의')">전화문의</a>
+            </div>
+            <button type="button" class="topBtn" onclick="window.scrollTo(0,0)"></button>
+        </div>
+        <!-- 푸터 -->
+        <footer class="footer">
+            <div class="footArea">
+                <div class="info">
+                    <ul>
+                        <li>인천광역시 남동구 인주대로 593 엔타스 12층</li>
+                        <li>대표자 EZEN</li>
+                        <li>사업자등록번호 000-00-00000</li>
+                        <li>ezen@ezen.com</li>
+                    </ul>
+                    <p>COPYRIGHT ⓒ 2024 ALL RIGHTS RESERVED BY EZEN</p>
+                </div>
+                <div class="sns">
+                    <a href="" target="_blank" class="ico-inst" onclick="alert('인스타그램')">인스타그램</a>
+                    <a href="" target="_blank" class="ico-fb" onclick="alert('페이스북')">페이스북</a>
+                    <a href="" target="_blank" class="ico-you" onclick="alert('유튜브')">유튜브</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- 슬라이더 스크립트 -->
+    <script>
+        const slide = document.querySelector('.slide');
+        const slider = document.querySelector('.slider');
+        const inners = document.querySelectorAll('.inner');
+        let currentIndex = 0;
+
+        inners.forEach((inner) => {
+            inner.style.width = `${slide.clientWidth}px`;
+        })
+
+        slider.style.width = `${slide.clientWidth * inners.length}px`;
+
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        prev.addEventListener('click', () => {
+            currentIndex--;
+            currentIndex = currentIndex < 0 ? 0 : currentIndex;
+            slider.style.marginLeft = `-${slide.clientWidth * currentIndex}px`;
+            clearInterval(interval);
+            interval = getInterval();
+        });
+
+        next.addEventListener('click', () => {
+            currentIndex++;
+            currentIndex = currentIndex >= inners.length ? inners.length - 1 : currentIndex;
+            slider.style.marginLeft = `-${slide.clientWidth * currentIndex}px`;
+            clearInterval(interval);
+            interval = getInterval();
+        });
+
+        /*
+        
+          주기적으로 화면 넘기기
+        */
+        const getInterval = () => {
+            return setInterval(() => {
+                currentIndex++;
+                currentIndex = currentIndex >= inners.length ? 0 : currentIndex;
+                slider.style.marginLeft = `-${slide.clientWidth * currentIndex}px`;
+            }, 2000);
+        }
+
+        let interval = getInterval(); 
+    </script>
+
+    <script>
+        window.onload = function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+            const utilButtons = document.getElementById('utilButtons');
+
+            if (isLoggedIn === 'true' && username) {
+                utilButtons.innerHTML = `
+                    <span id="welcomeMessage">${username}님, 환영합니다!</span>
+                    <a href="#" class="logoutButton" onclick="logout()">로그아웃</a>
+                    <a href="main_eng.html" class="lang" title="영문사이트로 이동">ENG</a>
+                `;
+            } else { 
+                utilButtons.innerHTML = `
+                    <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                    <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                    <a href="main_eng.html" class="lang" title="영문사이트로 이동">ENG</a>
+                `;
+            }
+        };
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            window.location.href = 'main.html'; 
+        }
+    </script>
+</body>
+
+</html>

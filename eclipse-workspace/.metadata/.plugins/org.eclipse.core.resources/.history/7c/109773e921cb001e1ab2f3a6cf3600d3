@@ -1,0 +1,22 @@
+package exexexex;
+
+public class Card {
+    private char shape;
+    private int num;
+
+    public char getShape() {
+        return shape;
+    }
+
+    public void setShape(char shape) {
+        this.shape = shape;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+}

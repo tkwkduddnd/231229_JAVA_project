@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 기본 태그들이 가지고 있는 고유 속성들을 없애주는 코드 */
+        @import url(reset.css);
+
+        
+        .container {
+            width: 100%;
+            /* vh , vw : 모니터(브라우저 기준) 높이 */
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0, 0, 0, 0.6)),
+            url(../image/다운로드.jpeg); 
+            background-size: cover;
+        }
+        .container>.navbar{
+            width: 90%;
+            
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px auto;
+        }
+        .container>.navbar>h1>a{
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .container>.navbar>ul{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .container>.navbar>ul>li{
+            margin: 0 10px;
+            
+            
+        }
+        .container>.navbar>ul>li{
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .container>.navbar>ul>li>a:hover{
+            color: black;
+        }
+        .container>.main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-size: 40px;
+        }
+        .container>.main>h2{
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+        .container>.main button{
+            border: 2px solid green;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            background-color: gray;
+        }
+        .container>.main button:hover{
+            background-color: yellow;
+            color: black;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="navbar">
+            <h1><a href="">Design</a></h1>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="">Sign up</a></li>
+                <li><a href="">Board</a></li>
+            </ul>
+            </div>
+        <div class="main">
+            <h2>Welcome to Front-End World</h2>
+            <a href=""><button>Learn More</button></a>
+        </div>
+    </div>
+</body>
+</html>

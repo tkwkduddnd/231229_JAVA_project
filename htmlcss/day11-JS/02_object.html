@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체(object)</h1>
+    <ul>
+        <li>
+            object : 데이터의 구조를 상세 특징으로 표현하려는 형식
+        </li>
+        <li>
+            const로 선언하는 것이 일반적 : 객체의 구조를 지속성있게 유지하고, 확보하기 위함.
+        </li>
+        <li>
+            { 속성명 : 값, 속성명: 값, 속성명: 값... } (값 여러개 줄때 이렇게 쓰면됨)
+        </li>
+        <li>
+            속성명 : key, 값 : value
+        </li>
+        <li>
+            같은 object 내의 같은 속성명은 불가능 (key 중복 불가능)
+        </li>
+        <li>
+            객체 내부에서 속성 값으로 사용할 수 있는 데이터의 제한이 없음
+        </li>
+        <li>
+            객체의 속성 값으로 익명함수를 정의 => 메서드라고 부름
+            메서드의 이름은 속성명이 됨.
+        </li>
+        
+    </ul>
+    <script>
+        const car = {
+            name: 'myCar', 
+            year: 2024
+        };
+        console.log(car);
+        // car=100; // 재할당 불가능
+        // console.log(car);
+        
+        let myCar ={ // 가능은 하지만 일반적이지는 않음
+            name: 'superCar',
+            year: 2024
+        };
+        console.log(myCar);
+        myCar=100; // 가능은 하지만 객체가 사라짐. 객체를 활용하려고 했던 목적이 사라짐
+        console.log(myCar);
+
+        console.log("---------------------------------");
+
+        const me = {
+            name :'오리만',
+            age:20,
+            addr: 'incheon',
+            isDeveloper: true,
+            'hobby': 'coffee',
+            'myFavor' : 'game',
+            avail:{
+                year:2020,
+                title: 'java script',
+                ver: 'ES6',
+                project:'Back-End',
+                intro: function(){
+                    console.log("ex1"+this.title+":"+this.ver)
+                    console.log("ex2"+me.avail.title+":"+me.avail.ver)
+
+                }
+            },
+            year:2024
+        };
+        console.log(me); // 객체를 모두 표시
+        console.log(me.name);
+        console.log(me.age);
+        console.log(me.avail.title);
+        console.log(me.avail.intro); // 함수의 내용을 표시
+        me.avail.intro(); // 함수를 실행
+        console.log("-----------------------");
+
+        console.log(me['addr']);
+        console.log(me['hobby']);
+        console.log(me["avail"]["ver"]);
+        console.log(me["avail"].project);
+        me["avail"]["intro"]();
+
+        let keyName ='addr';
+        console.log(me[keyName]);
+
+        console.log("-----------------------");
+
+        const gasu = {
+            name: '뉴진스',
+            age: 20,
+            addr: 'seoul',
+            m1: 'm1',
+            m2: 'm2',
+            m3: 'm3',
+
+            music: {
+                p1: 'super shy',
+                p2: "detto",
+                p3: "hype boy",
+            },
+            playList: function (p1, p2, p3) {
+                console.log(this.music.first, this.music.second,this.music.third);
+                console.log("플레이리스트: " + p1 + ", " + p2 + ", " + p3);
+            }
+        };
+        let p1 = '음악';
+        let p2 = '음악2';
+        let p3 = '음악3';
+
+        console.log(gasu.name+"("+gasu.age+")"+gasu.addr);
+        // console.log(`${gasu.music.first},${gasu.music.second}, ${gasu.music.third}`);
+        gasu.playList(p1,p2,p3);
+    </script>
+</body>
+</html>

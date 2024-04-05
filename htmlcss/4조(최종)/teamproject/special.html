@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>special</title>
+    <link rel="stylesheet" href="special.css">
+    <link rel="stylesheet" href="special_header.css">
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+    
+</head>
+
+<body>
+    <header class="header" onclick="location.href='main.html'">
+        홈으로
+    </header>
+
+    <div id="menu">
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="menu-inner">
+
+            <ul>
+                <!-- <li><a href="main.html">Home</a></li> -->
+                <li>색상</li>
+                <div class="none"></div>
+                <div class="wh"></div>
+                <div class="pk"></div>
+                <div class="lb"></div>
+                <div class="tb"></div>
+                <div class="pm"></div>
+                <div class="eg"></div>
+                <div class="gr"></div>
+                <div class="bl"></div>
+                <!-- <li>프린팅</li>
+                <span>샘플</span>
+                <span>커스텀</span> -->
+            </ul>
+        </div>
+
+
+
+        <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
+        </svg>
+    </div>
+
+    <img id="img" src="../image/텀블러.png" alt="텀블러">
+    <script src="special.js"></script>
+    <script>
+        document.querySelector('.none').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/텀블러.png";
+        });
+        document.querySelector('.wh').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/wh.png";
+        });
+        document.querySelector('.pk').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/pk.png";
+        });
+        document.querySelector('.lb').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/lb.png";
+        });
+        document.querySelector('.tb').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/tb.png";
+        });
+        document.querySelector('.pm').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/pm.png";
+        });
+        document.querySelector('.eg').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/eg.png";
+        });
+        document.querySelector('.gr').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/gr.png";
+        });
+        document.querySelector('.bl').addEventListener('click',()=>{
+            document.getElementById('img').src = "../image/bl.png";
+        });
+    </script>
+    <script>
+        const header =  document.querySelector('.header');
+        header.addEventListener('mouseover',()=>{
+            header.classList.add('mouseover');
+        });
+        header.addEventListener('mouseout',()=>{
+            header.classList.remove('mouseover');
+        });
+        </script>
+</body>
+
+</html>

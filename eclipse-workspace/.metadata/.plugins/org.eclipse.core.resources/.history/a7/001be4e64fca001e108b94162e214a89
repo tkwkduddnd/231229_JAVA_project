@@ -1,0 +1,330 @@
+package problem;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
+
+public class PgManager {
+    HashMap<String, String> problems = new HashMap<>(); // HashMap<String, String>으로 변경
+    Map<String, HashMap<String, String>> subjects  = new HashMap<>();
+    Map<String, String> users = new HashMap<>();
+    String loggedInId = null;
+    private static int idCounter = 1;
+    private HashMap<String, Double> subjectPercentages = new HashMap<>();
+    HashMap<String, ArrayList<String>> problemsBySubject = new HashMap<>();
+    String loggedInUserType = null;
+    HashMap<String, String> answers = new HashMap<>();
+    
+    
+    
+    public void createProblems() {
+        int totalProblems = 20;  
+
+        for (String subject : subjectPercentages.keySet()) {
+            int numProblems = (int) Math.round(totalProblems * subjectPercentages.get(subject));  // 해당 과목의 문제 수
+            for (int i = 0; i < numProblems; i++) {
+                // 문제를 출제하는 코드를 여기에 작성합니다.
+                // 이 부분은 문제 출제 방식에 따라 다르게 구현해야 합니다.
+            }
+        }
+    }
+
+    public void WorkbookRegister(Scanner scan) {
+    	if(loggedInUserType == null || !loggedInUserType.equals("admin")) {
+    	    System.out.println("관리자의 권한이 없습니다.");
+    	    return;
+    	}
+    	try {
+            System.out.println("문장 단위로 ox문제를 기입해주세요 .");
+            String ox = scan.nextLine();
+            while (!ox.endsWith(".")) {
+                System.out.println("문장의 끝에 '.'를 붙여주세요.");
+                ox += " " + scan.nextLine();
+            }
+            
+            System.out.println("문제를 등록한 과목 이름을 입력해주세요.");
+            String subject = scan.nextLine();
+            System.out.println("문제를 등록한 단원을 입력해주세요.");
+            String chapter = "단원" + scan.nextLine();
+            
+            if(subjects.containsKey(subject) && subjects.get(subject).containsKey(chapter)) {
+               String id = "Q" + idCounter++;
+                this.problems.put(id, ox); // String 형태의 문제 직접 저장
+                if (!problemsBySubject.containsKey(subject)) {
+                    problemsBySubject.put(subject, new ArrayList<>());
+                }
+                problemsBySubject.get(subject).add(id);
+                subjects.get(subject).put(chapter, id);
+                System.out.println("문제가 등록되었습니다. 문제 ID: " + id);
+            }
+            else {
+               System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\r\n"
+                     + "████▌▄▌▄▐▐▌█████\r\n"
+                     + "████▌▄▌▄▐▐▌▀████\r\n"
+                     + "████████████████");
+            }
+            
+        }
+        catch (NumberFormatException e) {
+           System.out.println("단원 번호는 숫자로 입력해주세요.");
+        }
+    }
+   
+   //ox문제 단원입력 메서드
+   public void SubjectRegister(Scanner scan) {
+	 //1.단원의 수 입력 2. 그 단원의 출제비율 입력
+	      //단원은 등록되는 만큼 그 단원의 문제출제 비중을 입력 
+	      //총 문제수에서 입력된 비중만큼 비율로 나누어서 출제
+	   if(loggedInUserType == null || !loggedInUserType.equals("admin")) {
+		    System.out.println("관리자의 권한이 없습니다.");
+		    return;
+		}   
+	   try {
+	      System.out.println("과목 이름을 입력해주세요.");
+	       scan = new Scanner(System.in);
+	      String subject = scan.nextLine();
+	       
+	       System.out.println("단원 시작 범위를 입력해주세요.");
+	       scan = new Scanner(System.in);
+	       int startChap = Integer.parseInt(scan.nextLine());
+	       
+	       System.out.println("단원 끝 범위를 입력해주세요.");
+	       scan = new Scanner(System.in);
+	       int endChap = Integer.parseInt(scan.nextLine());
+	       // 과목에 해당하는 단원이 없으면 새로 생성
+	       if(!subjects.containsKey(subject)) {
+	          subjects.put(subject, new HashMap<String, String>());
+	       }
+	       // 단원에 문제 등록
+	       HashMap<String, String> chapters = subjects.get(subject);
+	       for(int i=startChap; i<=endChap; i++) {
+	          chapters.put("단원"+i, null);
+	       }
+	       subjects.put(subject, chapters);
+	       System.out.println(subject + " 과목의 " + startChap + " 단원부터 " + endChap +"단원까지 등록되었습니다.");
+
+	      
+	   }
+	    catch (NumberFormatException e) {
+	       System.out.println("단원 범위는 숫자로 입력해주세요.");
+	    }
+
+   }
+
+   //ox문제 검색 메서드
+   public void Search(Scanner scan) {
+      //1. 입력된 문제 검색 및 출력
+      //2. 풀이한 문제 검색 및 출력
+      //3. 변형한 문제 검색 및 출력
+	   String problemId = "";
+       while (problemId.isEmpty()) {
+           scan.nextLine();  // 버퍼에 남아있는 개행 문자를 처리
+           System.out.println("검색하고자 하는 문제의 ID를 입력해주세요 ");
+           problemId = scan.nextLine().trim();
+           if (problemId.isEmpty()) {
+               System.out.println("문제 ID를 입력하지 않으셨습니다. 다시 입력해주세요.");
+           }
+       }
+
+       if(problems.containsKey(problemId)){
+           System.out.println("문제 Id : "+problemId);
+           System.out.println("문제 : "+problems.get(problemId)); 
+           for(String sub : subjects.keySet()) {
+               for(String chap : subjects.get(sub).keySet()) {
+            	   String chapProblemId = subjects.get(sub).get(chap);
+            	   // 단원에 등록된 문제 ID와 일치하는 경우
+                   if(chapProblemId != null && chapProblemId.equals(problemId)) { 
+                       System.out.println("과목 : "+sub+" / 단원 : "+chap);
+                       return;
+                   }
+               }
+           }
+       } else {
+           System.out.println("해당 Id의 문제를 찾을 수 없습니다.");
+       }
+   }
+   
+   
+   public void SolvingPb(Scanner scan) {
+	   // 과목 비율 설정
+       subjectPercentages.put("국어", 0.2);  // 국어 34%
+       subjectPercentages.put("사회학개론", 0.2);  // 사회학개론 20%
+       subjectPercentages.put("자바언어", 0.3);  // 수학 23%
+       subjectPercentages.put("영어", 0.3);  // 영어 23%
+       //과목 국어10개, 사회학개론6개,자바언어7개, 영어7개
+
+    // 사용자의 답을 저장할 맵
+       Map<String, String> userAnswers = new HashMap<>();
+
+       // 모든 문제 ID를 리스트에 저장
+       List<String> allProblemIds = new ArrayList<>(problems.keySet());
+       // 리스트를 랜덤하게 섞음
+       Collections.shuffle(allProblemIds);
+
+       // 최대 20개의 문제를 선택
+       int numProblems = Math.min(20, allProblemIds.size());
+       for(int i = 0; i < numProblems; i++) {
+           String problemId = allProblemIds.get(i);
+           Problem problem = problems.get(problemId);
+
+           // 문제를 출력하고 답변을 받음
+           System.out.println("문제 Id : "+problemId);
+           System.out.println("문제 : "+problem.getQuestion());
+           System.out.println("답을 입력하세요: ");
+           String answer = scan.nextLine();
+           userAnswers.put(problemId, answer);  // 사용자의 답을 저장
+       }
+
+       // 채점 결과를 출력
+       int total = 0;
+       int correct = 0;
+       for (String problemId : userAnswers.keySet()) {
+           String userAnswer = userAnswers.get(problemId);
+           String correctAnswer = problems.get(problemId).getAnswer();
+           if (userAnswer.equalsIgnoreCase(correctAnswer)) {
+               correct++;
+               System.out.println(problemId + ": 정답입니다.");
+           } else {
+               System.out.println(problemId + ": 오답입니다. 정답은 " + correctAnswer + "입니다.");
+           }
+           total++;
+       }
+       System.out.println("총 문제 수: " + total);
+       System.out.println("정답 수: " + correct);
+
+	}
+   
+   
+   public void loadProblems() {
+	    try {
+	        BufferedReader reader = new BufferedReader(new FileReader("problems.txt"));
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            String[] split = line.split(","); 
+	            String problemId = split[0];
+	            String subject = split[1];
+	            String problem = split[2];
+	            String answer = split[3];
+	            problems.put(problemId, problem); // 문제 저장
+	            answers.put(problemId, answer); // 정답 저장
+	            if (!problemsBySubject.containsKey(subject)) {
+	                problemsBySubject.put(subject, new ArrayList<>());
+	            }
+	            problemsBySubject.get(subject).add(problemId); // 과목별 문제 ID 저장
+	        }
+	        reader.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+
+
+   public void Resert(Scanner scan) {
+	    int total = 0;
+	    int correct = 0;
+	    List<String> problemIds = new ArrayList<>(problems.keySet());
+	    Collections.shuffle(problemIds); // 문제 순서를 무작위로 섞음
+
+	    for (String problemId : problemIds) {
+	        System.out.println("문제: " + problems.get(problemId));
+	        String answer = scan.nextLine().trim().toUpperCase();
+	        if (answer.equals(answers.get(problemId))) { // 사용자의 답과 정답을 비교
+	            correct++;
+	        }
+	        total++;
+	        if (total == 20) { // 20문제를 출제한 경우 종료
+	            break;
+	        }
+	    }
+
+	    System.out.println("총 문제 수: " + total);
+	    System.out.println("정답 수: " + correct);
+	}
+
+  
+   //ox문제 입력한것을 변형문제 생성 메서드
+   public void WorkbookModify(Scanner scan) {
+      
+      //ox문제 유형 3가지
+      //1.입력된 문제를 숫자를 지워서 빈칸화
+      //2.입력된 문제를 숫자를 대체
+      //3.텍스트를 입력 및 특정텍스트를 변환
+      
+   }
+
+   public void signUp(Scanner scan) {
+	   String role = "";
+	   System.out.println("[회원가입] 아이디 입력 >");
+	   String id = scan.nextLine();
+	   
+	   System.out.println("[회원가입] 비밀번호 입력 >");
+	   String password = scan.nextLine();
+	   
+	   System.out.println("관리자 계정이면 'admin', 일반 사용자 계정이면 'user'를 입력해주세요.");
+	   String usertype = scan.nextLine();
+	   
+	   if(usertype.equals("admin") || usertype.equals("user")){
+		   users.put(id, password + ","+usertype);
+		   System.out.println("┌───────────────────┐\r\n"
+	               + "      회원가입 완료!\r\n"
+	               + "└───────────────────┘\r\n"
+	               + "");
+
+	   }
+	   else {
+		   System.out.println("사용자 유형을 제대로 입력해주세요.");
+	   }
+	   if(usertype.equals("admin")) {
+		   this.loggedInUserType = "admin";
+	   }
+	   else {
+		   this.loggedInUserType = "user";
+	   }
+	   System.out.println("회원가입이 완료되었습니다.");
+	   	
+	   
+   }
+   
+   public void signIn(Scanner scan) {
+	   boolean loginSuccess = false;
+
+	   while(!loginSuccess) {
+	       System.out.println("[로그인] 아이디 입력 >");
+	       String id = scan.nextLine();
+
+	       System.out.println("[로그인] 비밀번호 입력 >");
+	       String password = scan.nextLine();
+
+	       if(users.containsKey(id)) {
+	           String[] userInfo = users.get(id).split(",");
+	           if(userInfo[0].equals(password)) {
+	               loggedInId = id;
+	               String userType = userInfo[1];
+	               System.out.println("┌───────────────────┐\r\n"
+	                             + "      로그인 성공!\r\n"
+	                             + "└───────────────────┘\r\n"
+	                             + ""); 
+	               loginSuccess = true;
+	           }
+	           else {
+	               System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\r\n"
+	                       + "████▌▄▌▄▐▐▌█████\r\n"
+	                       + "████▌▄▌▄▐▐▌▀████\r\n"
+	                       + "████████████████");
+	           }
+	       }
+	       else {
+	           System.out.println("해당 Id가 존재하지 않습니다.");
+	       }
+	   }
+   }
+}
+

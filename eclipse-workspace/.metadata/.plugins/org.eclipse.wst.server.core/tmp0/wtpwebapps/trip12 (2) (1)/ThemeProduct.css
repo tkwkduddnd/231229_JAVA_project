@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+section {
+	padding: 20px;
+	margin: 20px;
+	background-color: #fff;
+	border-radius: 50px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-content {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.user-content h2 {
+    color: #444;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.user-content form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-content label {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.user-content select {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.user-content input[type="text"] {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.user-content input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-content input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.product-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 20px;
+}
+
+.center-text {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-container .product-item {
+	flex: 0 0 18%; /* 가로 줄에 5개의 상품이 들어가도록 설정 */
+	box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 설정 */
+	margin: 1%;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	text-align: center;
+}
+
+.product-item img {
+	width: 100%;
+	height: auto;
+	object-fit: cover; /* 이미지 비율을 유지하면서, 요소의 높이와 너비에 맞춰 이미지를 조절합니다. */
+	object-position: center; /* 이미지를 가운데 정렬합니다. */
+	max-height: 180px;
+}
+
+.product-item p {
+	margin-bottom: 5px;
+}
+
+.details-button {
+	padding: 10px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}

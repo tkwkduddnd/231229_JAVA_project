@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .round{
+            width: 100%;
+        }
+        .menu-box{
+            width: 200px;
+            background-color: aqua;
+            float: left;
+        }
+        .menu{
+            width: 100%;
+            height: 30px;
+            border: 1px solid black;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            color: black;
+            border-bottom: none;
+        }
+        .menu:last-child{
+            border-bottom: none;
+        }
+        .menu:hover{
+            background-color: green;
+        }
+        .image-box{
+            width: calc(100% - 210px);
+            height: 700px;
+            background-color: green;
+            background-image: url(../image/seoul.jpeg);
+            float: right;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="round">
+        <div class="menu-box">
+            <a href="" class="menu">menu1</a>
+            <a href="" class="menu">menu2</a>
+            <a href="" class="menu">menu3</a>
+            <a href="" class="menu">menu4</a>
+        </div>
+        <div class="image-box"></div>
+    </div>
+    
+    
+</body>
+</html>

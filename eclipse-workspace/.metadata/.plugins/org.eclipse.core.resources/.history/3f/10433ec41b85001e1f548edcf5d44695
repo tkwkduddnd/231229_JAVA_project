@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 여기에 본문에 주어진 CSS 코드가 존재하는 파일 경로를 입력하세요 -->
+</head>
+<body>
+
+    <!-- 헤더, 네비게이션, 바디 등의 코드는 본문과 동일 -->
+    
+    <!-- 섹션 -->
+    <section>
+        <h2>공지사항</h2>
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>날짜</th>
+                <th>조회수</th> 
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><a href="#">공지사항입니다.</a></td>
+                <td>관리자</td>
+                <td>2023-12-01</td>
+                <td>123</td>
+            </tr>
+            <!-- 추가 게시물... -->
+        </table>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        © 2023 여행사. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

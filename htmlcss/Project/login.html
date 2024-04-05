@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../day08/reset.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../image/KakaoTalk_20240402_110010059.png" alt="메인로고"></a>
+                </div>
+                <nav class="hMenu">
+                    <div class="menu">
+                        <ul class="depth1">
+                            <li><a href="javascript:gotoMenu(1);" class="dth1 ">주문/결제</a></li>
+                            <li><a href="/kor/store/main.do" class="dth1 ">나만의 메뉴</a></li>
+                            <li><a href="/kor/promotion/list.do" class="dth1  ">이벤트</a></li>
+                            <li><a href="/kor/story/main.do" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <div class="util" id="userUtility">
+                        <a href="/kor/store/rental.do" class="mLogin" title="임차문의로 이동" id="loginLink">로그인</a>
+                        <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                        <a href="main_eng.html" class="lang" title="영문사이트로 이동">ENG</a>
+                    </div>
+                    <div class="util" id="loggedInUtility" style="display: none;">
+                        <span id="welcomeMessage"></span>
+                        <a href="#" onclick="logout()" class="logoutButton">로그아웃</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <form id="loginForm">
+        <div class="box1">
+            <h2>로그인 페이지</h2> 
+            <div class="id-input-container">
+                <input type="text" class="text-field" name="id" id="id" placeholder="아이디">
+                <input type="password" class="text-field" name="pw" id="pw" placeholder="비밀번호"><br>
+                <input type="submit" class="btn" id="loginBtn" value="로그인" disabled>
+            </div>
+            <div class="link">
+                <a href="signUp.html">계정이 없어요?</a>
+                <a href="">비밀번호를 잊어먹었나요?</a>
+            </div>
+            <div id="errorMessage"></div>
+        </div>
+    </form>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const idInput = document.getElementById('id');
+        const pwInput = document.getElementById('pw');
+        const loginBtn = document.getElementById('loginBtn');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const enteredUsername = idInput.value;
+            const enteredPassword = pwInput.value;
+
+            const storedPassword = localStorage.getItem(enteredUsername);
+
+            if (storedPassword === enteredPassword) {
+                alert('로그인 성공!');
+                idInput.value = '';
+                pwInput.value = '';
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', enteredUsername);
+                window.location.href = 'main.html'; 
+            } else {
+                alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+            }
+        });
+
+        pwInput.addEventListener('input', function() {
+            loginBtn.disabled = !pwInput.value; 
+        });
+
+    </script>
+</body>
+</html>

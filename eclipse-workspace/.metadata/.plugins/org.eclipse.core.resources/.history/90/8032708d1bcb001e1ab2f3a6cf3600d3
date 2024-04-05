@@ -1,0 +1,13 @@
+package exexexex;
+
+public class Card2 {
+
+	public static void main(String[] args) {
+		/*
+		 * 모양: 하트(♥), 다이아(◆), 스페이드(♠), 클로버(♣)
+		 * 숫자 : A 2~10 J Q K
+		 * 카드에 대한 정보 출력
+		 */
+	}
+
+}

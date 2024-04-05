@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>안녕하세요</h1>
+    <h3 id="h3"></h3>
+
+    <script>
+        
+        alert("창 확인");
+        let result = confirm('계속하시려면 확인을 눌러주세요.');
+        console.log(result);
+
+        let name = prompt('이름을 입력해주세요');
+        document.getElementById('h3').innerText = name+"입니다.";
+
+    </script> -->
+
+
+
+    <!-- <form action="">
+        가격: <input type="text" id="price">원<br>
+        할인율: <input type="text" id="percent">% <br>
+        <button type="button" onclick="percents()">할인가격 계산</button>
+    </form>
+    <h3 id="result"></h3>
+    
+    <script>
+        let result = document.getElementById('result');
+
+        function percents(){
+            const price = parseInt(document.getElementById('price').value);
+            const percent = parseFloat(document.getElementById('percent').value);
+            const savePrice = price * (percent/100) // 할인받는 금액
+            const salePrice =  price - savePrice;// 지불 금액
+
+
+            document.getElementById('result').innerHTML = 
+            `가격: ${price}원, 할인율: ${percent}%, 할인가격: ${savePrice}, 지불금액: ${salePrice}`;
+
+
+
+        }
+    </script> -->
+
+
+
+
+    <h1>리스트의 구조에따라 자바스크립트 객체 생성</h1>
+    <form action="">
+        이름: <input type="text" id="name"><br>
+        거주지: <input type="text" id="addr"><br>
+        좋아하는 리스트<br>
+        리스트1: <input type="text" id="favor1"><br>
+        리스트2: <input type="text" id="favor2"><br>
+        리스트3: <input type="text" id="favor3"><br>
+        이메일: <input type="text" id="email"><br>
+        내가 가장 좋아하는 것 : <input type="text" id="wanna"><br>
+        <button type="button" onclick="getDatas()">객체로 전송</button>
+    </form>
+    전송받은 데이터 표로 <button type="button" id="printBtn">출력</button>
+    <table border="1" id="dataTable"></table>
+
+    <script>
+        const dataObj = {
+            name:"",
+            addr:"",
+            favors:{
+                favor1:"",
+                favor2:"",
+                favor3:"",
+            },
+            email:"",
+            wanna:""
+        };
+        console.log(dataObj);
+
+        document.getElementById('printBtn').addEventListener('click', () =>{
+            const dataTable = document.getElementById('dataTable');
+            let str = `<tr><th>이름</th><td>${dataObj.name}</td></tr>`;
+            str+=`<tr><th>거주지</th><td>${dataObj.addr}</td></tr>`;
+            str+=`<tr><th>좋아하는 리스트</th><td>`;
+                str+=`<ul>
+                    <li>${dataObj.favors.favor1}</li>
+                    <li>${dataObj.favors.favor1}</li>
+                    <li>${dataObj.favors.favor1}</li>
+                    </ul></td></tr>`;
+            str+=`<tr><th>이메일</th><td>${dataObj.email}`;
+            str+=`<tr><th>가장 좋아하는 것</th><td>${dataObj.wanna}`;
+
+                    
+
+
+
+
+            dataTable.innerHTML = str;
+        })
+
+
+        function getDatas(){
+            dataObj.name = document.getElementById('name').value;
+            dataObj.addr = document.getElementById('addr').value;
+            dataObj.favors.favor1 = document.getElementById('favor1').value;
+            dataObj.favors.favor2 = document.getElementById('favor2').value;
+            dataObj.favors.favor3 = document.getElementById('favor3').value;
+            dataObj.email = document.getElementById('email').value;
+            dataObj.wanna = document.getElementById('wanna').value;
+            console.log(dataObj);
+        }
+    </script>
+
+</body>
+</html>

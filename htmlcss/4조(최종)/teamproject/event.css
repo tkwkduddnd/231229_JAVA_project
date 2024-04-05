@@ -1,0 +1,112 @@
+/* 폰트적용 */
+@font-face { font-family: Noto_Sans_KR; src: url(../font/Noto_Sans_KR/NotoSansKR-VariableFont_wght.ttf); } 
+/* 내부 요소를 가로 방향으로 중앙 정렬 */
+body { font-family: Noto_Sans_KR; color: black; } 
+
+/* nav,header,footer { display:block } */
+.wrapper footer { position:absolute; bottom:0; left:0; right:0 } 
+/* 래퍼 */
+.wrapper { overflow: auto; position: relative; min-width: 1280px; min-height: 100%; padding: 140px 0 0 } 
+/* 헤더 */
+.wrapper .header { position: fixed; top: 0; left: 0; right: 0; min-width: 1280px; height: 140px; text-align: center; border-bottom: 1px solid gray; background: #fff; z-index: 2; } 
+.wrapper .headArea,.footArea { width: 1168px; margin: 0 auto } 
+/* 로고 */
+.header .hLogo { width: 100px; height: 100px; position: relative; top: 20px; float: left; z-index: 1 } 
+.header .hLogo a { display: block } 
+.header .hLogo img { width: 100px; height: 100px; } 
+/* 메뉴 */
+.wrapper .header .hMenu { height: 100%; padding: 52px 0 } 
+.wrapper .header .hMenu .menu1 { position: absolute; top: 0; left: 0; right: 0; text-align: center; } 
+.wrapper .header .hMenu .menu1 .depth1 { display: inline-block; padding-left: 0; text-align: left; vertical-align: top; margin-left: -136px; } 
+.wrapper .header .hMenu .menu1 .depth1 a { display: inline-block; vertical-align: top } 
+.wrapper .header .hMenu .menu1 .depth1>li { float: left } 
+.wrapper .header .hMenu .menu1 .depth1>li .dth1 { position: relative; margin-right: 85px; padding: 0 10px; color: #292929; font-size: 20px; line-height: 140px; font-weight: 600 } 
+/* 유틸 */
+.wrapper .header .hMenu .util { position: relative; float: right; margin: 0 0 0 50px } 
+/* 로그인 */
+.wrapper .header .hMenu .util .mLogin { display: inline-block; width: 80px; padding-top: 2px; color: #000; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+.wrapper .header .hMenu .util .mLogin:hover { background: #000; color: #fff; } 
+/* 언어 */
+.wrapper .header .hMenu .util .lang { display: inline-block; width: 80px; padding-top: 2px; color: #fff; background: #3A2416; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+.wrapper .header .hMenu .util .lang:hover { background: #fff; color: #000; } 
+/* 회원가입 */
+.header .hMenu .util .mSignin { display: inline-block; width: 80px; padding-top: 2px; color: #fff; background: #3A2416; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+.header .hMenu .util .mSignin:hover { background: #fff; color: #000; } 
+
+/* 푸터 */
+.footer { background-color: #3A2416; overflow: hidden; font-size:14px; line-height:1.6; text-align:center; } 
+.footer .footArea { padding:45px 0 55px; text-align:left } 
+.footer .info { color: #fff; float: left; font-weight:400; opacity:.6 } 
+.footer .info .copy { margin-top:5px } 
+.footer .sns { float: right; margin: 0 4px; } 
+.footer .ico-inst, .ico-fb, .ico-you { display: inline-block; width: 40px; height: 30px; font-size: 0; } 
+.footer .ico-inst { background: url(../image/ico-insta.png) no-repeat 50% 50%; } 
+.footer .ico-fb { background: url(../image/ico-fb.png) no-repeat 50% 50%; } 
+.footer .ico-you { background: url(../image/ico-youtub.png) no-repeat 50% 50%; } 
+.footer .footArea:after { content:''; display:block; clear:both } 
+
+.wrap { width: 1500px; margin: 0 auto; text-align: center; /* 내부 요소를 가로 방향으로 중앙 정렬 */ } 
+
+.inner { width: 100%; margin: auto; box-sizing: border-box; } 
+
+
+main { position: relative; } 
+/*이벤트 페이지 박스*/
+.menu { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 50px; } 
+
+
+.menu { display: flex; flex-wrap: wrap; /* 필요한 경우 객체가 한 줄에 다 나타나지 않을 경우 여러 줄에 걸쳐 표시되도록 설정합니다. */
+ justify-content: space-between; /* 가로 여백을 최대한 활용하여 각 객체를 좌우로 최대한 분배합니다. */
+ margin-top: 50px; } 
+
+.box1 { flex-basis: calc(33.33% - 20px); /* 가로로 3개씩 배열되도록 설정하고, 마진을 고려하여 너비를 조정합니다. */
+ margin-bottom: 20px; /* 객체들 사이의 아래 여백 조정 */
+ padding: 20px; /* 내부 여백 설정 */
+ border: 1px solid #ccc; /* 테두리 추가 */
+ box-sizing: border-box; /* 테두리와 패딩을 포함한 객체의 크기를 정확히 설정합니다. */ } 
+
+/* 선택적으로 추가 스타일링 가능 */
+.box1 img { display: block; /* 이미지를 블록 요소로 설정하여 텍스트와 수직 정렬합니다. */
+ margin: 0 auto 10px; /* 이미지의 아래 여백 조정 및 수평 가운데 정렬 */
+ max-width: 100%; /* 이미지가 객체의 너비를 초과하지 않도록 설정합니다. */ } 
+
+.box1 h3 { font-size: 1.2em; /* 제목의 폰트 크기 조정 */
+ margin-bottom: 10px; /* 제목의 아래 여백 조정 */ } 
+
+.box1 p { margin-bottom: 10px; /* 단락의 아래 여백 조정 */ } 
+
+.box1 p.del { text-decoration: line-through; /* 가격이 할인되었을 때 가로 줄을 추가합니다. */ } 
+
+.box1 p.price { font-size: 1.2em; /* 가격의 폰트 크기 조정 */
+ font-weight: bold; /* 가격의 굵은체 설정 */ } 
+
+.box1 p.payment { color: #009900; /* 결제 문구의 색상 설정 */
+ font-weight: bold; /* 결제 문구의 굵은체 설정 */ } 
+
+
+ /* 스크롤바 디자인 */
+ ::-webkit-scrollbar { width: 10px; } 
+
+::-webkit-scrollbar-thumb { background-color: darkgray; border-radius: 5px; } 
+
+/* box1 요소들이 순차적으로 페이드인되도록 설정 */
+.menu .box1 { opacity: 0; /* 초기에 투명도를 0으로 설정하여 숨깁니다. */
+ animation: fadeInAnimation 0.5s ease forwards; /* fadeInAnimation 애니메이션을 적용합니다. */ } 
+
+/* fadeInAnimation 애니메이션 설정 */
+@keyframes fadeInAnimation { 
+ from { opacity: 0; /* 시작할 때 투명도를 0으로 설정하여 숨깁니다. */
+ transform: translateY(20px); /* 시작할 때 아래 방향으로 이동합니다. */ } 
+ to { opacity: 1; /* 끝날 때 투명도를 1로 설정하여 나타납니다. */
+ transform: translateY(0); /* 끝날 때 이동이 없도록 합니다. */ } 
+ }
+
+/* box1 요소들이 순차적으로 나타날 때의 지연 시간 설정 */
+.menu .box1:nth-child(1) { animation-delay: 0.1s; /* 첫 번째 요소는 0.3초 뒤에 애니메이션을 시작합니다. */ } 
+.menu .box1:nth-child(2) { animation-delay: 0.2s; /* 두 번째 요소는 0.6초 뒤에 애니메이션을 시작합니다. */ } 
+.menu .box1:nth-child(3) { animation-delay: 0.3s; /* 세 번째 요소는 0.9초 뒤에 애니메이션을 시작합니다. */ } 
+.menu .box1:nth-child(4) { animation-delay: 0.4s; } 
+.menu .box1:nth-child(5) { animation-delay: 0.5s; } 
+.menu .box1:nth-child(6) { animation-delay: 0.6s; } 
+
+/* 나머지 box1 요소들에 대해서도 필요한 경우 위와 같이 추가합니다. */

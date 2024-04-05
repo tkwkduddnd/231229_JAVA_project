@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myName = '홍길동';
+
+        function callName(name){
+            // 파라미터 : name
+            let yourName = '김영이'; // function의 내부 변수
+
+            console.log(`나의 이름은 ${myName}`); //외부변수
+            console.log(`너의 이름은 ${yourName}`); //내부변수
+            console.log('그냥 친구 이름은 ' + name); // 파라미터
+
+        }
+        callName('순이');
+    </script>
+
+    <script>
+        function returnSum(num1, num2){
+            return num1 + num2;
+        }
+        // return 이 있는 함수는 return값을 받을 변수가 필요함
+        let sum = returnSum(100,200);
+        console.log(sum);
+    </script>
+
+    <script>
+        // 표현식 함수
+        const myFunc = function(myName){
+            return "Hello~" + myName;
+        }
+        let result = myFunc(myName);
+        console.log(result);
+    </script>
+
+    <script>
+        const arrowFunc = (param1, param2) =>{
+            return param1 + param2;
+        }
+        let arrowResult = arrowFunc(10,20);
+        console.log(arrowResult);
+
+        const arrowFunc2 = (p1, p2) => (p1+p2);
+        console.log(arrowFunc2(1000,2000));
+
+        const arrowFucn3 = (p1,p2) =>{
+            console.log(p1+p2);
+        }
+        arrowFucn3(1000,2000);
+    </script>
+
+    <script>
+        const car = {
+            name: 'sonata',
+            year: 2024
+        };
+        console.log(car);
+
+        const me = {
+            name: '나영우',
+            age:20,
+            addr: 'incheon',
+            isDev: true,
+            hobby: 'coffee',
+            myFavor: 'game',
+            avail:{
+                year:2020,
+                title:'javascript',
+                ver:'ES6+',
+                project: 'Back-End',
+                intro: function(){
+                    console.log("ex1) "+this.title+":"+this.ver);
+                    console.log("ex2) "+me.avail.title+":"+me.avail.ver);
+                    
+                }
+            },
+            year:2024
+        };
+        console.log(me); // 객체를 모두 표시
+        console.log(me.name);
+        console.log(me.age);
+        console.log(me.avail.title);
+        console.log(me.avail.intro); // 함수의 내용을 표시
+        me.avail.intro(); // 함수를 실행
+        console.log("------------------");
+        console.log(me['addr']);
+        console.log(me['hobby']);
+        console.log(me['avail']['ver']);
+        me['avail']['intro'](); // 함수실행
+        console.log("---------------------");
+    </script>
+
+
+    <script>
+        //객체생성
+        // 좋아하는 가수의 인적사항, 가수의 플레이리스트 3곡
+        // 이름, 나이, 주소, 플레이리스트 객체, 함수(p1, p2, p3) => console 출력
+        // 이름(나이), 주소
+        // 가수의 노래 : 노래1, 노래2, 노래3
+        // 함수 실행(p1,p2,p3) => 콘솔에 출력
+
+        const musician={
+            name: '뉴진스',
+            age: 20,
+            addr: 'seoul',
+            playList:{
+                music1: '하입보이',
+                music2: '데토',
+                music3: '슈퍼샤이',
+            },
+
+                music: function(p1,p2,p3){
+                    console.log(this.music1+","+this.music2+","+this.music3);
+                    console.log(p1+","+p2+","+p3);
+                }
+            
+
+        };
+        let p1 = '하보1';
+        let p2 = '데토1';
+        let p3 = '슈샤1';
+        console.log(musician.name+","+musician.age+","+musician.addr);
+        console.log(p1+","+p2+","+p3);
+    </script>
+
+
+    <button type="button" onclick="eventFunc()">클릭</button>
+    <button type="button" onclick="eventFunc2('버튼2번입니다.')">클릭</button>
+    <button type="button" id="btn">클릭</button>
+    <button type="button" id="test">클릭</button>
+    <h1 id="printResult"></h1>
+
+    <script>
+        let printResult = document.getElementById('printResult');
+        let test = document.getElementById('test');
+        // onclick : 하나의 이벤트만 등록가능
+        test.onclick = function(){
+            alert('hi');
+        }
+
+        // 여러개의 이벤트를 등록 가능
+        document.getElementById('btn').addEventListener('click', ()=>{
+            // 이벤트 내용
+            alert('세번쨰 버튼 클릭함');
+        });
+
+        // 배열로 모든 클래스의 값이 들어감
+        const ul = document.querySelectorAll('.uls'); 
+        console.log(ul[1]);
+
+        function eventFunc(){
+            console.log(printResult);
+            printResult.innerHTML='첫번째 버튼 클릭';
+        }
+        function eventFunc2(param3){
+            console.log(printResult);
+            printResult.innerHTML =`<span class="s" style="color:red">${param3}`;
+        }
+    </script>
+
+
+
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            id: <input type="text" id="userid"><br>
+            pw: <input type="password" id="userpw"><br>
+            birth: <input type="date" id="birth"><br>
+            pin: <input type="text" id="pin"><br>
+            <button type="button" onclick="clickEventInput()">전송</button>
+            <button type="button" onclick="makeList()">리스트로 전송</button>
+        </fieldset>
+    </form>
+    <h3 id="info"></h3>
+    <ol id="ol"></ol>
+
+    <script>
+        const info = document.getElementById('info');
+        // ol 태그 객체 가져오기
+        const ol = document.getElementById('ol');
+
+        let userid = document.getElementById('userid');
+        let userpw = document.getElementById('userpw');
+        let birth = document.getElementById('birth');
+        let pin = document.getElementById('pin');
+
+        function makeList(){
+            let pinVal = Number(pin.value);
+            let birthVal = new Date(birth.value);
+
+            ol.innerHTML = `<li>userid: ${userid.value}, ${typeof userid.value}</li>`; 
+            ol.innerHTML += `<li>userpw: ${userpw.value}, ${typeof userpw.value}</li>`; 
+            ol.innerHTML += `<li>birth: ${birth.value}, ${typeof birth.value}</li>`; 
+            ol.innerHTML += `<li>pin: ${pin.value}, ${typeof pin.value}</li>`; 
+        }
+
+        function clickEventInput(){
+            // 화면에 입력한 값을 받아오는 과정
+            // 1. 화면에 값이 있어야함
+            // 2. 저장공간이 있어야함
+            console.log(`userid:${userid}`);
+            console.log(`userpw:${userpw}`);
+            console.log(`birth:${birth}`);
+            console.log(`pin:${pin}`);
+
+            let str = `userid: ${userid.value}`;
+            str += `userpw: ${userpw.value}`;
+            str += `birth: ${birth.value}`;
+            str += `pin: ${pin.value}`;
+
+            info.innerText=str;
+        }
+
+
+        
+
+    </script>
+
+
+
+    <!-- 
+        성적확인
+        이름: input
+        국어: input
+        영어: input
+        수학: input
+        성적계산 버튼
+        -------------------------------
+        이름: 홍길동
+        국어: 80
+        영어: 90
+        수학: 80
+        합계: OO
+        평균: OO
+        
+     -->
+     <form action="">
+        <fieldset>
+            이름: <input type="text" id="name"><br>
+            국어: <input type="text" id="kor"><br>
+            영어: <input type="text" id="eng"><br>
+            수학: <input type="text" id="math">
+            <button type="button" onclick="clickEvent()">성적계산</button>
+            <h1 id="result1"></h1>
+
+            <script>
+                const result1 = document.getElementById('result1');
+
+                function clickEvent(){
+                    const name = document.getElementById('name');
+                    const kor = document.getElementById('kor');
+                    const eng = document.getElementById('eng');
+                    const math = document.getElementById('math');
+
+                    const korVal= Number(kor.value);
+                    const engVal = Number(eng.value);
+                    const mathVal = Number(math.value);
+                    const sum = korVal + engVal + mathVal;
+                    const avg = sum/3;
+
+                    result1.innerHTML = `<li>이름: ${name.value}</li>`;
+                    result1.innerHTML += `<li>국어: ${kor.value}</li>`;
+                    result1.innerHTML += `<li>영어: ${eng.value}</li>`;
+                    result1.innerHTML += `<li>수학: ${math.value}</li>`;
+                    result1.innerHTML += `<li>합계: ${sum}</li>`;
+                    result1.innerHTML += `<li>평균: ${avg}</li>`;
+                }
+                
+
+
+
+
+            </script>
+
+
+            
+        </fieldset>
+     </form>
+</body>
+</html>

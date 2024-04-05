@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>new Date(); => 오늘 날짜 반환</li>
+        <li>
+            getFullYear(); : 연도만 추출
+        </li>
+        <li>
+            get Month()+1 : 월만 추출 0~11월 +1
+        </li>
+        <li>
+            getDate() : 일 1~31 리턴
+        </li>
+        <li>
+            getDay() : 요일 0(일) ~ 6(토)
+        </li>
+        <li>
+            getHours(), getMinutes(), getSeconds()
+        </li>
+       
+        <script>
+            let today = new Date();
+            console.log(today);
+            console.log(today.getFullYear());
+            console.log(today.getMonth()+1);
+            console.log(today.getDate());
+            console.log(today.getDay());
+            console.log(today.getHours());
+            
+            let today2 = today.toLocaleDateString();
+            console.log(today2);
+            let time = today.toLocaleTimeString();
+            console.log(time);
+            let dateTime = today.toLocaleString();
+            console.log(dateTime);
+        </script>
+    </ul>
+</body>
+</html>

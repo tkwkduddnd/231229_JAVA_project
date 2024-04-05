@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        transfrom : 회전, 이동, 확대 등 속성을 사용할 때 사용
+        - translate(x축, y축) : x축으로 x만큼 이동, y축으로 y만큼 이동
+        - translateX / translateY
+        - scale(w,h) : 가로로 w배, 세로로 h배 확대, 0을주면 안보임
+        - scaleX, scaleY
+        - rotate(a) : a각도 만큼 시계방향으로 회전 (단위: deg)
+        - skaw(xa, ya) : 기울림(단위 : deg)
+        - skawX / skawY
+        
+        transition : 속성값이 변화할 때 서서히 변화
+        (애니메이션 효과가 발생한 거처럼 보임)
+        - transition 속성명 전환시간;
+        - 속성명이 전환시간동안 서서히 변화
+        
+     -->
+     <style>
+        .font{
+            font-size: 20px;
+            transition: font-size 2s;
+        }
+        .font:hover{
+            font-size: 50px;
+        }
+        .box{
+            width: 200px;
+            height: 50px;
+            background-color: green;
+            animation: skew 2s 2;
+        }
+        @keyframes translate {
+            from{transform: translate(0,0);}
+            50%{transform: translate(50px,50px);}
+            to{transform: translate(0,0);}
+        }
+         @keyframes  scale{
+            from{transform: scale(1,1);}
+            50%{transform: scale(2,2);}
+            to{transform: scale(1,1);}
+        }
+        @keyframes  rotate{
+            from{transform: rotate(0deg);}
+            50%{transform: rotate(180deg);}
+            to{transform: rotate(0deg);}
+        }
+        @keyframes  skew{
+            from{transform: skew(0deg, 0deg);}
+            50%{transform: skew(30deg, 30deg);}
+            to{transform: skew(0deg, 0deg);}
+        }
+        @keyframes  {
+            from{}
+            50%{}
+            to{}
+        } 
+
+     </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="font">Hello</div>
+</body>
+</html>

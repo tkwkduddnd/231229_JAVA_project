@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클래스, 객체, 생성자</h1>
+    <!-- 
+        클래스 생성의 기본 문법
+        class MyClass{
+            // 생성자
+            constructor(param){
+                ...
+            }
+            // 메서드 정의
+            methodName(){
+                ...
+            }
+            methodName(){
+                ...
+            }
+            // getter / setter
+            get name(){
+                return this.name;
+            }
+            set name(value){
+                this.name = value;
+            }
+            set name(value){
+                if(value.length < 4){
+                    alert('4글자 이상만 가능합니다.');
+                    return;
+                }
+                this.name = value;
+            }
+        }
+     -->
+    <script>
+        class Car{
+            // 자바스크립트에서는 생성자 1개만 허용
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+                this.modal = ' ';
+            }
+        }
+        let myCar1 = new Car('소나타', 2023);
+        myCar1.modal = 'XG';
+        console.log(myCar1);
+
+
+        let myCar2 = new Car('그렌저', 2022);
+        console.log(myCar2);
+
+        let myCar3 = new Car();
+        myCar3.name = '아반떼';
+        myCar3.year = 2024;
+        myCar3.modal = 'XD';
+        console.log(myCar3);
+    </script>
+</body>
+</html>

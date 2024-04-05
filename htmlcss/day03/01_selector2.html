@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:link{
+            color:black;
+        }
+        a:active{
+            color: red;
+        }
+        a:visited{
+            color: rgb(83, 126, 200);
+        }
+        li.links a::after{
+            content: " . ";
+        }
+        li a.last::after{
+            content: "";
+        }
+        ol li::after{
+            content: "번째";
+        }
+        ol li::before{
+            content: "Li 태그";
+        }
+        ol > li:first-child{
+            color: red;
+        }
+        ol > li:last-child{
+            color: blue;
+        }
+        ol>li:nth-child(even){
+            color: blue;
+        }
+        ol>li:nth-of-type(3n){
+            color: blueviolet
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        selector 기타 여러가지 선택자들
+        : 가상선택자
+        - :nth-child(a) / :nth-of-type(a)
+        - :first-child : 첫번째 요소
+        - :last-child : 마지막 요소
+        - :after : ~뒤에 가상요소를 삽입
+        - :before : ~전에 가상요소를 삽입
+
+        - a tag는 링크를 클릭했는지에 다라서 글꼴 색이 달라지는 태그
+        - 기존 태그의 배경색이 설정되어 있어야만 적용 가능.
+        a:active(클릭할 때) a:visited(링크를 눌러본 후 색)
+        a:link(방문전)
+     -->
+
+     <ul>
+        <li class="links">
+            <a href="http://naver.com">naver1</a>
+            <a href="http://naver.com">naver2</a>
+            <a href="http://naver.com">naver3</a>
+            <a href="http://naver.com">naver4</a>
+            <a href="http://naver.com" class="last">naver5</a>
+        </li>
+        <li class="links">
+            <a href="http://google.com">google1</a>
+            <a href="http://google.com">google2</a>
+            <a href="http://google.com">google3</a>
+            <a href="http://google.com">google4</a>
+            <a href="http://google.com" class="last">google5</a>
+        </li>
+        <li class="links">
+            <a href="http://daum.com">daum1</a>
+            <a href="http://daum.com">daum2</a>
+            <a href="http://daum.com">daum3</a>
+            <a href="http://daum.com">daum4</a>
+            <a href="http://daum.com" class="last">daum5
+            </a>
+        </li>
+     </ul>
+     <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+     </ol>
+</body>
+</html>

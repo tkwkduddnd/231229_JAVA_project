@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+section>div {
+    display: flex;
+    width: fit-content;
+}
+
+section img {
+    width: 600px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+section>div>div {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+section>div>div>p.product-info {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+
+section>div>div>form>label,
+section>div>div>form>input {
+    margin: 10px 0;
+}
+
+section>div>div>form>input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+section>div>div>form>input[type="submit"]:hover {
+    background-color: #555;
+}
+
+section>div>div>form>input[type="submit"]:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}

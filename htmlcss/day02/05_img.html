@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        img 태그
+        - src : 그림경로
+        - alt : 그림이 없을 때 나타나는 글자
+        - width : 그림의 가로 길이
+        - height : 그림의 세로 길이
+        - 이미지 사이즈 : 숫자 => pixel 단위초 표시 %로 표시도 가능
+    -->
+    <!-- 
+        이미지 형식
+        html 문서에서 사용되는 이미지 포맷 jpg(jpeg), png 대표적
+        jpg : 손실 압축 포맷
+        - 이미지의 해상도가 손상되어도 용량을 많이 줄일 수 있는 포맷
+        - 가장 많이 사용
+        png : 무손실 압축 포맷
+        - 이미지 해상도의 손실을 줄이고, 투명 배경 이미지를 사용할 때 사용
+        - 용량은 크지만 화질이 뛰어남
+        이미지 파일들은 헤더영역에 image/jpeg image/png 등의 형식을 가지고
+        있기 때문에 파일의 확장자 명과 관계없이 헤더 정보로 그림을 판단함.
+        이미지의 리소스가 잘못된 정보를 갖는 경우 : 엑박이 떴다 라고 표현함.
+
+    -->
+    <img src="../image/개1.jpeg" alt="강아지 그림">
+    <img src="../image/개1.jpeg" alt="강아지 그림" width="100" height="100">
+    <img src="../image/개1.jpeg" alt="강아지 그림" width="50" height="30">
+    <!-- 화면을 기준으로 50% -->
+    <img src="../image/개1.jpeg" alt="강아지 그림" width="50%" height="50%">
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+</head>
+<body>
+    <button onclick="generateRandomNumber()">랜덤 숫자 생성</button>
+    <p id="result"></p>
+    <input type="number" id="userGuess" placeholder="1부터 99까지의 숫자를 입력하세요.">
+    <button onclick="checkGuess()">정답 확인</button>
+    <p id="attempts"></p>
+
+    <script>
+        var randomNumber;
+        var attempts = 0;
+
+        function generateRandomNumber() {
+            randomNumber = Math.floor(Math.random() * 99) + 1;
+            document.getElementById("result").innerText = "컴퓨터가 랜덤으로 숫자를 생성했습니다.";
+            document.getElementById("attempts").innerText = "";
+            attempts = 0;
+        }
+
+        function checkGuess() {
+            var userGuess = parseInt(document.getElementById("userGuess").value);
+            var resultElement = document.getElementById("result");
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 99) {
+                resultElement.innerText = "1부터 99까지의 숫자를 입력해주세요.";
+                return;
+            }
+
+            attempts++;
+
+            if (userGuess === randomNumber) {
+                resultElement.innerText = "정답입니다! 숫자는 " + randomNumber + "였습니다.";
+                document.getElementById("attempts").innerText = "시도 횟수: " + attempts;
+            } else if (userGuess > randomNumber) {
+                resultElement.innerText = "Down";
+            } else {
+                resultElement.innerText = "Up";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+package Hospital;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class HospitalManager {
+	Scanner scan = new Scanner(System.in);
+	
+	Map<String, String> users = new HashMap<>();
+	Map<String, Integer> userReserv = new HashMap<>();
+	String loggedInId = null;
+	
+	
+	public void medicalReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void viewReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void modifyReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void cancelReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void viewDoctorInfo(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void viewSchedule(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void sendNotification(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void manageReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void signUp(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void signIn(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

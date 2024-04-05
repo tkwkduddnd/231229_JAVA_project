@@ -1,0 +1,12 @@
+package Hospital;
+
+import java.util.Scanner;
+
+public class ViewDepartmentManager {
+
+	public String viewDepartment(Scanner scan) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

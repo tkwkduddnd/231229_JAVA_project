@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>window 메서드 종류</h1>
+    <ul>
+        <li>
+            window.open('url', 'window name', 'option(size, scroll...)');
+        </li>
+        <li>
+            window.close(); : 창 닫기
+        </li>
+        <li>
+            alert(); / prompt(); input 포함 / confirm(); 확인/취소 창
+        </li>
+        <li>
+            setInterval(function, millsecond);
+            일정 간격 지속적으로 실행문을 실행시킬 때 사용
+        </li>
+        <li>
+            setTimeout(function, millsecond);
+            일정 시간동안 실행문을 실행시킬 때 사용
+        </li>
+        <li></li>
+    </ul>
+    <a href="03_setTimeout.html">03_setTimeout.html</a>
+    <button type="button" onclick="openWindow()">열기</button>
+    <button type="button" onclick="closeWindow()">닫기</button>
+    <button type="button" onclick="alertEx()">alert</button>
+    <button type="button" onclick="promptEx()">prompt</button>
+    <button type="button" onclick="confirmEx()">confirm</button>
+    <h3 id="msg"></h3>
+
+    <script>
+
+        function promptEx(){
+            // input을 동반한 alert
+            let name = prompt('이름을 입력해주세요');
+            document.getElementById('msg').innerText = name;
+        }
+
+        function confirmEx(){
+            // 확인 = true, 취소 = false
+            let con = confirm('연습연습');
+            if(con){
+                document.getElementById('msg').innerText = '확인버튼 클릭';
+            }
+            else{
+                document.getElementById('msg').innerText = '취소버튼 클릭';
+            }
+        }
+
+
+
+
+        let myWindow;
+        function openWindow(){
+            myWindow = window.open("/day17-JS/08_과제(trueList).html", "myWindow", "width=400", "height=500")
+        }
+
+        function closeWindow(){
+            if(myWindow){
+                myWindow.close();
+            }
+        }
+
+        function alertEx(){
+            alert('alert 연습');
+        }
+    </script>
+</body>
+</html>

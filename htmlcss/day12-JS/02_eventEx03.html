@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+    가격: <input type="text" id="price">원<br>
+    할인율: <input type="text" id="per">%<br>
+        <button type="button" onclick="clickEvent()">할인가격 계산</button>
+    </fieldset>
+    </form>
+    <ul id="ul"></ul>
+<script>
+    function clickEvent(){
+        let price = parseInt(document.getElementById('price').value);
+        let per = Number(document.getElementById('per').value);
+
+        // let avg = Math.round(sum/3); //정수로 반올림
+        let percent = price * (per/100);
+        // .toFixed(2) : 소수점 자리 표현
+        let hap = price - percent;
+
+        let ul = document.getElementById('ul');
+
+        let str = `<li>가격 : ${price}원 </li>`;
+        str += `<li>할인율 : ${per}% </li>`;
+        str += `<li>할인금액 : ${percent} </li>`;
+        str += `<li>지불금액 : ${hap} </li>`;
+        
+
+        ul.innerHTML = str;
+    }
+</script>
+</body>
+</html>

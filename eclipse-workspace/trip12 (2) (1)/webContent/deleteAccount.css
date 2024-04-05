@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.container {
+	padding: 20px;
+	margin: 20px;
+	background-color: #fff;
+	border-radius: 50px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#deleteForm {
+	max-width: 600px;
+	margin: 0 auto;
+	display: grid;
+	gap: 10px;
+}
+
+#deleteForm input,
+#deleteForm select {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#deleteForm .password-group {
+	display: flex;
+	align-items: baseline;
+	margin-bottom: 10px;
+}
+
+#deleteForm .password-group label {
+	margin-right: 5px;
+	display: block;
+}
+
+#deleteForm button {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#deleteForm button:hover {
+	background-color: #555;
+}
+
+#deleteForm button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}

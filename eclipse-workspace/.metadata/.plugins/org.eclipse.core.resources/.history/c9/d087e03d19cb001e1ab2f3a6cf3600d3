@@ -1,0 +1,29 @@
+package exexexex;
+
+import java.util.Scanner;
+
+public class RandomNumber {
+
+	public static void main(String[] args) {
+		/*난수(Random)의 개수를 입력받아, 입력받은 개수만큼 난수를 생성하고
+		 * 생성한 난수의 합을 출력하시오
+		 * ex) 난수의 개수를 입력하세요: 7
+		 * 7 17 27 37 47 57 67
+		 * 난수 7개의 합: 259
+		 */
+		Scanner scan = new Scanner(System.in);
+		int num = scan.nextInt();
+		int sum  = 0;
+		
+		
+		for(int i=1; i<=num;i++) {
+			System.out.println("난수의 개수를 입력하세요: ");
+			int random = (int)(Math.random() * 99);
+			sum += random;
+			System.out.println("난수의 개수는 : " +random);
+
+		}
+		System.out.println(num+"개의 난수의 합: "+sum);
+	}
+
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- input을 2개 생성해서 과목과 점수
+    map에 추가
+    출력 => map을 출력하는데 ul > li 형태로 출력
+    마지막 결과를 나타낼때 => 합계, 평균, 합격여부(60점 이상이면 합격) -> h3태그에 등록 -->
+    <form action="">
+    <input type="text" id="subject"><br>
+    <input type="text" id="score" min="0" max="100"><br>
+    </form>
+    <button type="button" onclick="add()">추가</button>
+    <button type="button" id="printbtn">출력</button>
+    <button type="button" id="totbtn">결과</button>
+    <ul id="result"></ul>
+    <h3 id="tot"></h3>
+
+    <script>
+        const myMap = new Map();
+
+        const subject = document.getElementById('subject');
+        const score = document.getElementById('score');
+        const result = document.getElementById('result');
+        const tot = document.getElementById('tot');
+        const printbtn = document.getElementById('printbtn');
+        const totbtn = document.getElementById('totbtn');
+
+        let sum = 0;
+
+        function add(){
+            let subVal = subject.value;
+            let scoreVal = Number(score.value);
+            myMap.set(subVal, scoreVal);
+            sum += scoreVal;
+            console.log(myMap);
+            console.log(sum);
+            subject.value = '';
+            score.value = '';
+        }
+        printbtn.addEventListener('click',()=>{
+            let str = '';
+            myMap.forEach(function(v,k){
+                str += `<li>${k} : ${v}</li>`;
+            });
+            result.innerHTML = str;
+        });
+        totbtn.addEventListener('click', () =>{
+            let avg = sum / myMap.size;
+            let pass = (avg >= 60)? "pass" : "fail";
+            tot.innerText = `과목의 점수합계 : ${sum}, 평균: ${avg.toFixed(2)}, 합격여부: ${pass}`;
+        })
+        
+    </script>
+</body>
+</html>

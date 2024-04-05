@@ -1,0 +1,86 @@
+body { margin: 0; padding: 0; } 
+.wrapper { width: 100%; height: 140px; top: 0%; position: sticky; background-color: white; z-index: 1; } 
+/* 헤더 */
+.header { position: fixed; top: 0; left: 0; right: 0; min-width: 1280px; height: 140px; text-align: center; border-bottom: 1px solid gray; background: #fff; z-index: 2; } 
+.headArea,.footArea { width: 1168px; margin: 0 auto } 
+/* 로고 */
+.header .hLogo { width: 100px; height: 100px; position: relative; top: 20px; float: left; z-index: 1 } 
+.header .hLogo a { display: block } 
+.header .hLogo img { width: 100px; height: 100px; } 
+/* 메뉴 */
+.header .hMenu { height: 100%; padding: 52px 0 } 
+.header .hMenu .menu { position: absolute; top: 0; left: 0; right: 0; text-align: center; } 
+.header .hMenu .menu .depth1 { display: inline-block; padding-left: 0; text-align: left; vertical-align: top; margin-left: -136px; } 
+.header .hMenu .menu .depth1 a { display: inline-block; vertical-align: top } 
+.header .hMenu .menu .depth1>li { float: left } 
+.header .hMenu .menu .depth1>li .dth1 { position: relative; margin-right: 85px; padding: 0 10px; color: #292929; font-size: 20px; line-height: 140px; font-weight: 600 } 
+/* 유틸 */
+.header .hMenu .util { position: relative; float: right; margin: 0 0 0 50px } 
+/* 로그인 */
+.header .hMenu .util .mLogin { display: inline-block; width: 80px; padding-top: 2px; color: #000; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+.header .hMenu .util .mLogin:hover { background: #000; color: #fff; } 
+/* 언어 */
+.header .hMenu .util .lang { display: inline-block; width: 80px; padding-top: 2px; color: #fff; background: #3A2416; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+.header .hMenu .util .lang:hover { background: #fff; color: #000; } 
+/* 회원가입 */
+.header .hMenu .util .mSignin { display: inline-block; width: 80px; padding-top: 2px; color: #000; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+.header .hMenu .util .mSignin:hover { background: #000; color: #fff; } 
+.container { width: 100%; /* height: 1200px; */ text-align: center; } 
+.container>.subtitle { text-align: left; width: 100%; height: 220px; background-color: #3A2416 } 
+.container>.subtitle>.inner { width: 1168px; margin: 0 auto; height: 220px; overflow: auto; } 
+.container>.subtitle>.inner>h1 { margin: 0; padding-top: 50px; /*padding-left: 100px; */ font-size: 50px; font-weight: 700; color: white; } 
+.container>.subtitle>.inner>ul { margin-top: 50px; /*padding-left: 100px; */ display: flex; justify-content: left; } 
+.container>.subtitle>.inner>ul>li { margin-right: 20px; font-size: 8px; font-weight: 700; line-height: 5px; color: orange; } 
+.container>.subtitle>.inner>ul>li>a { font-size: 15px; color: white; } 
+.container>.subbox { display: block; width: 122px; height: 350px; position: sticky; left: 90%; bottom: 150px; overflow: hidden; } 
+.container>.subbox>.newpage1 { float: left; width: 120px; height: 120px; border: 1px solid black; line-height: 120px; margin-bottom: 20px; } 
+.container>.subbox>.newpage2 { float: left; width: 120px; height: 120px; border: 1px solid black; line-height: 120px; margin-bottom: 30px; } 
+.container>.subbox>.topbtn { width: 30px; height: 30px; } 
+/* boardwrite */
+.boardwrite { width: 1300px; padding: 100px; box-sizing: border-box; text-align: center; position: relative; left: 50%; transform: translate(-50%); } 
+.boardwrite>.boardwrite-title { height: 50px; line-height: 50px; font-size: 30px; font-weight: 700; color: rgba(87, 86, 86, 0.781); margin-bottom: 50px; text-align: center; } 
+.boardwrite>.boardwrite-main { width: 80%; margin: 0 auto; color: rgb(75, 74, 74); } 
+.boardwrite>.boardwrite-main>.main1 { height: 50px; line-height: 50px; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 1px solid #8080806e; } 
+.boardwrite>.boardwrite-main>.main1>input { width: 300px; height: 30px; border: 0.5px solid rgba(170, 170, 170, 0.541); border-radius: 5px; } 
+.boardwrite>.boardwrite-main>.main2 { height: 50px; line-height: 50px; display: flex; justify-content: left; align-items: center; padding: 20px 0; border-top: 1px solid #8080806e; } 
+.boardwrite>.boardwrite-main>.main2>.email { margin-right: 39px; } 
+.boardwrite>.boardwrite-main>.main2>.email2 { width: 300px; height: 30px; border: 0.5px solid rgba(170, 170, 170, 0.541); border-radius: 5px; } 
+.boardwrite>.boardwrite-main>.main3 { height: 50px; line-height: 50px; display: flex; justify-content: left; align-items: center; padding: 20px 0; border-top: 1px solid #8080806e; } 
+.boardwrite>.boardwrite-main>.main3>.title { margin-right: 54px; } 
+.boardwrite>.boardwrite-main>.main3>.title2 { width: 785px; height: 30px; border: 0.5px solid rgba(170, 170, 170, 0.541); border-radius: 5px; } 
+.boardwrite>.boardwrite-main>.main4 { line-height: 300px; display: flex; justify-content: left; padding: 30px 0; border-top: 1px solid #8080806e; } 
+.boardwrite>.boardwrite-main>.main4>.content { margin-right: 50px; } 
+.boardwrite>.boardwrite-main>.main4>.content2 { width: 786px; height: 300px; border: 0.5px solid rgba(170, 170, 170, 0.541); border-radius: 5px; } 
+.boardwrite>.writebtn { width: 100%; height: 60px; display: flex; justify-content: center; } 
+.boardwrite>.writebtn>.submit { width: 200px; height: 50px; font-size: 17px; font-weight: 700; color: rgb(75, 74, 74); border: none; border-radius: 10px; background-color: rgba(255, 166, 0, 0.589); margin: 10px; cursor: pointer; } 
+.boardwrite>.writebtn>.cancel { display: block; width: 200px; height: 50px; line-height: 50px; font-size: 17px; font-weight: 700; color: rgb(75, 74, 74); border: none; border-radius: 10px; margin: 10px; cursor: pointer; background-color: rgba(212, 212, 212, 0.151); } 
+/* 푸터 */
+.footer { background-color: #3A2416; overflow: hidden; font-size:14px; line-height:1.6; text-align:center; } 
+.footer .footArea { padding:45px 0 55px; text-align:left } 
+.footer .info { color: #fff; float: left; font-weight:400; opacity:.6 } 
+.footer .info .copy { margin-top:5px } 
+.footer .sns { float: right; margin: 0 4px; } 
+.footer .ico-inst, .ico-fb, .ico-you { display: inline-block; width: 40px; height: 30px; font-size: 0; } 
+.footer .ico-inst { background: url(../image/ico-insta.png) no-repeat 50% 50%; } 
+.footer .ico-fb { background: url(../image/ico-fb.png) no-repeat 50% 50%; } 
+.footer .ico-you { background: url(../image/ico-youtub.png) no-repeat 50% 50%; } 
+.footer .footArea:after { content:''; display:block; clear:both } 
+
+/* 로그아웃 */
+.header .hMenu .util .logoutButton {
+    display: inline-block;
+    width: 80px;
+    padding-top: 2px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 48px;
+    border: 1px solid black;
+}
+
+.header .hMenu .util .logoutButton:hover {
+    background: #000;
+    color: #fff;
+}

@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-management,
+.product-list {
+    margin-top: 20px;
+}
+
+.product-management h3,
+.product-list h3 {
+    margin-bottom: 10px;
+}
+
+.product-management form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-management label,
+.product-management button {
+    margin: 5px;
+}
+
+.product-list .product {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+}
+

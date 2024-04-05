@@ -1,0 +1,74 @@
+package problem;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProgramUImain {
+
+   public static void main(String[] args) throws InterruptedException{
+      Scanner scan = new Scanner(System.in);
+      //객체를 생성하는 것은 항상 미리 해놓고 메서드 호출
+      //manager를 호출하기위한 객체
+      //StudentManger sm = new StudenManager();
+       
+      ArrayList<PgManager> p = new ArrayList<>();
+      
+      PgManager sm = new PgManager(); //메서드를 받기위한 객체생성
+      
+      
+      int menu = 0;
+      
+      Thread.sleep(1200);
+
+      do {
+    	  if(sm.loggedInId != null) {
+         System.out.println("1. ox문제등록 2. 문제단원등록 3. 등록검색(문제등록,단원등록)");
+         System.out.println("4. 문제풀기 5. 문제풀이결과정보 6. 문제풀이분석");
+         System.out.println("7. ox문제변형 8. 종료");
+    	 }
+    	  else {
+    		  System.out.println("1. 회원가입");
+    		  System.out.println("2. 로그인");
+    		  System.out.println("3. 종료");
+    	  }
+         menu = scan.nextInt();
+         
+         //메뉴에 따른 분기 구현
+         if(sm.loggedInId != null) {
+         switch(menu) {
+         case 1: sm.WorkbookRegister(scan); break;
+         case 2: sm.SubjectRegister(scan); break;
+         case 3: sm.Search(scan); break;
+         case 4: sm.SolvingPb(scan); break;
+         case 5: sm.Resert(scan); break;
+         case 6: sm.ResertAnalysis(scan); break;
+         case 7: sm.WorkbookModify(scan); break;
+         case 8:
+        	 System.out.println("종료되었습니다.");
+        	 break;
+         default:
+            System.out.println("잘못된 메뉴입니다.");
+         }
+      }
+         else {
+        	 switch(menu) {
+        	 case 1:
+        		 sm.signUp(scan);
+        		 break;
+        	 case 2:
+        		 sm.signIn(scan);
+        		 break;
+        	 case 3:
+        		 System.out.println("시스템을 종료합니다.");
+        		 break;
+        	 }
+         }
+      }while(menu != 3 || (menu !=8 && sm.loggedInId != null ));
+      
+      
+      scan.close();
+
+   
+
+}
+}

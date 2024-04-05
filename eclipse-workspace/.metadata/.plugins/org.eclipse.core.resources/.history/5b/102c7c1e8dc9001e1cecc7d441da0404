@@ -1,0 +1,98 @@
+package problem;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProgramUImain {
+
+   public static void main(String[] args) throws InterruptedException{
+      Scanner scan = new Scanner(System.in);
+      //객체를 생성하는 것은 항상 미리 해놓고 메서드 호출
+      //manager를 호출하기위한 객체
+      //StudentManger sm = new StudenManager();
+       
+      ArrayList<PgManager> p = new ArrayList<>();
+      
+      PgManager sm = new PgManager(); //메서드를 받기위한 객체생성
+      
+      
+      int menu = 0;
+      
+      Thread.sleep(1200);
+      System.out.println("   ╭ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜╮\r\n"
+              + "       ʟᴏᴀᴅɪɴɢ ... 잠시만 기다려주세요! \r\n"
+              + "   ╰ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜◞ ╯\r\n");
+
+      Thread.sleep(1200);
+      System.out.println("         ʟᴏᴀᴅɪɴɢ : ▮▯▯▯▯▯▯▯▯");
+      Thread.sleep(1000);
+      System.out.println("         ʟᴏᴀᴅɪɴɢ : ▮▮▮▯▯▯▯▯▯");
+      Thread.sleep(1000);
+      System.out.println("         ʟᴏᴀᴅɪɴɢ : ▮▮▮▮▮▯▯▯▯");
+      Thread.sleep(1000);
+      System.out.println("         ʟᴏᴀᴅɪɴɢ : ▮▮▮▮▮▮▮▯▯");
+      Thread.sleep(1000);
+      System.out.println("         ʟᴏᴀᴅɪɴɢ : ▮▮▮▮▮▮▮▮▮");
+      Thread.sleep(1000);
+
+
+      do {
+    	  if(sm.loggedInId != null) {
+    		  System.out.println("");
+    	         System.out.println("───────────────── MENU ─────────────────");
+    	         System.out.println("                              [－][口][×]");
+    	         System.out.println("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    	         System.out.println("      ① 문제등록 ② 단원등록 ③ 검색 ④ 문제풀기 ");
+    	         System.out.println("  ⑤ 채점 ⑥ 문제풀이 ⑦ 문제변형 ⑧ 문제출력 ⑨ 종료 ");
+    	         System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");         
+    	         System.out.println("─────────────── MENU 선택 ───────────────");
+
+
+    	         menu = scan.nextInt();
+
+    	 }
+    	  else {
+    		  System.out.println("1. 회원가입");
+    		  System.out.println("2. 로그인");
+    		  System.out.println("3. 종료");
+    	  }
+         menu = scan.nextInt();
+         
+         if(sm.loggedInId != null) {
+         switch(menu) {
+         case 1: sm.WorkbookRegister(scan); break;
+         case 2: sm.SubjectRegister(scan); break;
+         case 3: sm.Search(scan); break;
+         case 4: sm.SolvingPb(scan); break;
+         case 5: sm.Resert(scan); break;
+         case 6: sm.ResertAnalysis(scan); break;
+         case 7: sm.WorkbookModify(scan); break;
+         case 8:
+        	 System.out.println("종료되었습니다.");
+        	 break;
+         default:
+            System.out.println("잘못된 메뉴입니다.");
+         }
+      }
+         else {
+        	 switch(menu) {
+        	 case 1:
+        		 sm.signUp(scan);
+        		 break;
+        	 case 2:
+        		 sm.signIn(scan);
+        		 break;
+        	 case 3:
+        		 System.out.println("시스템을 종료합니다.");
+        		 break;
+        	 }
+         }
+      }while(menu != 3 || (menu !=8 && sm.loggedInId != null ));
+      
+      
+      scan.close();
+
+   
+
+}
+}

@@ -1,0 +1,175 @@
+package problem;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class PgManager {
+    HashMap<String, String> problems = new HashMap<>(); // HashMap<String, String>으로 변경
+    Map<String, HashMap<String, String>> subjects  = new HashMap<>();
+    Map<String, String> users = new HashMap<>();
+    String loggedInId = null;
+    private static int idCounter = 1;
+
+    public void WorkbookRegister(Scanner scan) {
+        System.out.println("문장 단위로 ox문제를 기입해주세요 .");
+        String ox = scan.nextLine();
+        while (!ox.endsWith(".")) {
+            System.out.println("문장의 끝에 '.'를 붙여주세요.");
+            ox += " " + scan.nextLine();
+        }
+        String id = "Q" + idCounter++;
+        this.problems.put(id, ox); // String 형태의 문제 직접 저장
+        System.out.println("문제가 등록되었습니다. 문제 ID: " + id);
+    }
+
+   
+   
+   //ox문제 단원입력 메서드
+   public void SubjectRegister(Scanner scan) {
+      //1.단원의 수 입력 2. 그 단원의 출제비율 입력
+      //단원은 등록되는 만큼 그 단원의 문제출제 비중을 입력 
+      //총 문제수에서 입력된 비중만큼 비율로 나누어서 출제
+	   try {
+	   System.out.println("과목 이름을 입력해주세요.");
+       scan = new Scanner(System.in);
+	   String subject = scan.nextLine();
+       
+       System.out.println("단원 시작 범위를 입력해주세요.");
+       scan = new Scanner(System.in);
+       int startChap = Integer.parseInt(scan.nextLine());
+       
+       System.out.println("단원 끝 범위를 입력해주세요.");
+       scan = new Scanner(System.in);
+       int endChap = Integer.parseInt(scan.nextLine());
+       // 과목에 해당하는 단원이 없으면 새로 생성
+       if(!subjects.containsKey(subject)) {
+    	   subjects.put(subject, new HashMap<String, String>());
+       }
+       // 단원에 문제 등록
+       HashMap<String, String> chapters = subjects.get(subject);
+       for(int i=startChap; i<=endChap; i++) {
+    	   chapters.put("단원"+i, null);
+       }
+       subjects.put(subject, chapters);
+       System.out.println(subject + " 과목의 " + startChap + " 단원부터 " + endChap +"단원까지 등록되었습니다.");
+
+      
+   }
+	 catch (NumberFormatException e) {
+		 System.out.println("단원 범위는 숫자로 입력해주세요.");
+	 }
+   }
+
+   //ox문제 검색 메서드
+   public void Search(Scanner scan) {
+      //1. 입력된 문제 검색 및 출력
+      //2. 풀이한 문제 검색 및 출력
+      //3. 변형한 문제 검색 및 출력
+	   System.out.println("검색하고자 하는 문제의 ID를 입력해주세요 ");
+	      String problemId = scan.nextLine();
+	      //여기서는 if문을 통해 problems이라는 Hashmap에 
+	      //problemId를 키값으로 가지고 있는지 확인
+	      //containsKey 쓰시면 됩니다.
+	      if(problems.containsKey(problemId)) {
+	    	  System.out.println("문제 Id: "+ problemId);
+	    	  System.out.println("문제 내용: "+problems.get(problemId));
+	    	  
+	    	  for(String subject : subjects.keySet()) {
+	    		  for(String chapter : subjects.get(subject).keySet()) {
+	    			  if(subjects.get(subject).get(chapter).equals(problemId)) {
+	    				  System.out.println("과목: "+subject);
+	    				  System.out.println("단원: "+chapter);
+	    			  }
+	    		  }
+	    	  }
+	    	  
+	      
+	      
+	      //System.out.println을 통해서 문제 Id와 문제내용 출력해주시고
+	      // ex) System.out.println("문제 ID: " +problemId")
+	      // 문제 내용도 같은 출력문을 통해 출력해주시면 됩니다.	
+	      
+	      // 해당 문제가 어떤 과목의 어떤 단원에 속해있는지도 출력
+	      //이 부분은 2중 for문으로 하시는데
+	      //향상된 2중 for문 쓰미면 됩니다
+	      // 예를 들면 for(String subject : subject.keySet(){
+	      //		  for(String chapter : subjects.get(subject).ketSet()) {
+	      // 이런 식으로 생성해주시고 마지막에 System.out.println()을 통해 과목과 단원을 출력해주시면 됩니다.
+
+	    	  
+	      }
+	      else {
+	    	  System.out.println("해당 Id의 문제를 찾을 수 없습니다.");
+	      }
+	      
+      
+      
+      
+   }
+   
+   //ox문제풀기 메서드
+   public void SolvingPb(Scanner scan) {
+      //1. 입력된 문제 + 변형된 문제에서 문제 생성
+      //2. 생성된 문제를 단원의 수 만큼 입력 및 비율화
+      
+   }
+
+   //ox문제 채점 메서드
+   public void Resert(Scanner scan) {
+      //1.문제풀이한 것을 채점
+      //2.채점한 것을 저장 
+      
+   }
+   
+   
+
+   //ox문제 채점분석 메서드
+   public void ResertAnalysis(Scanner scan) {
+      //1.Resert 메서드에서 저장된 채점한 결과를 분석
+      //2. 분석해주는 것은   2-1.단원별 틀린문제 2-2. 취약한 단원 표시 및 비율화 
+      //2-3 취약단원 솔루션 제공
+      //
+      
+   }
+
+   //ox문제 입력한것을 변형문제 생성 메서드
+   public void WorkbookModify(Scanner scan) {
+      
+      //ox문제 유형 3가지
+      //1.입력된 문제를 숫자를 지워서 빈칸화
+      //2.입력된 문제를 숫자를 대체
+      //3.텍스트를 입력 및 특정텍스트를 변환
+      
+   }
+
+   public void signUp(Scanner scan) {
+	   System.out.println("회원가입을 위한 아이디를 입력하세요.");
+	   String id = scan.nextLine();
+	   scan.nextLine();
+	   
+	   System.out.println("회원가입을 위한 비밀번호를 입력하세요.");
+	   String password = scan.nextLine();
+	   	users.put(id, password);
+	   	System.out.println("회원가입이 완료되었습니다.");
+	   
+   }
+   
+   public void signIn(Scanner scan) {
+	   System.out.println("로그인을 위한 아이디를 입력하세요.");
+	   String id = scan.nextLine();
+	   scan.nextLine();
+	   
+	   System.out.println("로그인을 위한 비밀번호를 입력하세요.");
+	   String password = scan.nextLine();
+	   
+	   if(users.containsKey(id) && users.get(id).equals(password)) {
+		   loggedInId = id;
+		   System.out.println("로그인에 성공하였습니다.");
+	   }
+	   else {
+		   System.out.println("비밀번호가 잘못되었습니다.");
+	   }
+   }
+
+}

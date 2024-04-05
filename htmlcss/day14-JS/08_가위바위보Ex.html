@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위 바위 보를 10번하여 승률 출력</h1>
+    <div>
+        <img src="../image/다운로드 (1).jpeg" onclick="game1">
+        <img src="../image/다운로드 (2).jpeg" onclick="game2">
+        <img src="../image/다운로드 (3).jpeg" onclick="game3">
+    </div>
+    <h3>현재 전적</h3>
+    <p id="record">승: 0, 무: 0. 패: 0</p>
+    <h3>10게임의 승률은 <span id="result"></span>%입니다.</h3>
+    
+    <script>
+        let win = 0;
+        let draw = 0;
+        let lose = 0;
+
+        function random() {
+            return Math.floor(Math.random() * 3) + 1;
+        }
+
+        function update(){
+            document.getElementById('record').innerText = `승: ${win}, 무: ${draw}, 패: ${lose}`;
+        }
+
+        
+
+        function game(playerch){
+            let com = ran();
+            let Result;
+
+            if(player === com){
+                Result = "무승부";
+                draw++;
+            }
+            else if(
+                (playerch === 1 && com === 3) ||
+                (playerch === 2 && com === 1) ||
+                (playerch === 3 && com === 2) 
+            )
+            {
+                Result = "승";
+                win++;
+            }
+            else {
+                Result = "패";
+                lose++;
+            }
+            
+            update();
+            document.getElementById('result').innerText = 
+            `${((win / (10 - draw)) * 100).toFixed(2)}`;
+            document.getElementById
+
+
+        }
+    </script>
+</body>
+</html>

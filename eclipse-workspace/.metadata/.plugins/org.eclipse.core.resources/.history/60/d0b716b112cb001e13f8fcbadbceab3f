@@ -1,0 +1,21 @@
+package exexexex;
+
+import java.util.Scanner;
+
+public class RandomNumber {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int sum  = 0;
+		
+		System.out.println("난수의 개수를 입력하세요: ");
+		for(int i=1; i<=7;i++) {
+			int random = (int)(Math.random() * 99);
+			sum += random;
+			System.out.println("난수의 개수는 : " +random);
+
+		}
+		System.out.println("난수의 합: "+sum);
+	}
+
+}

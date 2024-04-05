@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 예시</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .header {
+            width: 100%;
+            height: 50px;
+            background-color: #f3f3f3;
+            text-align: center;
+            line-height: 50px;
+        }
+        .container {
+            position: relative;
+            height: calc(100% - 50px);
+            display: flex;
+        }
+        .left-side {
+            flex: 1;
+            background-image: url(../image/home.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .upper-half, .lower-half {
+            flex: 1;
+            background-color: bisque;
+            overflow: auto; /* 스크롤 추가 */
+        }
+        .quote {
+            margin: 20px;
+            font-size: 14px;
+        }
+        .lower-half {
+            display: flex;
+            flex-direction: column; /* 수정: 세로로 정렬 */
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 10px;
+        }
+        .image-container img {
+            width: 48%; /* 조절 가능 */
+            object-fit: cover;
+            margin-bottom: 10px; /* 수정: 이미지 간 간격 추가 */
+        }
+
+        /* 미디어 쿼리 - 화면이 1280px 이상일 때 적용되는 스타일 */
+        @media screen and (min-width: 1280px) {
+            .image-container {
+                flex-direction: row; /* 이미지를 가로로 정렬 */
+            }
+        }
+
+        /* 미디어 쿼리 - 화면이 800px 이하일 때 적용되는 스타일 */
+        @media screen and (max-width: 800px) {
+            .container {
+                flex-direction: column; /* 세로로 정렬 */
+            }
+            .upper-half, .lower-half {
+                flex: none; /* 상하로 쌓이도록 수정 */
+            }
+            .image-container {
+                flex-direction: column; /* 이미지를 세로로 정렬 */
+                align-items: center; /* 이미지를 가운데 정렬 */
+                margin: 10px 0; /* 이미지 간 간격 추가 */
+            }
+            .image-container img {
+                width: 100%; /* 이미지가 부모 요소에 꽉 차게 설정 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">HTML 페이지~</div>
+<div class="container">
+    <div class="left-side"></div>
+    <div class="right-side">
+        <div class="upper-half">
+            <div class="quote">1. 삶이 있는 한 희망은 있다 - 키케로</div>
+            <div class="quote">2. 산다는 것, 그것은 치열한 전투이다. - 로망 로랑</div>
+            <div class="quote">3. 하루에 3시간을 걸으면 7년 후에 지구를 한 바퀴 돌 수 있다. - 사무엘 존슨</div>
+            <div class="quote">4. 언제나 현재에 집중할 수 있다면 행복할 것이다. - 파울로 코엘료</div>
+            <div class="quote">5. 진정으로 웃으려면 고통을 참아야 하며, 나아가 고통을 즐길 줄 알아야 해. - 찰리 채플린</div>
+            <div class="quote">6. 직업에서 행복을 찾아라. 아니면 행복이 무엇인지 절대 모를 것이다. - 엘버트 허버드</div>
+            <div class="quote">7. 신은 용기 있는 자를 결코 버리지 않는다. - 켄러</div>
+        </div>
+        <div class="lower-half">
+            <div class="image-container">
+                <img src="../image/가방.jpeg" alt="Image 1">
+                <img src="../image/가방2.jpeg" alt="Image 2">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

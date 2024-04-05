@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        JSON(JavaScript Object Notation) : 자바 스크립트의 객체 표기법
+    </h1>
+    <ul>
+        <li>
+            데이터를 요청하고 응답처리에 필요한 데이터의 표준 형식을 제공하는 타입
+        </li>
+        <li>
+            백엔드(서버)언어의 종류에 상관없이 데이터를 송수신 단말 형식으로 통일
+        </li>
+        <li>
+            백엔드(서버)에서는 무조건 String 처리 - 화면(javascript)은
+            Object로 처리
+        </li>
+        <li>
+            서버로 데이터를 보낼 때 => Object -> string -> JSON.stringify(jsObject);
+        </li>
+        <li>
+            서버로부터 데이터를 받을 때 => String -> object -> JSON.parse(stringData);
+        </li>
+    </ul>
+    <script>
+        const cake ={
+            id: '1234',
+            type: 'donut',
+            name: 'cake',
+            image: {
+                url: 'img/001.jpg',
+                width: '200',
+                height: '20'
+            },
+            thumbnail:{
+                url: 'img/th/001.jpg',
+                width: '20',
+                height: '5'
+            }
+        };
+        console.log(cake);
+
+        // cake의 Object를 string으로 변환
+        let cakeStr = JSON.stringify(cake);
+        console.log(cakeStr);
+
+        // 서버에서 보내는 json 타입의 string 데이터
+        const stringData = '{"id":"1234","type":"donut","name":"cake","image":{"url":"img/001.jpg","width":"200","height":"20"},"thumbnail":{"url":"img/th/001.jpg","width":"20","height":"5"}}';
+        console.log(stringData);
+        let parseData = JSON.parse(stringData);
+        console.log(parseData);
+
+        // 콘솔에 key: value 형식으로 출력해보기
+        // object => for in => key 추출
+        // object[key] => value 추출
+        // if key =='image' ||
+        
+            for(const key in parseData){
+                console.log(key);
+                console.log(parseData[key]);
+                if(key == 'image' || key =='thumbnail'){
+                    let innerObject = parseData[key];
+                    for(const k in innerObject){
+                        console.log(k+":"+innerObject[k]);
+                    }
+                }
+                else{
+                    console.log(key+":"+parseData[key]);
+                }
+            }
+        
+
+        
+    
+        
+
+        </script>
+</body>
+</html>

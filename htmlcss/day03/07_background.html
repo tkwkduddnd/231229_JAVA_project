@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: antiquewhite;
+            background-image: url(../image/개1.jpeg);
+            background-size: 200px 270px;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 5px 5px 5px gray;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: antiquewhite;
+            background-image: url(../image/개1.jpeg);
+            background-size: 100% 100%;
+            
+            background-position: center;
+            box-shadow: 5px 5px 5px gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- background(배경속성)
+    - 배경색 : bg-color
+    - 배경이미지 : bg-image
+    - 배경색과 배경이미지를 같이 지정하면 배경이미지가 우선
+    - 이미지 사이즈에 출력되지 못하는 부분은 배경색으로 출력
+    - 배경이미지 크기 : bg-size
+    - 배경이미지 반복 : bg-repeat
+    - no-repeat : 반복안함
+    - repeat-x : x축으로만 반복 (가로)
+    - repeat-y : y축으로만 반복 (세로)
+    - round : 양쪽반복 (기본)
+    -배경 이미지 위치 : bg-position
+    - center : 가운데
+    - x축, y축 값으로 주면 원하는 위치로 설정
+    background : color image position size repeat 순으로 입력 -->
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>

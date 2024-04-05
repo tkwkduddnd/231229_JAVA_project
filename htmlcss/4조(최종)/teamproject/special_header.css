@@ -1,0 +1,7 @@
+.header { background-color: #FED057; color: #FED057; padding: 0px; transition: all 0.3s; text-align: center; } 
+
+.header.mouseover { background-color: #FED057; color: #fff; padding: 20px; transition: all 0.3s; text-align: center; font-weight: 700; font-size: 20px; cursor: pointer;}
+
+/* .header.fixed { position: fixed; top: 0; left: 0; width: 100%; } 
+
+.header.shrink { height: 60px; padding: 10px; }  */

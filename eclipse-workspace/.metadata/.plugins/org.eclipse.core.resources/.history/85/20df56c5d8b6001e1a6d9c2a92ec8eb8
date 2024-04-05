@@ -1,0 +1,111 @@
+package day12;
+
+public class 과제1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student2 student = new Student2("홍길동", "000101", "010-1111-1111", 25, "인천");
+	      
+	      student.addCourse("자바", 6);
+	      student.addCourse("파이썬", 2);
+	      student.addCourse("빅데이터", 3);
+
+	      student.printStudentInfo();
+	      student.printAcademyInfo();
+	      student.printCourseInfo();
+	}
+
+}
+	
+		
+		
+class Student2{
+	
+	
+   private String name;
+   private String birth;
+   private String pN;
+   private int age;
+   private String branch;
+   private String[] subjects = new String[5];
+   private int[] duration = new int[5];
+   private int subjectCount = 0;
+   public final static String ACADEMYNAME = "Ezen";
+
+   public Student2(String name, String birth, String phone, int age, String branch) {
+      this.name = name;
+      this.birth = birth;
+      this.pN = pN;
+      this.age = age;
+      this.branch = branch;
+   }
+
+   public Student2() {
+	// TODO Auto-generated constructor stub
+}
+
+public void addCourse(String subject, int duration) {
+      if (subjectCount < 5) {
+         this.subjects[subjectCount] = subject;
+         this.duration[subjectCount] = duration;
+         subjectCount++;
+      } else {
+         System.out.println("더 이상 수강과목을 추가할 수 없습니다.");
+      }
+   }
+
+   public void printStudentInfo() {
+      System.out.println("이름: " + name + ", 생년월일: " + birth + ", 전화번호: " + pN + ", 나이: " + age);
+   }
+
+   public void printAcademyInfo() {
+      System.out.println("학원명: " + ACADEMYNAME + ", 지점: " + branch);
+   }
+
+   public void printCourseInfo() {
+      for (int i = 0; i < subjectCount; i++) {
+         System.out.println("수강과목: " + subjects[i] + ", 기간: " + duration[i] + "개월");
+      }
+   }
+   
+   // getter and setter methods
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public String getBirth() {
+      return birth;
+   }
+
+   public void setBirth(String birth) {
+      this.birth = birth;
+   }
+
+   public String getPhone() {
+      return pN;
+   }
+
+   public void setPhone(String phone) {
+      this.pN = pN;
+   }
+
+   public int getAge() {
+      return age;
+   }
+
+   public void setAge(int age) {
+      this.age = age;
+   }
+
+   public String getBranch() {
+      return branch;
+   }
+
+   public void setBranch(String branch) {
+      this.branch = branch;
+   }
+}

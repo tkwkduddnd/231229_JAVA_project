@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            /* 테이블에 선을 한줄로 만들기 */
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+            width: 80%;
+            text-align: center;
+        }
+        thead>tr{
+            background-color: yellow;
+        }
+        /* tbody에 있는 짝수 요소만 배경색 변경 */
+        tbody>tr:nth-child(2n){
+            background: aqua;
+
+        }
+        tbody>tr:hover{
+            cursor: pointer;
+            border: 3px groove rgb(50, 60, 74);
+            background-color: rgb(202, 120, 211);
+        }
+        th, td{
+            border: 1px solid black;
+        }
+        .w20{
+            width: 20%;
+        }
+        .w40{
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>
+            성적표
+        </caption>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>성적</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="w20">1</td>
+                <td class="w40">홍길동</td>
+                <td class="w40">80</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김순이</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>김영이</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>박철수</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>홍길순</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">합계</td>
+                <td>???</td>
+            </tr>
+
+        </tfoot>
+    </table>
+</body>
+</html>

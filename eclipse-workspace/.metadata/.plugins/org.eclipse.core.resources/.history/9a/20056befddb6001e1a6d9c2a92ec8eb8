@@ -1,0 +1,139 @@
+package day12;
+
+public class 과제1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student2 student = new Student2("홍길동", "000101", "010-1111-1111", 25, "인천");
+		
+		
+		
+		
+		  student.printStudent();
+		  
+		  student.printAcademy();
+		  System.out.println("-----------------------------------");
+		  
+	      student.addguamok("자바", 6);
+	      student.addguamok("파이썬", 2);
+	      student.addguamok("빅데이터", 3);
+	      
+	      student.printGuamok();
+	      System.out.println("-----------------------------------");
+	      student.addguamok("html", 4);
+	      student.addguamok("C", 5);
+	      student.printGuamok();
+	      System.out.println("-----------------------------------");
+	      student.addguamok("C#", 4);
+	      student.printGuamok();
+	}
+
+}
+
+/* 학생 정보를 관리하기 위한 클래스
+ * 학생 데이터를 관리하기 위한 기본정보
+ * 이름 생년월일 전화번호 나이
+ * 학원 정보 : 학원명 ="Ezen"(final static), 지점
+ * 수강 정보: 수강과목, 기간 => 여러과목 수강 가능(여러과목 수강하기 위해 배열로 처리 5과목까지 가능)
+ * ex) 이름 : 홍길동, 생년월일 : 000101, 전화번호 : 010-1111-1111, 나이 : 25
+ * ex) 학원명 : "Ezen", 지점 : 인천
+ * ex) 자바 6개월, 파이썬 2개월, 빅테이터 3개월
+ * 
+ * 추가 기능(메소드)
+ * 학생 기본정보 출력하는 기능
+ * 학원 정보 출력하는 기능
+ * 수강 정보 출력하는 기능
+ * 학생의 수강 정보를 추가하는 기능
+ */
+	
+		
+		
+class Student2{
+	
+	
+   private String name;
+   private String birth;
+   private String phone;
+   private int age;
+   public final static String ACADEMYNAME = "Ezen";
+   private String location;
+   private String[] Guamok = new String[5];
+   private int[] month = new int[5];
+   private int GuamokCount = 0;
+   
+
+   public Student2(String name, String birth, String phone, int age, String location) {
+      this.name = name;
+      this.birth = birth;
+      this.phone = phone;
+      this.age = age;
+      this.location = location;
+   }
+
+ 
+
+public void addguamok(String Guamok, int month) {
+      if (GuamokCount < 5) {
+         this.Guamok[GuamokCount] = Guamok;
+         this.month[GuamokCount] = month;
+         GuamokCount++;
+      } else {
+         System.out.println("과목 추가 불가");
+      }
+   }
+
+   public void printStudent() {
+      System.out.println("이름: " + name + ", 생년월일: " + birth + ", 전화번호: " + phone + ", 나이: " + age);
+   }
+
+   public void printAcademy() {
+      System.out.println("학원명: " + ACADEMYNAME + ", 지점: " + location);
+   }
+
+   public void printGuamok() {
+      for (int i = 0; i < GuamokCount; i++) {
+         System.out.println("수강과목: " + Guamok[i] + ", 기간: " + month[i] + "개월");
+      }
+   }
+   
+   
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public String getBirth() {
+      return birth;
+   }
+
+   public void setBirth(String birth) {
+      this.birth = birth;
+   }
+
+   public String getPhone() {
+      return phone;
+   }
+
+   public void setPhone(String phone) {
+      this.phone = phone;
+   }
+
+   public int getAge() {
+      return age;
+   }
+
+   public void setAge(int age) {
+      this.age = age;
+   }
+
+   public String getlocation() {
+      return location;
+   }
+
+   public void setlocation(String location) {
+      this.location = location;
+   }
+}

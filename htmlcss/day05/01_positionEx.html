@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .pbox{
+        
+        height: 150px;
+        background-color: beige;
+        position: relative;
+
+    }
+    /* width에 연산의 값을 사용할 수 있음 calc(500px / 3) */
+
+    .inner{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 25px;
+    }
+    .inner:nth-child(1){
+        background-color: aqua;
+        left: 25px;
+    }
+    .inner:nth-child(2){
+        background-color: rgb(219, 212, 116);
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .inner:nth-child(3){
+        background-color: darkolivegreen;
+        right: 25px;
+
+
+    }
+    .pbox{
+        width: 500px;
+        height: 500px;
+        background-color: blueviolet;
+        position: relative;
+    }
+    .pbox{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        top: 50%;
+        left: 50%;
+        
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <div class="pbox2"></div>
+</body>
+</html>

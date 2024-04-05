@@ -1,0 +1,84 @@
+package Hospital;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import Hospital.ViewDepartmentManager;
+
+public class HospitalManager {
+	Scanner scan = new Scanner(System.in);
+	
+	Map<String, String> users = new HashMap<>();
+	Map<String, Integer> userReserv = new HashMap<>();
+	String loggedInId = null;
+	
+	
+	public void medicalReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		ViewDepartmentManager viewDepartmentManager = new ViewDepartmentManager();
+        String department = viewDepartmentManager.viewDepartment(scan);
+
+        if (department.isEmpty()) {
+            System.out.println("예약이 취소되었습니다.");
+            return;
+        }
+        System.out.println("이름을 입력하세요: ");
+        String name = scan.nextLine();
+        scan.nextLine();
+        
+        System.out.println("나이를 입력하세요: ");
+        int age = scan.nextInt();
+        scan.nextLine();
+        
+        System.out.println("성별을 입력하세요.(남자/여자)");
+        String gender = scan.nextLine();
+        scan.nextLine();
+        
+        System.out.println("전화번호를 입력하세요: ");
+        String phone = scan.nextLine();
+        
+        String reservation = "이름: "+name+", 나이: "+age+", 성별: "+gender+", 전화번호: "+phone;
+        
+		
+	}
+	public void viewReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void modifyReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void cancelReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void viewDoctorInfo(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void viewSchedule(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void sendNotification(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void manageReserv(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void signUp(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void signIn(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

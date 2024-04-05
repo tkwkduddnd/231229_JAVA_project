@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        #superhero-info {
+            display: inline-block;
+            text-align: center;
+            padding: 20px;
+            
+        }
+
+        .hero {
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+            padding: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div id="shInfo"></div>
+    <!-- 
+         https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+     -->
+     <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(result => {
+            const squadName = result.squadName;
+            const homeTown = result.homeTown;
+            const formed = result.formed;
+            const secretBase = result.secretBase;
+            const active = result.active;
+            const members = result.members;
+
+            const shInfo = document.getElementById('shInfo');
+            shInfo.innerHTML = 
+            `<h1>${squadName}</h1>
+            <p>Hometown: ${homeTown} // Formed: ${formed} </p>`;
+            
+            shInfo.innerHTML += `<div id="members-container"></div>`;
+            const membersContainer = document.getElementById('members-container');
+
+            members.forEach(member => {
+                membersContainer.innerHTML += `
+                    <div class="hero">
+                        <h3>${member.name}</h3>
+                        <p>Age: ${member.age}</p>
+                        <p>Secret Identity: ${member.secretIdentity}</p>
+                        <p>Powers:</p>
+                        <ul>
+                            ${member.powers.map(power => `<li>${power}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+        })
+
+     
+
+                
+
+      </script>
+</body>
+</html>

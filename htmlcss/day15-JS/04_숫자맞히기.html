@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+</head> 
+<body>
+    <h1>
+        <button type="button" id="random">랜덤 숫자 생성 버튼</button>
+        <button type="button" id="re">다시 시도</button>
+    </h1>
+    <h3 id="printMsg"></h3>
+    <h1>
+        <input type="number" id="myNum" max="99" min="1" placeholder="1부터 99까지의 숫자를 입력하세요.">
+        <button type="button" id="compareNum">정답</button>
+    </h1>
+    <h3 id="result"></h3>
+
+    <script>
+        let comnum = 0;
+        let cnt = 0;
+
+        document.getElementById('re').addEventListener('click', () => {
+            window.location.reload();
+        })
+
+        document.getElementById('compareNum').addEventListener('click', ()=>{
+            let myNum = Number(document.getElementById('myNum').value);
+            cnt++;
+
+            let str = '';
+            if(myNum >= 1 && myNum <= 99){
+                if(comnum === myNum){
+                    str = `시도횟수: ${cnt}, 정답입니다. 숫자는 ${comnum} 였습니다.`;
+                } else if(comnum > myNum){
+                    str = `시도횟수: ${cnt}, 다운`;
+                } else {
+                    str = `시도횟수: ${cnt}, 업`;
+                }
+            } else {
+                str = `1부터 99까지의 숫자만 입력 가능합니다.`;
+            }
+            document.getElementById('result').innerText = str;
+        })
+
+        document.getElementById('random').addEventListener('click', () => {
+            comnum = Math.floor(Math.random() * 99) + 1;
+            document.getElementById('printMsg').innerText = `컴퓨터가 랜덤수를 (1~99) 생성했습니다.`;
+            console.log(comnum);
+        })
+    </script>
+</body>
+</html>

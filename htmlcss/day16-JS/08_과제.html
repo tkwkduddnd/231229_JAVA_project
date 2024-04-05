@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="startBtn">문제 출제</button>
+    <ol id="q"></ol>
+    <h1>
+        <button type="button" id="compareBtn">정답 확인</button>
+    </h1>
+    <h3 id="result"></h3>
+
+    <script>
+        const ansObj = {};
+
+        document.getElementById('startBtn').addEventListener('click', () => {
+            createQuiz();
+        });
+
+        document.getElementById('compareBtn').addEventListener('click', () => {
+            checkAnswer();
+        });
+
+        function createQuiz() {
+            const oL = document.getElementById('q');
+            oL.innerHTML = '';
+            const useQuiz = new Set();
+
+            let i = 0;
+            while (i < 10) {
+                const dan = Math.floor(Math.random() * 9) + 1;
+                const incre = Math.floor(Math.random() * 9) + 1;
+                const quiz = `${dan} * ${incre}`;
+                
+                if (!useQuiz.has(quiz)) {
+                    useQuiz.add(quiz);
+                    const answer = dan * incre;
+                    ansObj[`answer${i}`] = answer;
+                    oL.innerHTML += `<li>${quiz} = <input type="text" id="answer${i}"><span id="result${i}"></span></li>`;
+                    i++;
+                }
+            }
+            console.log(ansObj);
+        }
+
+        function checkAnswer() {
+            let correctAns = 0;
+            const totalQuiz = 10;
+
+            for (let i = 0; i < totalQuiz; i++) {
+                const userAns = parseInt(document.getElementById(`answer${i}`).value);
+                const correctAnswer = ansObj[`answer${i}`];
+                const userAnswer = document.getElementById(`answer${i}`);
+                const outCome = document.getElementById(`result${i}`);
+
+                if (userAns === correctAnswer) {
+                    correctAns++;
+                    userAnswer.style.color = "green";
+                    outCome.innerText = '정답';
+                } else {
+                    userAnswer.style.color = "red";
+                    outCome.innerText = '오답';
+                }
+            }
+
+            const correctRate = (correctAns / totalQuiz) * 100;
+            document.getElementById('result').innerText = `정답 개수: ${correctAns}개 / 정답률: ${correctRate.toFixed(2)}%`;
+        }
+    </script>
+</body>
+</html>

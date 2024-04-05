@@ -1,0 +1,31 @@
+package problem;
+
+public class Quiz {
+    private String problem; // 문제를 저장
+
+    public Quiz() {}
+
+    public Quiz(String problem) {
+        this.problem = problem;
+    }
+    
+    
+    public Quiz(String Problem, String Write) {
+       this.Problem = Problem;
+       this.Write = Write;
+    }
+
+
+    public String getProblem() {
+        return problem;
+    }
+
+    public void setProblem(String problem) {
+        this.problem = problem;
+    }
+
+    @Override
+    public String toString() {
+        return "Quiz [Problem=" + problem + "]";
+    }
+}

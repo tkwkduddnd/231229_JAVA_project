@@ -1,0 +1,129 @@
+/* nav,header,footer { display:block } */
+.wrapper footer { position: absolute; bottom: 0; left: 0; right: 0}
+
+/* 래퍼 */
+.wrapper { overflow: auto; position: relative; min-width: 1280px; min-height: 100%; padding: 140px 0 230px}
+
+/* 헤더 */
+.header { position: fixed; top: 0; left: 0; right: 0; min-width: 1280px; height: 140px; text-align: center; border-bottom: 1px solid gray; background: #fff; z-index: 2; } 
+
+.headArea,
+.footArea { width: 1168px; margin: 0 auto}
+
+/* 로고 */
+.header .hLogo { width: 100px; height: 100px; position: relative; top: 20px; float: left; z-index: 1}
+
+.header .hLogo a { display: block}
+
+.header .hLogo img { width: 100px; height: 100px; } 
+
+/* 메뉴 */
+.header .hMenu { height: 100%; padding: 52px 0}
+
+.header .hMenu .menu { position: absolute; top: 0; left: 0; right: 0; text-align: center; } 
+
+.header .hMenu .menu .depth1 { display: inline-block; padding-left: 0; text-align: left; vertical-align: top; margin-left: -136px; } 
+
+.header .hMenu .menu .depth1 a { display: inline-block; vertical-align: top}
+
+.header .hMenu .menu .depth1>li { float: left}
+
+.header .hMenu .menu .depth1>li .dth1 { position: relative; margin-right: 85px; padding: 0 10px; color: #292929; font-size: 20px; line-height: 140px; font-weight: 600}
+
+/* 유틸 */
+.header .hMenu .util { position: relative; float: right; margin: 0 0 0 50px}
+
+/* 로그인 */
+.header .hMenu .util .mLogin { display: inline-block; width: 80px; padding-top: 2px; color: #000; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+
+.header .hMenu .util .mLogin:hover { background: #000; color: #fff; } 
+
+/* 언어 */
+.header .hMenu .util .lang { display: inline-block; width: 80px; padding-top: 2px; color: #fff; background: #3A2416; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+
+.header .hMenu .util .lang:hover { background: #fff; color: #000; } 
+
+/* 회원가입 */
+.header .hMenu .util .mSignin { display: inline-block; width: 80px; padding-top: 2px; color: #000; font-size: 13px; font-weight: 600; line-height: 34px; text-align: center; border-radius: 48px; border: 1px solid black; } 
+
+.header .hMenu .util .mSignin:hover { background: #000; color: #fff; } 
+
+/* 컨테이너 */
+#container { width: 100%; height: 800px; } 
+
+/* 메인 */
+.content .contArea { width: 1168px; margin: 30px auto 60px; } 
+
+/* 메인타이틀 */
+.content .mTit { margin: 0 0 30px; font-size: 40px; font-weight: 600; padding: 0 0 0 20px; } 
+
+/* 메인이벤트 */
+.content .mEvent li { border: 1px solid none; float: left; width: 366px; height: 438px; margin: 0 0 20px 20px; } 
+
+/* 학준 추가 */
+.mEvent dt { padding: 20px; background: #f4f4f2; margin-bottom: 20px; border-radius: 3px; overflow: hidden; } 
+.mEvent dt a { display: block; float: left; line-height: 18px; font-size: 18px; font-weight: bold; color: #222; } 
+.mEvent dt .summary { display: block; float: left; line-height: 18px; margin-left: 5px; font-size: 13px; color: #444444; letter-spacing: -1px; } 
+.mEvent dt .summaryIcon { float: left; /* width: 10px; */ height: 10px; margin-left: 15px; margin-top: -9px; } 
+.mEvent li img { width: 100%; } 
+.mEvent li span { font-size: 14px; color: #444; height: 54px; line-height: 54px; text-align: center; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; } 
+.mEvent li a img:hover { transform: scale(1.05); }
+.mEvent li a img { transition: transform 0.5s; }
+.mEvent li { /* 커졌을 때 넘어가는 이미지 숨기기 */ overflow: hidden; } 
+
+/* 플로팅 메뉴 */
+.aside { position: fixed; bottom: 110px; left: 49%; margin: 0 0 0 635px; z-index: 2; } 
+
+.aside .as1 { display: block; width: 121px; height: 121px; overflow: hidden; text-indent: -9999px; background: url(../image/kakao.png) 0 0 no-repeat; background-size: cover; transition: .3s; } 
+
+.aside .as1:hover { filter: brightness(.8); transition: .3s; } 
+
+.aside .as2 { display: block; width: 121px; height: 121px; overflow: hidden; text-indent: -9999px; background: url(../image/call.png) no-repeat 0 0; background-size: cover; margin-bottom: 0px; transition: .3s; } 
+
+.aside .as2:hover { filter: brightness(.8); transition: .3s; } 
+
+.topBtn { position: fixed; bottom: 45px; left: 50%; width: 51px; height: 48px; margin: 0 0 0 650px; background: url(../image/top.png) 0 0 no-repeat; background-size: cover; z-index: 2; border: 0; cursor: pointer; opacity: .6; } 
+
+.topBtn:hover { opacity: .7; } 
+
+/* 푸터 */
+.footer { background-color: #3A2416; overflow: hidden; font-size: 14px; line-height: 1.6; text-align: center; } 
+
+.footer .footArea { padding: 45px 0 55px; text-align: left}
+
+.footer .info { color: #fff; float: left; font-weight: 400; opacity: .6}
+
+.footer .info .copy { margin-top: 5px}
+
+.footer .sns { float: right; margin: 0 4px; } 
+
+.footer .ico-inst,
+.ico-fb,
+.ico-you { display: inline-block; width: 40px; height: 30px; font-size: 0; } 
+
+.footer .ico-inst { background: url(../image/ico-insta.png) no-repeat 50% 50%; } 
+
+.footer .ico-fb { background: url(../image/ico-fb.png) no-repeat 50% 50%; } 
+
+.footer .ico-you { background: url(../image/ico-youtub.png) no-repeat 50% 50%; } 
+
+.footer .footArea:after { content: ''; display: block; clear: both}
+
+/* 로그아웃 버튼 */
+.header .hMenu .util .logoutButton {
+    display: inline-block;
+    width: 80px;
+    padding-top: 2px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 48px;
+    border: 1px solid black;
+}
+
+.header .hMenu .util .logoutButton:hover {
+    background: #000;
+    color: #fff;
+}

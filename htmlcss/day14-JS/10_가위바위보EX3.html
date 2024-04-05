@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="play(1)"><img src="../image/다운로드 (1).jpeg" alt=""></button>
+    <button type="button" onclick="play(1)"><img src="../image/다운로드 (2).jpeg" alt=""></button>
+    <button type="button" onclick="play(1)"><img src="../image/다운로드 (3).jpeg" alt=""></button>
+    <h3 id="result">
+        <!-- 결과 출력 -->
+    </h3>
+    <script>
+        // 누적변수
+        let playerstate=0; //숫자 상태
+        let playerstatechar = ''; // 문자상태
+        let comstate = 0;  // 숫자 상태
+        let comstatechar = ''; // 문자 상태
+        let win=0;
+        let draw = 0;
+        let lose = 0;
+        let r1 = ''; // 결과 문자
+
+
+        function play(player){
+            console.log(player);
+            if(player == 1){
+                playerstate=1;
+                playerstatechar = '가위';
+            }
+            else if(player ==2){
+                playerstate = 2;
+                playerstatechar = '바위';
+            }
+            else {
+                playerstate = 3;
+                playerstatechar = '보';
+            }
+            // com 상태
+            setcomstate();
+            // 결과 호출
+            setDistinct();
+            // 
+            setDistinct();
+        }
+
+        // 결과 출력 : result 0(무승부) 1(승) -1(패)
+        function setDistinct(){
+            if(playerstate == comstate){
+                return 0;
+            }
+            else{
+                if(playerstate == 1){
+                    comstate == 2 ? result = -1 : result = 1;
+                }
+                else if(playerstate == 2){
+                    comstate == 3 ? result = -1 : result = 1;
+                }
+                else if(playerstate == 3){
+                    comstate == 1? result = -1 : result = 1;
+                }
+            }
+        }
+
+        // 화면 출력 함수
+        function showResult(){
+            if(result == -1){ // 패배
+                lose++;
+                show();
+            }
+            else if(result == 1){
+                win++;
+                show();
+            }
+            else{
+                draw++;
+                show();
+            }
+            document.getElementById('result').innerText = r1;
+        }
+
+
+        function show(result){
+            r1 = `player:${playerstatechar} / com:${comstatechar} player가 졌습니다.\n`;
+            r1 += `player가 ${result == 1? '이겼습니다\n' : result == 0? '비겼습니다. \n ': '졌습니다\n'}`;
+                r1 += `현재 전적 \n 승:${win} / 무:${draw} / 패:${lose} \n`;
+                r1 += `승률 : ${getWinRate().toFixed(2)}%`;
+
+        }
+
+
+        // 승률 계산 ( win / total) * 100
+        function getWinRate(){
+            return (win != 0)? (win / (win+draw+lose))*100 : 0;
+        }
+
+
+        // 컴퓨터의 랜덤 값 생성 상태 저장
+        function setComState(){
+            comstate = Math.floor(Math.random()*3)+1;
+            switch(comstate){
+                case 1: comstatechar = '가위'; break;
+                case 2: comstatechar = '바위'; break;
+                case 3: comstatechar = '보'; break;
+            }
+        }
+    </script>
+</body>
+</html>

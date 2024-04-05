@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 객체는 전역객체로써 모든 태그에 객체를 참조시킬 수 있다.</h1>
+    <ul id="ul1" class="uls">
+        <li>
+            a tag / button tag에 이벤트를 주로 참조시켜서 사용
+            클릭에 대한 반응을 기대할 수 있게 만드는게 일반적.
+        </li>
+        <li>
+            a tag는 href 속성에 의해 자체이동(동기화 방식)이 구현
+            되어 있어서 별도의 이동을 막는 코드가 필요
+        </li>
+        <li>
+            객체에 이벤트를 부여하는 방식이 크게 3가지
+        </li>
+        <li>
+            각자 목적과 작동하는 방식이 다릅
+        </li>
+        <ul id="ul2" class="uls">
+            <li>
+                화면의 출력 영역을 Document영역(객체) 라고 한다.
+            </li>
+            <li>
+                DOM 영역
+            </li>
+            <li>
+                tag는 html의 엘리먼트(element), 속성은 attribute, 일반 텍스트 textNode라고 함
+            </li>
+            <li>
+                html로 출력하기 : innerHTML라는 property를 사용
+            </li>
+            <li>
+                text로 출력하기 : innerText property를 사용
+            </li>
+            <li>
+                html element 를 가져올 때 id로 가져오는 방법
+                getElementById('idname')
+            </li>
+            <li>
+                html element 를 가져올 때 class로 가져오는 방법
+                querySelector('selector') => # . 선택자 가능
+            </li>
+            
+        </ul>
+        <button type="button" onclick="eventfunc()">클릭해보세요</button>
+        <button type="button" onclick="eventfunc2('버튼2번입니다')">클릭해보세요</button>
+        <button type="button" id="btn">클릭해보세요</button>
+        <button type="button" onclick="eventfunc3()">test</button>
+        <h1 id="printResult">
+
+        </h1>
+        <script>
+
+
+            let printResult1 = document.getElementById('printResult');
+            let test = document.getElementById('test');
+            // onclick = 하나의 이벤트만 등록가능.
+            test.onclick = function(){
+                alert('Hi');
+            }
+
+
+
+
+
+
+
+            // 여러개의 이벤트를 등록할 수 있습니다.
+            document.getElementById('btn').addEventListener('click', ()=>{
+                // 이벤트 내용
+                alert('세번째 버튼을 클릭했습니다.');
+            });
+
+            let printResult = document.getElementById('printResult');
+            
+
+            const ul = document.querySelectorAll('.uls'); // 배열로 모든 클래스의 값이 들어감
+            console.log(ul[1]);
+        </script>
+
+        <script>
+            function eventfunc(){
+                // html element 가져오기
+                let printResult = document.getElementById('printResult');
+                console.log(printResult);
+                printResult.innerText='첫번째 버튼을 클릭하셨습니다.';  
+            }
+            function eventfunc2(param1){
+                let printResult = document.getElementById('printResult');
+                console.log(printResult);
+                printResult.innerHTML=`<span class="s" style="color: red">${param1} 스팬태그를 사용했습니다.</span>`;
+
+            }
+            function eventfunc3(){
+                let printResult = document.getElementById('printResult');
+                console.log(printResult);
+                printResult.innerText='test 버튼을 클릭하셨습니다.';  
+            }
+        </script>
+    </ul>
+</body>
+</html>

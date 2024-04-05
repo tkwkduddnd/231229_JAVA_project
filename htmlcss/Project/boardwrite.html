@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boardwrite</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="boardwrite.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body id="top">
+    <!-- 롯데잇츠/맥도날드/현대캐스퍼 홈페이지 참고 -->
+    <div class="wrapper">
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../image/KakaoTalk_20240402_110010059.png" alt="메인로고"></a>
+                </div>
+                <!-- 메뉴 -->
+                <nav class="hMenu">
+                    <div class="menu">
+                        <ul class="depth1">
+                            <li><a href="menu.html" class="dth1 ">주문하기</a></li>
+                            <li><a href="" class="dth1 ">나만의 메뉴</a></li>
+                            <li><a href="event.html" class="dth1  ">이벤트</a></li>
+                            <li><a href="board.html" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <!-- 유틸 -->
+                    <div class="util">
+                        <a href="" class="mLogin" title="임차문의로 이동">로그인</a>
+                        <a href="#" class="logoutButton" onclick="logout()">로그아웃</a>
+                        <a href="" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                        <a href="" class="lang" title="영문사이트로 이동">ENG</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <div class="subtitle">
+            <div class="inner">
+                <h1>게시글 등록</h1>
+                <ul>
+                    <li><a href="">홈</a></li>
+                    <li>●</li>
+                    <li><a href="board.html">문의</a></li>
+                    <li>●</li>
+                    <li><a href="boardwrite.html">게시글 등록</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="boardwrite">
+            <div class="boardwrite-title">게시글 등록</div>
+            <div class="boardwrite-main">
+                <div class="main1">
+                    <div class="name">이름</div>
+                    <input type="text" class="writername">
+                    <div class="boardpw">비밀번호</div>
+                    <input type="password" class="writerpw">
+                </div>
+                <div class="main2">
+                    <div class="email">이메일</div>
+                    <input type="email" class="email2">
+                </div>
+                <div class="main3">
+                    <div class="title">제목</div>
+                    <input type="text" class="title2">
+                </div>
+                <div class="main4">
+                    <div class="content">내용</div>
+                    <textarea name="내용" class="content2" cols="110" rows="20"></textarea>
+                </div>
+            </div>
+            <div class="writebtn">
+                <button type="button" class="submit">등록</button>
+                <a href="board.html" class="cancel">취소</a>
+            </div>
+        </div>
+        <!-- <div class="subbox">
+            <a href="" class="newpage1">새창</a>
+            <a href="" class="newpage2">새창</a>
+            <a href="#top" class="topbtn"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-up-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537"/>
+              </svg>
+            </a>
+        </div> -->
+    </div>
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footArea">
+            <div class="info">
+                <ul>
+                    <li>인천광역시 남동구 인주대로 593 엔타스 12층</li>
+                    <li>대표자 EZEN</li>
+                    <li>사업자등록번호 000-00-00000</li>
+                    <li>ezen@ezen.com</li>
+                </ul>
+                <p>COPYRIGHT ⓒ 2024 ALL RIGHTS RESERVED BY EZEN</p>
+            </div>
+            <div class="sns">
+                <a href="" target="_blank" class="ico-inst">인스타그램</a>
+                <a href="" target="_blank" class="ico-fb">페이스북</a>
+                <a href="" target="_blank" class="ico-you">유튜브</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // 입력한 값을 배열로 저장 후 파싱하여, 로컬스토리지에 저장
+        document.querySelector(".submit").addEventListener('click', () => {
+            const writername = document.querySelector(".writername").value;
+            const writerpw = document.querySelector(".writerpw").value;
+            const email2 = document.querySelector(".email2").value;
+            const title2 = document.querySelector(".title2").value;
+            const content2 = document.querySelector(".content2").value;
+    
+            // 현재 로그인 상태 확인
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                // 로그인 상태가 아닐 경우 alert 메시지 표시
+                alert('로그인 후 이용 가능합니다.');
+                return; // 함수 종료
+            }
+    
+            const post = { writername, writerpw, email2, title2, content2 };
+            let posts = [];
+            const writedata = localStorage.getItem('post2');
+            if (writedata !== null) {
+                posts = JSON.parse(writedata);
+            }
+            posts.push(post);
+            localStorage.setItem('post2', JSON.stringify(posts));
+    
+            // alert("게시글이 등록되었습니다.");
+            location.href = "board.html";
+    
+        });
+    
+        // 기존의 로그인 체크 및 유틸리티 영역 생성 코드
+        window.onload = function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+    
+            if (isLoggedIn === 'true' && username) {
+                const userUtility = document.querySelector('.util');
+                userUtility.innerHTML = `
+                    <span id="welcomeMessage">${username}님, 환영합니다!</span>
+                    <a href="#" class="logoutButton" onclick="logout()">로그아웃</a>
+                `;
+            } else { 
+                const userUtility = document.querySelector('.util');
+                userUtility.innerHTML = `
+                    <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                    <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                    <a href="main_eng.html" class="lang" title="영문사이트로 이동">ENG</a>
+                `;
+            }
+        };
+    
+        // 로그아웃 함수
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            window.location.href = 'board.html';
+        }
+    </script>
+
+</body>
+
+</html>

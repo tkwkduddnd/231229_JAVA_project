@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green{
+            color:green;
+        }
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        input에 파일명.확장자 형태로 입력하여 전송 버튼을 클릭하면
+        이미지 파일인지 아닌지 검사
+        이미지 파일이면 '정상파일입니다.'(초록색으로 표시)
+        아니면 '이미지 파일만 가능합니다.'(빨간색으로 표시)
+        이미지 파일 : jpg, png, gif, jpeg
+        - 대문자도 가능해야 함.
+     -->
+         파일명 : <input type="text" id="filename">
+         <button type="button" id="btn">전송</button>
+         <h3 id="result"></h3>
+         <script>
+            // Velidtion
+            function imageFileValid(imageFile){
+                if (imageFile.match(/(jpg|jpeg|png|gif)/i)){
+                    return true;
+                }
+                return false;
+
+            }
+             document.getElementById("btn").addEventListener("click", () =>  {
+                 let filename = document.getElementById("filename").value;
+                 let imgTrue = `<span class ="green">정상파일 입니다.</span>`;
+                 let imgFalse = `<span class="red">이미지 파일만 가능합니다.</span>`;
+     
+                 document.getElementById('result').innerHTML = 
+                 imageFileValid(filename) ? imgTrue : imgFalse;
+             });
+         </script>
+     </body>
+     </html>

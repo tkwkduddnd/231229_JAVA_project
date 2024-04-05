@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘은??</h1>
+    <button type="button" onclick="result()">Today</button>
+    <h3 id="result">
+        <!-- 오늘 날짜와 요일 출력 -->
+        <!-- ex) 2024. 03. 19.(화) -->
+    </h3>
+    <script>
+        function result(){
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+            let dayOfWeek = date.getDay();
+
+            let dayweek = "";
+            
+            if(dayOfWeek ==0) {
+                dayweek ="일";
+
+            }
+            else if(dayOfWeek ==1) {
+                dayweek = "월";
+            }
+            else if(dayOfWeek ==2) {
+                dayweek = "화";
+            }
+            else if(dayOfWeek ==3){
+                dayweek = "수";
+                
+            }
+            else if(dayOfWeek ==4){
+                dayweek= "목";
+            }
+            else if(dayOfWeek == 5){
+                dayweek = "금";
+            }
+            else if(dayOfWeek == 6){
+                dayweek = "토";
+            }
+
+            document.getElementById('result').innerText = `${year}.${month}.${day}.(${dayweek}) `;
+
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+    

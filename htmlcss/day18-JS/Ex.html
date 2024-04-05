@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            flex-direction: column;
+        }
+
+        #imgDisplay {
+            max-width: 100%;
+            max-height: 80vh;
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 5px;
+        }
+
+        .button-container {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    
+        <h1 id="travel">Travel</h1>
+    
+    <ul>
+        <li><a id="home" onclick="clickCity(this)">Home</a></li>
+        <li><a id="seoul" onclick="clickCity(this)">Seoul</a></li>
+        <li><a id="tokyo" onclick="clickCity(this)">Tokyo</a></li>
+        <li><a id="paris" onclick="clickCity(this)">Paris</a></li>
+    </ul>
+    <img src="../image/home.jpeg" alt="" id="cityImg">
+    <script>
+        function clickCity(e){
+            console.log(e);
+            let idValue = e.id;
+            document.getElementById('cityImg').src =
+            `../image/${idValue}.jpeg`;
+        }
+        
+    </script>
+</body>
+</html>

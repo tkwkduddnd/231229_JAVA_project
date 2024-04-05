@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    <h1>숫자 맞추기 게임</h1>
+
+    <button id="randomBtn">랜덤 번호 생성하기</button><br><br>
+    <h2 id="resultRandom"></h2>
+    <button id="correctBtn">당첨 번호 생성하기</button><br><br>
+    <h2 id="resultCor"></h2>
+    <button id="resultBtn">결과 확인하기</button>
+    <h2 id="result"></h2>
+     
+    <script>
+        function randomNumbers() {
+            const numbers = new Set();
+            while (numbers.size < 6) {
+                const num = Math.floor(Math.random() * 45)+ 1;
+                if (!numbers.has(num)) {
+                    numbers.add(num);
+                }
+            }
+            return numbers;
+        }
+
+        function winningNumbers() {
+            const numbers = new Set();
+            while (numbers.size < 6) {
+                const num = Math.floor(Math.random() *45)+ 1;
+                if (!numbers.has(num)) {
+                    numbers.add(num);
+                }
+            }
+            const bonusNum = Math.floor(Math.random() * 45)+1;
+            if (!numbers.has(bonusNum)) {
+                numbers.add(bonusNum);
+            }
+            return numbers;
+        }
+
+        document.getElementById('randomBtn').addEventListener('click', () => {
+            const random = randomNumbers();
+            let text = '랜덤 번호: ';
+            for (const num of random) {
+                text += num + ' ';
+            }
+            document.getElementById('resultRandom').innerText = text;
+        });
+
+        document.getElementById('correctBtn').addEventListener('click', () => {
+            const winNumbers = winningNumbers();
+            let text = '당첨 번호: ';
+            let isFirst = true;
+            let lastNumber;
+            let cnt = 1;
+            for (const num of winNumbers) {
+                if (!isFirst) {
+                    text += ' ';
+                }
+                if (cnt === 7) {
+                    text += '[' + num + ']';
+                } else {
+                    text += num;
+                }
+                isFirst = false;
+                lastNumber = num;
+                cnt++;
+            }
+            document.getElementById('resultCor').innerText = text;
+        });
+
+        document.getElementById('resultBtn').addEventListener('click', () => {
+            const randomNumbers = document.getElementById('resultRandom').innerText.slice(6).split(' ');
+            const winNumbersText = document.getElementById('resultCor').innerText.slice(6).split(' ');
+
+            const random = new Set();
+            for (const num of randomNumbers) {
+                random.add(Number(num));
+            }
+            const winNumbers = new Set();
+            for (const num of winNumbersText) {
+                winNumbers.add(Number(num));
+            }
+
+            const section = new Set();
+            for (const num of random) {
+                if (winNumbers.has(num)) {
+                    section.add(num);
+                }
+            }
+            const matchCnt = section.size;
+
+            let resultText = '';
+            switch (matchCnt) {
+                case 6:
+                    resultText = '축하합니다! 1등 당첨!';
+                    break;
+                case 5:
+                    resultText = '축하합니다! 2등 당첨! (보너스 번호 맞음)';
+                    break;
+                case 4:
+                    resultText = '축하합니다! 3등 당첨!';
+                    break;
+                case 3:
+                    resultText = '축하합니다! 4등 당첨!';
+                    break;
+                case 2:
+                    resultText = '축하합니다! 5등 당첨!';
+                    break;
+                default:
+                    resultText = '아쉽지만 당첨되지 않았습니다.';
+            }
+            document.getElementById('result').innerText = resultText;
+        });
+    </script>
+</body>
+</html>

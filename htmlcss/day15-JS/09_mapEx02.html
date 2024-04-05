@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <input type="text" id="subject" placeholder="과목"><br>
+    <input type="number" id="score" min="0" max="100" placeholder="점수"><br>
+    <button type="button" onclick="addSubject()">추가</button>
+    <button type="button" onclick="displaySubjects()">출력</button>
+    <button type="button" onclick="calculateResult()">결과</button>
+    <h3 id="result"></h3>
+
+    <script>
+        const myMap = new Map();
+
+        function addSubject() {
+            const subject = document.getElementById('subject').value;
+            const score = parseInt(document.getElementById('score').value);
+
+            if (isNaN(score) || score < 0 || score > 100) {
+                alert("성적은 0부터 100까지의 숫자로 입력해주세요.");
+                return;
+            }
+
+            myMap.set(subject, score);
+            document.getElementById('subject').value = '';
+            document.getElementById('score').value = '';
+        }
+
+        function displaySubjects() {
+            const resultList = document.getElementById('result');
+            resultList.innerHTML = '<h4>과목 및 점수</h4><ul>';
+            myMap.forEach((value, key) => {
+                resultList.innerHTML += `<li>${key}: ${value}</li>`;
+            });
+            resultList.innerHTML += '</ul>';
+        }
+
+        function calculateResult() {
+            let totalScore = 0;
+            let subjectCount = 0;
+
+            myMap.forEach(score => {
+                totalScore += score;
+                subjectCount++;
+            });
+
+            const averageScore = totalScore / subjectCount;
+            let passOrFail = '불합격';
+            if (averageScore >= 60) {
+                passOrFail = '합격';
+            }
+            document.getElementById('result').innerText = `합계: ${totalScore}, 평균: ${averageScore.toFixed(2)}, 합격여부: ${passOrFail}`;
+        }
+    </script>
+</body>
+</html>

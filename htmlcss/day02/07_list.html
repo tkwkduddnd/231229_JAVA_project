@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        list를 나타내는 태그 3종류
+        1. 순서가 있는 리스트 ol => li
+        2. 순서가 없는 리스트 ul => li
+        3. 설명, 정의 리스트 dl / dt / dd
+
+        ol태그의 속성
+        -type : 순서를 정해주는 형태
+        - 1, A, a, i, I
+        - start : 시작값을 지정
+        ul태그의 속성
+        - type : 구분 기호 설정
+        - desc(기본), circle(동그라미), square(사각형)
+        리스트는 리스트로서 사용보다는 상/하위 구조로 나뉠 수 있는
+        형태에서 주로 사용
+        - 메뉴바 / 서브메뉴 구성시 사용
+     -->
+     <ul>
+        <li>아침</li>
+        <li>점심</li>
+        <li>저녁</li>
+        
+     </ul>
+     <ol>
+        <li>아침</li>
+        <li>점심</li>
+        <li>저녁</li>
+     </ol>
+     <ul>
+     <li>
+        <ol type="a">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+     </li>
+     <li>
+        <ol type="a">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+     </li>
+     </ul>
+     <dt>정의1(타이틀)</dt>
+     <dd>정의1의 설명</dd>
+     <dt>정의2(타이틀)</dt>
+     <dd>정의2의 설명</dd>
+     <dt>정의3(타이틀)</dt>
+     <dd>정의3의 설명</dd>
+
+     <!-- 리스트 중첩 될 수 있음 -->
+     <ul>
+        <li>HTML</li>
+        <ol>
+            <li>HTML Element</li>
+            <li>Attribute</li>
+            <li>link, img, list...</li>
+        </ol>
+        <li>CSS</li>
+        <ol>
+        <li>selector</li>
+        <li>layout</li>
+        <li>color</li>
+        </ol>
+        <li>JS</li>
+        <ol>
+            <dt>자바와 비슷</dt>
+            <dt>자바처럼 구문을 활용하여 화면을 동적으로 제어</dt>
+        </ol>
+     </ul>
+
+</body>
+</html>

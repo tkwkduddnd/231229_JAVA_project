@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class user 생성
+        // 생성자로 name, birth 를 받아서 멤버변수로 저장
+        // get으로 age() 나이를 리턴
+        // 메서드로 status() 성인인지 미성년자인지 검사 후 출력(콘솔에 출력하기)
+        // 성인인지 미성년자인지는 나이를 20살 기준으로 20살 미만이면 미성년자 20살 이상은 성인으로 출력
+        let today = new Date('2009-01-01');
+        console.log(today.toLocaleDateString());
+
+        class AgeClass{
+            constructor(name,birth){
+                this.name = name;
+                this.birth = birth;
+            }
+
+            age(){
+                let today = new Date();
+                let birth2 = new Date(this.birth);
+                let ageTest = today.getFullYear() - birth2.getFullYear();
+                return ageTest;
+            }
+
+            status(){
+                let Age = this.age();
+                if(Age <20){
+                    console.log(this.name+"은 미성년자입니다.");
+                }
+                else{
+                    console.log(this.name+"은 성인입니다.");
+                }
+            }
+
+        }
+
+        let person1 = new AgeClass('나영우1', '1999');
+        let person2 = new AgeClass('나영우2', '2008');
+        
+        person1.status();
+        person2.status();
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="logoutbtn.css">
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="headerFX.css">
+    <script src="headerFX.js"></script>
+</head>
+
+<body>
+    <!-- 래퍼 -->
+    <div class="wrapper">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../IMG/로고2.png" alt="메인로고"></a>
+                </div>
+                <!-- 메뉴 -->
+                <nav class="hMenu">
+                    <div class="menu">
+                        <ul class="depth1">
+                            <li><a href="menu.html" class="dth1 ">주문하기</a></li>
+                            <li><a href="special.html" class="dth1 ">MD상품</a></li>
+                            <li><a href="event.html" class="dth1  ">이벤트</a></li>
+                            <li><a href="board.html" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <!-- 유틸 -->
+                    <div class="util">
+                        <a href="" class="mLogin" title="임차문의로 이동">로그인</a>
+                        <a href="" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- 컨테이너 -->
+         <div id="container">
+            <div class="content">
+                <div class="contArea">
+                    <!-- 메인타이틀 -->
+                    <h2 class="mTit">메뉴</h2>
+                    <!-- 메인메뉴 -->
+                    <ul class="mEvent">
+                        <dt style="display: block;">
+                            <a href="">
+                                커피
+                            </a>
+                            <i class="summaryIcon"><img src="../menu/디카페인.png" width="50px" alt=""></i>
+                            <span class="summary">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+                        </dt>
+                        <li><a href=""><img src="../menu/아이스 아메리카노.jpg" alt="" onclick="btn(1)"
+                                    id="img1"></a><span onclick="movehref(1)">아이스 카페 아메리카노</span></li>
+                        <li><a href=""><img src="../menu/카페라떼.jpg" alt="" onclick="btn(2)"></a><span onclick="movehref(2)">카페 라떼</span>
+                        </li>
+                        <li><a href=""><img src="../menu/카라멜 마끼야또.jpg" alt="" onclick="btn(3)"></a><span onclick="movehref(3)">카라멜
+                                마키아또</span></li>
+                        <li><a href=""><img src="../menu/카푸치노.jpg" alt="" onclick="btn(4)"></a><span onclick="movehref(4)">카푸치노</span>
+                        </li>
+                        <li><a href=""><img src="../menu/카페 모카.jpg" alt="" onclick="btn(5)"></a><span onclick="movehref(5)">아이스 카페
+                                모카</span></li>
+                        <li><a href=""><img src="../menu/돌체 라떼.jpg" alt="" onclick="btn(6)"></a><span onclick="movehref(6)">돌체
+                                라떼</span></li>
+                        <li><a href=""><img src="../menu/돌체 콜드 브루.jpg" alt="" onclick="btn(7)"></a><span onclick="movehref(7)">돌체 콜드
+                                브루</span></li>
+                        <li><a href=""><img src="../menu/녹차 콜드 브루.jpg" alt="" onclick="btn(8)"></a><span onclick="movehref(8)">녹차 콜드
+                                브루</span></li>
+                        <li><a href=""><img src="../menu/에스프레소 콘파나.jpg" alt="" onclick="btn(9)"></a><span onclick="movehref(9)">에스프레소
+                                콘 파나</span></li>
+                    </ul>
+                    <ul class="mEvent">
+                        <dt style="display: block;">
+                            <a href="">
+                                음료</a>
+                        </dt>
+                        <li><a href=""><img src="../menu/녹차 라떼.jpg" alt="" onclick="btn(10)"></a><span onclick="movehref(10)">녹차
+                                라떼</span></li>
+                        <li><a href=""><img src="../menu/딸기 콜드폼 초콜릿.jpg" alt="" onclick="btn(11)"></a><span onclick="movehref(11)">딸기
+                                콜드폼 초콜릿</span></li>
+                        <li><a href=""><img src="../menu/판다 핫초코.jpg" alt="" onclick="btn(12)"></a><span onclick="movehref(12)">판다 
+                                아이스 초콜릿</span>
+                        </li>
+                        <li><a href=""><img src="../menu/유자 에이드.jpg" alt="" onclick="btn(13)"></a><span onclick="movehref(13)">유자
+                                에이드</span>
+                        </li>
+                        <li><a href=""><img src="../menu/유자 민트 티.jpg" alt="" onclick="btn(14)"></a><span onclick="movehref(14)">유자 민트
+                                티</span></li>
+                        <li><a href=""><img src="../menu/허비스커스 티.jpg" alt="" onclick="btn(15)"></a><span onclick="movehref(15)">히비스커스
+                                티</span></li>
+                    </ul>
+                    <ul class="mEvent">
+                        <dt style="display: block;">
+                            <a href="">
+                                푸드</a>
+                        </dt>
+                        <li><a href=""><img src="../menu/토마토 샌드위치.jpg" alt="" onclick="btn(16)"></a><span onclick="movehref(16)">토마토
+                                샌드위치</span></li>
+                        <li><a href=""><img src="../menu/치즈 샌드위치.jpg" alt="" onclick="btn(17)"></a><span onclick="movehref(17)">치즈
+                                샌드위치</span></li>
+                        <li><a href=""><img src="../menu/더블 에그 샐러드.jpg" alt="" onclick="btn(18)"></a><span onclick="movehref(18)">더블 에그
+                                샐러드</span>
+                        </li>
+                        <li><a href=""><img src="../menu/딸기 생크림 케이크.jpg" alt="" onclick="btn(19)"></a><span onclick="movehref(19)">딸기
+                                생크림 케이크</span>
+                        </li>
+                        <li><a href=""><img src="../menu/고구마 케이크.jpg" alt="" onclick="btn(20)"></a><span onclick="movehref(20)">고구마
+                                케이크</span></li>
+                        <li><a href=""><img src="../menu/티라미수.jpg" alt=""
+                                    onclick="btn(21)"></a><span onclick="movehref(21)">티라미수</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="aside">
+                <a href="" class="as1" title="카톡문의" onclick="alert('카톡문의')">카톡문의</a>
+                <a href="" class="as2" title="전화문의" onclick="alert('전화문의')">전화문의</a>
+            </div>
+            <button type="button" class="topBtn" onclick="window.scrollTo(0,0)"></button>
+        </div>
+        <!-- 푸터 -->
+        <footer class="footer">
+            <div class="footArea">
+                <div class="info">
+                    <ul>
+                        <li>인천광역시 남동구 인주대로 593 엔타스 12층</li>
+                        <li>대표자 EZEN</li>
+                        <li>사업자등록번호 000-00-00000</li>
+                        <li>ezen@ezen.com</li>
+                    </ul>
+                    <p>COPYRIGHT ⓒ 2024 ALL RIGHTS RESERVED BY EZEN</p>
+                </div>
+                <div class="sns">
+                    <a href="" target="_blank" class="ico-inst" onclick="alert('인스타그램')">인스타그램</a>
+                    <a href="" target="_blank" class="ico-fb" onclick="alert('페이스북')">페이스북</a>
+                    <a href="" target="_blank" class="ico-you" onclick="alert('유튜브')">유튜브</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- 학준 스크립트 -->
+    <script>
+        let myWindow;
+
+        function dth1(menu) {
+            myWindow = window.open(`payment.html?menu=${menu}`, "mywindow", "width=700, height=600")
+        }
+
+        function btn(menu){
+            console.log(menu);
+
+            // alert("장바구니에 추가되었습니다."); 
+            myWindow = window.open(`payment.html?menu=${menu}`, "mywindow", "width=700, height=600")
+            //location.href=`/project/결제.html?menu=${menu}`;
+        }
+
+        function movehref(menu){
+            if(menu==1){
+            location.href="../menu/아이스 아메리카노 내용.png";
+            }
+            if(menu==2){
+                location.href="../menu/카페라떼 내용.png";
+            }
+            if(menu==3){
+                location.href="../menu/카라멜 마끼야또 내용.png";
+            }
+            if(menu==4){
+                location.href="../menu/카푸치노 내용.png";
+            }
+            if(menu==5){
+                location.href="../menu/카페 모카 내용.png";
+            }
+            if(menu==6){
+                location.href="../menu/돌체 라떼 내용.png";
+            }
+            if(menu==7){
+                location.href="../menu/돌체 콜드 브루 내용.png";
+            }
+            if(menu==8){
+                location.href="../menu/녹차 콜드 브루 내용.png";
+            }
+            if(menu==9){
+                location.href="../menu/에스프레소 콘파나 내용.png";
+            }
+            if(menu==10){
+                location.href="../menu/녹차 라떼 내용.png";
+            }
+            if(menu==11){
+                location.href="../menu/딸기 콜드폼 초콜릿 내용.png";
+            }
+            if(menu==12){
+                location.href="../menu/판다 핫초코 내용.png";
+            }
+            if(menu==13){
+                location.href="../menu/유자 에이드 내용.png";
+            }
+            if(menu==14){
+                location.href="../menu/유자 민트 티 내용.png";
+            }
+            if(menu==15){
+                location.href="../menu/허비스커스 티 내용.png";
+            }
+            if(menu==16){
+                location.href="../menu/토마토 샌드위치 내용.png";
+            }
+            if(menu==17){
+                location.href="../menu/치즈 샌드위치 내용.png";
+            }
+            if(menu==18){
+                location.href="../menu/더블 에그 샐러드 내용.png";
+            }
+            if(menu==19){
+                location.href="../menu/딸기 생크림 케이크 내용.png";
+            }
+            if(menu==20){
+                location.href="../menu/고구마 케이크 내용.png";
+            }
+            if(menu==21){
+                location.href="../menu/티라미수 내용.png";
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input tag</title>
+</head>
+<body>
+    <!-- input 태그는 단일태그
+        속성값이 다양하여 여러가지 기능에 활용할 수 있음
+    form태그 와 같이 사용됨
+    <input type ="속성명">-->
+    <!-- input type ="text" : 가장 많이 사용, 한글, 영어, 특수문자 등 처리-->
+    <!-- placeholder : 흐리게 표시, 안내문구 같은것을 입력할 때 사용, 문자를 입력하면 사라짐-->
+    <!-- -->
+    <input type="text">
+    <input type="text" placeholder="미리보기">
+    <!-- 
+        type="button" : 일반버튼
+        type="submit" : 전송버튼 - form 태그 안에 있는 값을 서버로 전송 
+        type="reset" : 취소버튼 - form 태그안에 있는 값을 리셋
+        <button> 태그에서도 동일한 속성을 사용
+    -->
+    <hr>
+    <input type="button" value="일반버튼">
+    <input type="submit" value="submit">
+    <input type="reset" value="reset">
+    <hr>
+    <!-- form : 태그안의 정보를 서버로 전송, action="" : 서버의 주소-->
+    <!-- name : 변수역할, value : 값-->
+    <!-- 파일명?name=값&name=값 => ? 쿼리스트링 (띄어쓰기 안됨.)-->
+    <!-- 데이터를 전송하는 방식 2가지
+         ? => get(안쓰면 기본 get으로 설정)
+         post : 데이터를 숨겨서 가는 방식
+         -->
+    <form action="" method="post">
+        <input type ="text" name="name" placeholder="이름" value="영이"><br>
+        <input type="text" name="age" placeholder="나이" value="20"><br>
+        <input type="password" name="pw"> <br>
+        <input type="button" value="일반버튼">
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+    </form>
+    <hr>
+    <!-- type="password"-->
+    <input type="password">
+
+    <hr>
+    <!-- type="checkbox" : 다중선택을 이용할 때 사용-->
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+
+    <br>
+    <hr>
+    <form action="">
+        <p>
+            좋아하는 과일을 선택해주세요
+        </p>
+        <input type="checkbox" name="fruit" value="사과">사과
+        <input type="checkbox" name="fruit" value="오렌지">오렌지
+        <input type="checkbox" name="fruit" value="바나나">바나나
+        <input type="submit" value="제출">
+    </form>
+    <br>
+    <hr>
+    <!-- 
+        label : 다른 태그의 제목역할을 하는 태그
+        for="값" = id="값" 해당 id를 가지는 태그의 제목이 됨.
+        id="유일한 구분자" class="중복가능 여러개 가능" => js / css 주로 사용
+    -->
+
+    <form action="">
+        <p>
+            좋아하는 과일을 선택해주세요
+        </p>
+        
+        <input type="checkbox" id="apple" name="fruit" value="사과">
+        <label for="apple">사과</label>
+        <label for="orange">
+            <input type="checkbox" id="orange" name="fruit" value="오렌지">오렌지
+        </label>
+        <laber for="banana">
+            <input type="checkbox" id="banana" name="fruit" value="바나나">바나나 
+        </laber>
+        <input type="submit" value="제출">
+    </form>
+
+        <br>
+        <hr>
+        <!-- type="radio : 여러개중 하나만 선택 가능"-->
+        
+        <form action="">
+            <p>
+                좋아하는 과일을 선택해주세요
+            </p>
+            
+            <input type="radio" id="apple1" name="fruit" value="사과">
+            <label for="apple1">사과</label>
+            <label for="orange1">
+                <input type="radio" id="orange1" name="fruit" value="오렌지">오렌지
+            </label>
+            <laber for="banana1">
+                <input type="radio" id="banana1" name="fruit" value="바나나">바나나 
+            </laber>
+            <input type="submit" value="제출">
+        </form>
+
+
+        <!-- 
+            form, radio, label을 이용하여
+            10대, 20대, 30대, 40대 이상 선택할 수 있는 값을 생성
+            
+        -->
+        <br>
+        <hr>
+        <form action="">
+            <p>
+                나이 선택
+            </p>
+            
+            <input type="radio" id="ten" name="adult" value="10대">
+            <label for="ten">10대</label>
+            <input type="radio" id="twen" name="adult" value="20대">
+            <label for="twen">20대</label>
+            <input type="radio" id="third" name="adult" value="30대"> 
+            <label for="third">30대</label>
+            <input type="radio" id="four" name="adult" value="40대"> 
+            <label for="four">40대</label>
+            <input type="submit" value="제출">
+        </form>
+        
+    
+        <br>
+        <hr>
+        <!-- type="color" : 색상을 선택할 때 사용 색상정보는 16진수로 표현-->
+        <input type="color" name="color">
+        <input type="submit" value="submit">
+        <br>
+        <hr>
+        <!-- 
+            type="month" : 년 월 표시
+            type="week" : 년 주 표시
+            type="date" : 년 월 일 표시
+            type="datetime-local" : 년 월 일 시 분 초 표시
+            type="time" : 시 분 초 표시
+        -->
+        <input type = "month" name="" id=""><br>
+        <input type = "week" name="" id=""><br>
+        <input type = "date" name="" id=""><br>
+        <input type = "datetime-local" name="" id=""><br>
+        <input type = "time" name="" id=""><br>
+
+        <!-- type="email" : email 형식으로 입력되는지 체크
+        형식이 맞지 않으면 알림창을 띄움-->
+        <br>
+        <hr>
+
+            <form action="">
+                <input type="email" name="email"><br>
+                <input type="submit" name="submit">
+        <br>
+        <hr>
+        <!-- type="search" : 문자열 뒤에 x가 생김-->
+        <!-- type="file" : 첨부파일 선택-->
+        <!-- type="number" : 위아래 버튼 생김 숫자만 입력가능-->
+        <!-- type="hidden" : 값을 안보이게 숨김처리, 백엔드 개발시 많이 사용-->
+        <br>
+        <hr>
+        <input type = "hidden">
+        <form action="">
+            <input type="hidden" name="name" value="영이">
+            <input type="text" name="nick_name" value="강아지">
+            <input type="submit" value="submit">
+        </form>
+
+        <!-- type="image" : 그림을 삽입하는 태그-->
+         <!-- src="경로" alt="그림이 표시되지 않을 경우 표시되는 단어"
+        <img> 태그로 대체 가능 -->
+        <input type="image" alt="그림 없음" src="">
+
+        <br>
+        <hr>
+        <!-- 상대 경로: ../ 상위 폴더 이동 / 다른 폴더 ../../../-->
+        <input type="image" alt="그림없음." src="../image/개1.jpeg">
+        <br>
+        <hr>
+        <!-- type="url" : http:// 형식인지 체크-->
+        <form action="">
+            <input type="url">
+            <input type="submit" value="submit">
+        </form>
+        <br>
+        <hr>
+        <!-- type="range" : 상태바를 이용하여 범위값을 나타냄-->
+        <label for="vol">volumn</label>
+        0<input type="range" id="vol" name="volumn" max="10" min="0" step="1">10
+</body>
+</html>

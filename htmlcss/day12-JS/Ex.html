@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            이름: <input type="text" id="name"><br>
+            주민번호: <input type="text" id="birth"><br>
+            <button type="button" onclick="clickEvent()">입력</button>
+        </fieldset>
+    </form>
+    <ul id="ul"></ul>
+    <script>
+        function clickEvent(){
+            let name = document.getElementById('name').value;
+            let birth = document.getElementById('birth').value;
+            birth = birth.replace(/-/g, ''); 
+            
+            
+
+            let birthYear = birth.slice(0, 6); 
+
+            let year = new Date().getFullYear();
+            let century = parseInt(birth.slice(6, 7));
+            let age;
+
+            if (century === 1 || century === 2) {
+                age = year - (1900 + parseInt(birth.slice(0, 2))) + 1;
+            } else if (century === 3 || century === 4) {
+                age = year - (2000 + parseInt(birth.slice(0, 2))) + 1;
+            }
+
+            let str = `<li>이름: ${name}</li>`;
+            str += `<li>생년월일: ${birthYear}</li>`;
+            str += `<li>나이: ${age}</li>`;
+
+            let gender = birth.charAt(7) % 2 === 1 ? "남자" : "여자";
+            str += `<li>성별: ${gender}</li>`;
+
+            ul.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

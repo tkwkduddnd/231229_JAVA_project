@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.feature-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.feature-box .feature {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0 10px;
+}

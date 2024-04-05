@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        #wapper h2{
+            text-align: center;
+        }
+        #wapper form{
+            background-color: cornflowerblue;
+            color: white;
+            text-align: center;
+            padding: 30px 40px;
+        }
+        #wapper form input{
+            border: none;
+            outline: none;
+            width: 300px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        #wapper form button{
+            padding: 10px;
+            border: none;
+            background-color: white;
+            box-shadow: 3px 3px 3px gray;
+            cursor: pointer;
+        }
+        #wapper div ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #wapper div ul li{
+            cursor :pointer;
+            padding: 12px 10px;
+            background-color: bisque;
+            position: relative;
+        }
+        #wapper div ul li:nth-child(odd){
+            background-color: cadetblue;
+        }
+        #wapper div ul li:hover{
+            background-color: brown;
+        }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 12px 20px;
+        }
+        .close:hover{
+            background-color: skyblue;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" class="a b c list" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+    <script>
+        //추가하는 목록을 저장, 삭제한 목록을 제거
+        let itemList = [];
+
+        document.getElementById('add').addEventListener('click',addList);
+
+        //아이템 추가 : 입력받은 아이템을 배열에 추가 
+        function addList(){
+            let item = document.getElementById('item');
+            console.log(item.value);
+            if(item.value!==''){
+                itemList.push(item.value);
+                console.log(itemList);
+                item.value = ''; //추가후 item 값을 비우기
+                item.focus(); //item에 focus 두기
+                //추가 후 화면에 뿌리기
+                showList();
+            }else{
+                alert('아이템의 값이 없습니다.');
+            }
+        }
+        //아이템을 화면에 뿌리기 : 배열에 있는 목록을 화면에 모두 뿌리기
+        function showList(){
+            let list = ''; //뿌릴 텍스트 리스트
+            for(let i=0; i<itemList.length; i++){
+                list += `<li id = "list${i}">${itemList[i]}<span class="close" id="${i}">X</span></li>`;
+            }
+            document.getElementById('itemList').innerHTML = list;
+        }
+
+        //item삭제 : 배열에서 해당 아이템 제거
+        document.addEventListener('click',(e)=>{
+            console.log(e.target.classList);
+            if(e.target.classList.contains('close')){
+                //X버튼을 클릭했다.
+                console.log('111');
+                let i = e.target.id;
+                console.log(i);
+                itemList.splice(i,1);
+            }
+            //삭제 후 리스트 뿌리기
+            showList();
+
+        });
+    </script>
+</body>
+</html>

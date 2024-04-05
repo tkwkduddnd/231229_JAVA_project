@@ -1,0 +1,338 @@
+@font-face {
+
+    font-family: Noto_Sans_KR;
+
+    src: url(../font/Noto_Sans_KR/NotoSansKR-VariableFont_wght.ttf);
+
+}
+
+body{
+
+    font-family: Noto_Sans_KR;
+
+    color: black;
+
+}
+
+.wrap{
+
+    width: 100%;
+
+    min-width: 1200px;
+   
+        text-align: center; /* 내부 요소를 가로 방향으로 중앙 정렬 */
+    
+
+}
+
+.inner{
+
+    width: 1170px;
+
+    margin: auto;
+
+    box-sizing: border-box;
+
+}
+
+/* header */
+
+
+
+header>.inner{
+
+    height: 115px;
+
+    /* background-color: bisque; */
+
+    position: relative;
+
+}
+
+header>.inner>h1{
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 0;
+
+}
+
+header>.inner>.top-menu{
+
+    display: flex;
+
+    justify-content: flex-end;
+
+}
+
+header>.inner>.top-menu>li>a{
+    color: black;
+
+}
+
+header>.inner>.top-menu>li{
+
+    padding: 10px 20px;
+
+    position: relative;
+
+}
+
+header>.inner>.nav>ul{
+
+    display: flex;
+
+    justify-content: center;
+
+    height: 79px;
+
+}
+
+header>.inner>.nav>ul>li{
+
+    margin: 0 40px;
+
+}
+
+header>.inner>.nav>ul>li>a{
+    color: black;
+
+    font-size: large;
+
+    font-weight: 700;
+
+    line-height: 79px;
+
+}
+
+header>.inner>.nav>ul>li>a:hover{
+
+    color: red;
+
+}
+
+
+main{
+
+    position: relative;
+
+}
+
+
+
+​
+
+/* footer */
+
+footer{
+
+    /* background: #97a9ea; */
+
+    border-top: 1px solid gray;
+
+}
+
+footer>.inner{
+
+    height: 320px;
+
+    padding: 50px 0;
+
+    /* background: #8489ed; */
+
+}
+
+footer>.inner>ul{
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    border-bottom: 1px solid gray;
+
+}
+
+footer>.inner>ul>li{
+
+    padding: 10px 20px 30px;
+
+}
+
+.red{
+
+    color: red;
+
+}
+
+footer>.inner>.footerBt{
+
+    margin: 20px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+footer>.inner>.footerBt .t{
+
+    margin: 10px 0;
+
+}
+
+footer>.inner>.footerBt .t>span{
+
+    padding: 10px 20px;
+
+    position: relative;
+
+    /* font-size: 15px; */
+
+    color: #5a5a5a;
+
+}
+
+footer>.inner>.footerBt .c{
+
+    margin: 30px 10px;
+
+    padding-left: 10px;
+
+    font-size: small;
+
+}
+
+footer>.inner>.footerBt>.right>select{
+
+    width: 210px;
+
+    height: 45px;
+
+    padding-left: 20px;
+
+    border: 1px solid rgb(204, 204, 204);
+
+    appearance: none;
+
+    background-image: url(img/sel_icon.png);
+
+    background-repeat: no-repeat;
+
+    background-position: 90% 50%;
+
+    font-size: 15px;
+
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap; /* 필요한 경우 객체가 한 줄에 다 나타나지 않을 경우 여러 줄에 걸쳐 표시되도록 설정합니다. */
+    justify-content: center; /* 가로 여백을 최대한 활용하여 각 객체를 좌우로 최대한 분배합니다. */
+    margin-top: 50px;
+}
+
+.box1 {
+    flex-basis: calc(33.33% - 20px); /* 가로로 3개씩 배열되도록 설정하고, 마진을 고려하여 너비를 조정합니다. */
+    margin-bottom: 20px; /* 객체들 사이의 아래 여백 조정 */
+    padding: 20px; /* 내부 여백 설정 */
+    border: 1px solid #ccc; /* 테두리 추가 */
+    box-sizing: border-box; /* 테두리와 패딩을 포함한 객체의 크기를 정확히 설정합니다. */
+}
+
+/* 선택적으로 추가 스타일링 가능 */
+.box1 img {
+    display: block; /* 이미지를 블록 요소로 설정하여 텍스트와 수직 정렬합니다. */
+    margin: 0 auto 10px; /* 이미지의 아래 여백 조정 및 수평 가운데 정렬 */
+    max-width: 100%; /* 이미지가 객체의 너비를 초과하지 않도록 설정합니다. */
+}
+
+.box1 h3 {
+    font-size: 1.2em; /* 제목의 폰트 크기 조정 */
+    margin-bottom: 10px; /* 제목의 아래 여백 조정 */
+}
+
+.box1 p {
+    margin-bottom: 10px; /* 단락의 아래 여백 조정 */
+}
+
+.box1 p.del {
+    text-decoration: line-through; /* 가격이 할인되었을 때 가로 줄을 추가합니다. */
+}
+
+.box1 p.price {
+    font-size: 1.2em; /* 가격의 폰트 크기 조정 */
+    font-weight: bold; /* 가격의 굵은체 설정 */
+}
+
+.box1 p.payment {
+    color: #009900; /* 결제 문구의 색상 설정 */
+    font-weight: bold; /* 결제 문구의 굵은체 설정 */
+}
+
+
+ /* 스크롤바 디자인 */
+ ::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 150px;
+    background-color: none;
+    font-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+    background-color: black;
+    
+}
+
+#sp {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    margin: 0 auto; /* 가운데 정렬을 위한 마진 설정 */
+}
+
+
+.sidebar ul li a {
+    color: white; /* 글자색을 블랙으로 설정 */
+    text-decoration: none; /* 링크의 밑줄 제거 */
+}
+
+.sidebar ul li a:hover {
+    color: gray; /* 호버 시에도 글자색을 블랙으로 유지 */
+}
+
+
+/* 좌에서 우로 페이드 인 애니메이션 설정 */
+@keyframes fadeInFromLeft {
+    from {
+        opacity: 0; /* 시작할 때 투명도를 0으로 설정하여 숨깁니다. */
+        transform: translateX(-100%); /* 시작 위치를 왼쪽으로 이동시킵니다. */
+    }
+    to {
+        opacity: 1; /* 끝날 때 투명도를 1로 설정하여 나타납니다. */
+        transform: translateX(0); /* 끝나는 위치는 이동하지 않습니다. */
+    }
+}
+
+/* sp 요소에 fadeInFromLeft 애니메이션 적용 */
+#sp {
+    opacity: 0; /* 초기에 투명도를 0으로 설정하여 숨깁니다. */
+    animation: fadeInFromLeft 1s ease forwards; /* fadeInFromLeft 애니메이션을 1초 동안 적용합니다. */
+}
+
+/* 필요에 따라 추가적인 스타일링을 적용할 수 있습니다. */
+

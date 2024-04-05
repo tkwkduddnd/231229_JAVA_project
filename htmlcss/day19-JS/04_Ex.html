@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 300px;
+            border: 5px solid white;
+            background-color: ivory; /* 배경 흰색으로 설정 */
+            border-radius: 30px; /* 박스의 모서리를 둥글게 설정 */
+            text-align: center;
+            overflow: hidden; /* 내용이 넘치는 경우를 방지 */
+            margin: auto;
+        }
+
+        .text-field {
+            margin: 10px;
+            width: 300px;
+            height: 50px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        body {
+            background-color: #72d9f0;
+        }
+
+        .btn {
+            background-color: gray; 
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .btn:hover {
+            background-color: darkgray; 
+        }
+
+        .btn.disabled {
+            background-color: lightgray; 
+            pointer-events: none; 
+        }
+
+        .link a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="box1">
+            <input type="text" class="text-field" name="id" placeholder="아이디">
+            <input type="password" class="text-field" name="pw" id="pw" placeholder="비밀번호"><br>
+            <input type="submit" class="btn" id="loginBtn" value="로그인" disabled>
+            <div class="link">
+                <a href="">비밀번호를 잊어먹었나요?</a>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        const input = document.querySelectorAll('.text-field');
+        const btn = document.getElementById('loginBtn');
+    
+        input[1].addEventListener('input', () => {
+            let reg = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*\W).{8,}$/;
+            let password = input[1].value;
+    
+            if (reg.test(password)) {
+                console.log(true);
+                btn.disabled = false;
+                btn.style.backgroundColor = 'rgb(7, 115, 79)';
+            } else {
+                console.log(false);
+                btn.disabled = true;
+                btn.style.backgroundColor = 'blue';
+            }
+        });
+    </script>
+
+    
+</body>
+</html>

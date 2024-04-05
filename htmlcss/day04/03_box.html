@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        box 속성
+        width : 가로 길이
+        box-sizing : box의 크기를 결정하는 속성
+        width의 길이가 content의 길이가 될 수도 있고,
+        box전체의 길이가 될 수도 있음
+        border-box : content + padding(left+right) + border(left+right)
+        content-box : content
+        width = 100px
+        padding = 5px
+        border = 1px
+        border-box = x=88 + (5+5) + (1+1) = 100px
+        content-box = 100 + (5+5) + (1+1) = 112px
+     -->
+     <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            box-sizing: border-box;
+            background-color: aqua;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            box-sizing: content-box;
+            background-color: blueviolet;
+        }
+     </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

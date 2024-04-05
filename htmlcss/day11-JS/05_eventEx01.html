@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적표</title>
+</head>
+<body>
+
+    <form>
+        <fieldset>
+            <legend>성적 입력</legend>
+            이름: <input type="text" id="name"><br>
+            국어 : <input type="text" id="kor"><br>
+            영어 : <input type="text" id="eng"><br>
+            수학 : <input type="text" id="math"><br>
+        
+            <button type="button" onclick="calc()">성적 계산</button>
+        </fieldset>
+    </form>
+
+    <div id="result">
+        <h2>성적 결과</h2>
+        <p id="name2"></p>
+        <p id="kor2"></p>
+        <p id="eng2"></p>
+        <p id="math2"></p>
+        <p id="total"></p>
+        <p id="avg"></p>
+    </div>
+
+    <script>
+        function calc() {
+            let name = document.getElementById('name').value;
+            let kor = parseInt(document.getElementById('kor').value);
+            let eng = parseInt(document.getElementById('eng').value);
+            let math = parseInt(document.getElementById('math').value);
+
+            let total = kor + eng + math;
+            let avg = total / 3;
+
+            document.getElementById('name2').textContent = '이름: ' + name;
+            document.getElementById('kor2').textContent = '국어 점수: ' + kor;
+            document.getElementById('eng2').textContent = '영어 점수: ' + eng;
+            document.getElementById('math2').textContent = '수학 점수: ' + math;
+            document.getElementById('total').textContent = '총점: ' + total;
+            document.getElementById('avg').textContent = '평균: ' + avg;
+
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+package problem;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class PgManager {
+   
+   //멤버변수 Problem
+   
+   private String Problem; //멤버변수 ox문제를 저장
+   
+   public PgManager() {}
+   public PgManager(String Problem) {
+      this.Problem = Problem;
+   }
+   
+   
+   
+   
+
+   @Override
+   public String toString() { //toString 생성
+      return "PgManager [Problem=" + Problem + "]";
+   }
+   public String getProblem() { //getset 생성
+      return Problem;
+   }
+   public void setProblem(String problem) {
+      Problem = problem;
+   }
+   
+   ArrayList<PgManager> p = new ArrayList<>();
+   //ArrayList<PgManager>[] p = new ArrayList<>[](); //배열처리
+   ArrayList<PgManager> s = new ArrayList<>(); //예는 클래스로 따로 구성
+   
+   
+   //메서드
+   
+   //ox문제 입력 메서드
+   public void WorkbookRegister(Scanner scan) {
+      // TODO Auto-generated method stub
+      //ox문제 등록기준
+      //변형하고 싶은 텍스트에는 ""표시한다
+      //숫자는 해당없음
+      //입력한 list를 새로생성
+      System.out.println("입력할 ox문제단원을 기입해주세요 .");
+      
+      
+      System.out.println("입력할 ox문제를 기입해주세요 .");
+      System.out.println("변형하고자 하는 문제의 부분은 ''사이에 기입 ");
+      String ox = scan.next();
+      
+      this.p.add(new PgManager(Problem));//문제추가완료
+      
+         System.out.println("문자만 입력가능");
+      
+   }
+   
+   
+   //ox문제 단원입력 메서드
+   public void SubjectRegister(Scanner scan) {
+      //1.단원의 수 입력 2. 그 단원의 출제비율 입력
+      //단원은 등록되는 만큼 그 단원의 문제출제 비중을 입력 
+      //총 문제수에서 입력된 비중만큼 비율로 나누어서 출제
+      System.out.println("입력할 ox문제의 단원을 기입해주세요 .");
+
+      String oxsub = scan.next();
+      
+      this.p.add(new PgManager(Problem));//문제추가완료
+      
+         System.out.println("문자만 입력가능");
+      
+   }
+
+   //ox문제 검색 메서드
+   public void Search(Scanner scan) {
+      //1. 입력된 문제 검색 및 출력
+      //2. 풀이한 문제 검색 및 출력
+      //3. 변형한 문제 검색 및 출력
+      System.out.println("검색하고자 하는 list를 입력해주세요 ");
+      String ox = scan.next();
+      
+      
+      
+   }
+   
+   //ox문제풀기 메서드
+   public void SolvingPb(Scanner scan) {
+      //1. 입력된 문제 + 변형된 문제에서 문제 생성
+      //2. 생성된 문제를 단원의 수 만큼 입력 및 비율화
+      
+   }
+
+   //ox문제 채점 메서드
+   public void Resert(Scanner scan) {
+      //1.문제풀이한 것을 채점
+      //2.채점한 것을 저장 
+      
+   }
+   
+   
+
+   //ox문제 채점분석 메서드
+   public void ResertAnalysis(Scanner scan) {
+      //1.Resert 메서드에서 저장된 채점한 결과를 분석
+      //2. 분석해주는 것은   2-1.단원별 틀린문제 2-2. 취약한 단원 표시 및 비율화 
+      //2-3 취약단원 솔루션 제공
+      //
+      
+   }
+
+   //ox문제 입력한것을 변형문제 생성 메서드
+   public void WorkbookModify(Scanner scan) {
+      
+      //ox문제 유형 3가지
+      //1.입력된 문제를 숫자를 지워서 빈칸화
+      //2.입력된 문제를 숫자를 대체
+      //3.텍스트를 입력 및 특정텍스트를 변환
+      
+   }
+
+   public void random(Scanner scan) {
+      // TODO Auto-generated method stub
+      
+   }
+
+}

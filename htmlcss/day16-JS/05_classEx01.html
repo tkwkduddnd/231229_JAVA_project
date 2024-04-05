@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class 객체 생성 / 일반 객체
+        // 일반객체
+        let myAccount = {
+            name :'hong',
+            balance:0,
+            // 입금
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            // 출금 
+            withdraw : function(amount){
+                this.balance -= amount;
+            },
+            // 이체
+            transfer : function(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        let yourAccount = {
+            name :'kim',
+            balance: 10000,
+            // 입금
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            // 출금 
+            withdraw : function(amount){
+                this.balance -= amount;
+            },
+            // 이체
+            transfer : function(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+        // 내 계좌에 입금 10000
+        console.log(myAccount.name, ":", myAccount.balance);
+        myAccount.deposit(10000);
+        console.log(myAccount.name, ":", myAccount.balance);
+        myAccount.withdraw(3000);
+        console.log(myAccount.name, ":", myAccount.balance);
+        myAccount.transfer(5000, yourAccount);
+        console.log(myAccount.name, ":", myAccount.balance);
+        console.log(yourAccount.name, ":", yourAccount.balance);
+
+
+        // class MyClass{
+        //     // 생성자
+        //     constructor(param){
+        //         ...
+        //     }
+        //     // 메서드 정의
+        //     methodName(){
+        //         ...
+        //     }
+        //     methodName(){
+        //         ...
+        //     }
+
+        class Myclass{
+            constructor(accountName, Balance){
+                this.name = accountName;
+                this.balance = Balance;
+            }
+            
+            deposit(amount){
+                this.balance += amount;
+            }
+            
+            withdraw(amount){
+                this.balance -= amount;
+            }
+
+            transfer(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        let myNewAccount = new Myclass('hong', 0);
+        let yourNewAccount = new Myclass('kim', 10000);
+
+        console.log(myNewAccount.name, ":", myNewAccount.balance);
+        myNewAccount.deposit(10000);
+        console.log(myNewAccount.name, ":", myNewAccount.balance);
+        myNewAccount.withdraw(3000);
+        console.log(myNewAccount.name, ":", myNewAccount.balance);
+        myNewAccount.transfer(5000, yourNewAccount);
+        console.log(myNewAccount.name, ":", myNewAccount.balance);
+        console.log(yourNewAccount.name, ":", yourNewAccount.balance);
+    </script>
+</body>
+</html>

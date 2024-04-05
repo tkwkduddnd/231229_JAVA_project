@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        버튼 2개 준비 + / -
+        + 버튼은 값이 1씩 증가
+        - 버튼은 1씩 감소 (값이 0이면 더이상 감소 x)
+     -->
+     <h1 id="number">0</h1>
+    <form action="">
+        <button type="button" onclick="increase()">+</button>
+        <button type="button" onclick="decrease()">-</button>
+    </form>
+    
+
+    <script>
+        let current = 0;
+        const number = document.getElementById("number");
+
+        function increase() {
+            current++;
+            number.innerText = current;
+        }
+
+        function decrease() {
+            if (current > 0) {
+                current--;
+                number.innerText = current;
+            }
+        }
+    </script>
+</body>
+</html>

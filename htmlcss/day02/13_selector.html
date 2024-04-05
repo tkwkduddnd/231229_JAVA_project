@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        선택자(selector) : 요소를 선택하게 하는 이름
+        선택자 {
+            속성:값;
+            속성:값;
+        }
+        선택자 종류
+        - 태그 선택자(태그명) => 같은 태그명을
+        가지는 모든 태그
+        - 클래스 선택자(.클래스명) => 같은 클래스를
+         가지는 모든 태그
+         - id선택자(#아이디명) => 무조건 1개 / 0개
+         - 가상선택자(:가상클래스명)
+         - 어떤 조건이나 상황에서 스타일을 적용하도록 만든 선택자
+         - 주로 앞에 다른 선택자가 오고,
+         뒤에 가상 클래스 선택자가 추가로 나옴
+         - :hover => 요소에 마우스를 올렸을 때
+         - :focus => 요소가 포커스를 받고 있을 때
+         - :nth-child(a) / :nth-of-type(a)
+         a번째에 해당하는 요소
+         - 1 : 첫번째 요소
+         - even : 짝수요소
+         - odd : 홀수요소
+         - 2n/3n/... : 배수 요소
+         - 계산도 가능 (2n-1)
+
+         선택자 조합
+         - 여러 선택자를 이용하여 요소를 선택
+         - 자식관계
+         선택자1 > 선택자2 > 선택자3 (div>p>span)
+         선택자 1(부모-바로위의 부모) > 자식
+         - 자손관계
+         선택자1 선택자2(div input)
+         선택자1(조상-바로위의 부모 포함) 자식
+         - 본인 : 선택자를 붙여서 사용
+         선택자1선택자2 (div.a) (input#a) (.a.b)
+         선택자1 과 선택자2 를 모두 만족하는 요소
+         - 안되는 조합
+         1.(divinput) : 띄어쓰기를 안하면 구분이 안되는
+         요소일 경우 x
+         (.adiv x) (div.a O)
+         2. 말이 안되는 경우
+         (#a#b) : 아이디는 1개만 가능 x
+         선택자 우선순위
+         - 아이디 > 클래스 > 태그
+         - 우선순위가 같다면 아래에 있는 내용이 적용
+     -->
+     <style>
+        p{
+            color: blue;
+        }
+        /*#red{
+            color: red;
+        }*/
+        .green{
+            color: green;
+        }
+        div.hi{
+            font-style: italic;
+        }
+        div,.hi{
+            color: blueviolet;
+        }
+        p:hover{
+            color: palevioletred;
+        }
+     </style>
+     <p id="red" class="hi">안녕하세요 홍</p>
+     <p class="green hi">안녕하세요 영</p>
+     <p>안녕하세요 순</p>
+
+     <div>Hello</div>
+     <div class="hi">hi</div>
+
+</body>
+</html>

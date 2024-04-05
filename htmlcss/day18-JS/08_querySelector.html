@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        querySelector(), querySelectorAll()
+        html node(관리객체)로 리턴하는 메서드
+    </h1>
+    <ul>
+        <li>
+            getElementBy** : HTMLCollection 타입으로 리턴
+            .value, .name, .id 속성으로 접근 가능
+        </li>
+        <li>
+            querySelector : nodeList 형태로 리턴
+            [0] index 번호로만 접근가능.
+        </li>
+        <li>
+            더 구체적인 엘리먼트 접근하고 싶다면 querySelector, querySelectorAll
+        </li>
+        <li>
+            빠르고 편리하게 자원을 지원받으려면 getElementBy**
+        </li>
+        <li></li>
+    </ul>
+    <script>
+        const li = document.querySelectorAll('li');
+        console.log(li);
+    </script>
+</body>
+</html>

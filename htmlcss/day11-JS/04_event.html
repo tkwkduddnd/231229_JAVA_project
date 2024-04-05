@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        form 태그를 통해 데이터 받아오기
+    </h1>
+    <ul>
+        <li>
+            input, textarea, select, html element 속성, 텍스트 데이터를 받아오기
+        </li>
+        <li>
+            input tag 는 value 속성으로 값이 맵핑 되어 있어서
+            value로 값을 가져올 수 있음.
+        </li>
+        <li>
+            select => option / radio / checkbox value 값을 별도로 
+            추가해줘야 선택한 값을 가져올 수 있음
+        </li>
+        <li>
+            value / imnerText 값은 모두 string 처리됨
+        </li>
+        <li>
+            string 처리된 value 값을 숫자로 사용하기 위해서는 변환이 필요
+        </li>
+    </ul>
+
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            id : <input type="text" id="userid"><br>
+            pw : <input type="password" id="userpw"><br>
+            birth : <input type="date" id="birth"><br>
+            pin : <input type="text" id="pin">
+            <button type="button" onclick="clickEvendInput()">전송</button>
+            <button type="button" onclick="makeList()">리스트로 전송</button>
+        </fieldset>
+    </form>
+
+    <h3 id="info"></h3>
+    <ol id="ol"></ol>
+    <script>
+        const info = document.getElementById('info');
+        // ol 태그 객체를 가져오기
+        function makeList(){
+            // pin값을 숫자로 변환
+            // string => 숫자로 변환
+            // parseint(변수 => 정수로 변경(int 형태로 변환)) // 정수만 가능
+            // Nunber(변수 => 숫자로 변경될)
+            
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let userbirth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+
+            let ol = document.getElementById('ol');
+            
+            ol.innerHTML += `<li>userid: ${userid} ${typeof userid}</li>
+                            <li>userpw: ${userpw} ${typeof userpw}</li> 
+                            <li>userbirth: ${userbirth} ${typeof userbirth}</li> 
+                            <li>userpin: ${pin} ${typeof pin}</li>`;
+        }
+
+        
+        function clickEvendInput(){
+            // 화면에 입력한 값을 받아오는 과정
+            // 1. 화면에 값이 있어야 한다.
+            // 2. 값을 저장할 공간이 있어야 함.
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let userbirth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+            console.log(`userid: ${userid}`); // 객체자체
+            console.log(`userpw: ${userpw}`);
+            console.log(`userbirth: ${userbirth}`);
+            console.log(`pin: ${pin}`);
+
+
+            let str = `userid: ${userid}`;
+            str += `userpw: ${userpw}`;
+            str += `userbirth: ${userbirth}`;
+            str += `userpin: ${pin}`;
+
+            info.innerText = str;
+            
+            
+        }
+    </script>
+</body>
+</html>

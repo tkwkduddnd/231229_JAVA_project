@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위 바위 보를 10번하여 승률 출력</h1>
+    <button type="button" id="btn">승률 출력</button>
+    <h3>
+        10게임의 승률은 <span id="result"></span>%입니다.
+    </h3>
+    <script>
+        // 가위 바위 보 게임
+        // con = random / player = random
+        // 1 = 가위 , 2 = 바위, 3 = 보
+        // 승률계산 (승 / (10판에서 무승부 빼기)) * 100 소수점 2자리까지 표현
+        // 콘솔에 com, player 출력 - 이 부분은 콘솔에 출력
+        // 콘솔에 승: 무: 패: - 이 부분은 콘솔에 출력
+        // 승률은 무승부를 제외한 승과 패만을 가지고 %로 표시
+        function ran(){
+            return Math.floor(Math.random()*3)+1;
+        }
+        document.getElementById('btn').addEventListener('click',()=>{
+            let win = 0; // 승
+            let draw = 0; // 무승부
+            let lose = 0; // 패
+
+            for(let i = 0; i<10; i++){
+                // let player = Math.floor(Math.random()*3)+1;
+                // let com = Math.floor(Math.random()*3)+1;
+                let player = ran();
+                let com = ran();
+                console.log(player+"  /  "+com);
+                switch(player){
+                    case 1:
+                        // 가위  무 패 승
+                        (com==1)? draw++ : (com==2)? lose++ : win++;
+                        break;
+                    case 2:
+                        // 바위
+                        (com==2)? draw++ : (com==3)? lose++ : win++;
+                        break;
+                    case 3:
+                        // 보
+                        (com==3)? draw++ : (com==1)? lose++ : win++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            console.log(`승:${win} , 무:${draw} , 패:${lose}`);
+            document.getElementById('result').innerText = 
+            `${(win / (10-draw)*100).toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>

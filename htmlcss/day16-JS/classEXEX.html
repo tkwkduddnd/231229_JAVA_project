@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        class User {
+            constructor(name, birth) {
+                this.name = name;
+                this.birth = new Date(birth);
+            }
+
+            
+            age() {
+                let today = new Date();
+                let diff = today.getFullYear() - this.birth.getFullYear();
+                let m = today.getMonth() - this.birth.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < this.birth.getDate())) {
+                    diff--;
+                }
+                return diff;
+            }
+
+            
+            status() {
+                let userAge = this.age();
+                if (userAge < 20) {
+                    console.log(this.name + "은(는) 미성년자입니다.");
+                } else {
+                    console.log(this.name + "은(는) 성인입니다.");
+                }
+            }
+        }
+
+        
+        let user1 = new User("John", "2004-05-10");
+        let user2 = new User("Alice", "1999-11-15");
+
+        
+        user1.status(); 
+        user2.status(); 
+    </script>
+</body>
+</html>

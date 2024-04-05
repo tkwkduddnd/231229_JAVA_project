@@ -1,0 +1,26 @@
+package day14;
+
+public class 연습 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int num1 = 12,num2=34,num3=45;
+		int num4=12;
+		{
+			System.out.println(num4);
+		}
+		System.out.println(num3);
+		
+		String ch = "abx";
+		System.out.println(ch);
+		
+		double dou = 3.1;
+		System.out.println(dou);
+		
+		byte b = 1;
+		System.out.println(b);
+
+	}
+
+}

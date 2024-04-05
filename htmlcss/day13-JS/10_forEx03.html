@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num">
+    <button type="button" id="btn">버튼 클릭</button>
+    <h3 id="result">
+        약수 값 출력 / 개수<br>
+    </h3>
+    <script>
+        let r = document.getElementById('result').innerHTML;
+        console.log(r);
+
+        // 파라미터로 받은 수의 약수를 추출하는 function
+        function multiple(num){
+            console.log(num);
+
+            // 약수처리
+            let str = `${r}`; // 원래 있던 값을 추가
+            let count = 0;
+
+            for(let i = 1; i<=num; i++){
+                if(num % i ==0){
+                    str += `${i}`;
+                    count++;
+                }
+            }
+            return `${str}<br> 총 ${count}개`;
+        }
+        document.getElementById('btn').addEventListener('click', ()=>{
+            let num = document.getElementById('num').value;
+            let res = multiple(num);
+            document.getElementById('result').innerHTML = res;
+        })
+    </script>
+</body>
+</html>

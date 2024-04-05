@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        자식 box 3개가 화면을 꽉차게 동일한 크기로 구성하시오
+     -->
+     <style>
+        .pbox{
+            width: 500px;
+            background-color: yellow;
+            float: left;
+
+        }
+        /* width에 연산의 값을 사용할 수 있음 calc(500px / 3) */
+
+        .pbox>div{
+            height: 100px;
+            width: calc(100% / 3);
+            float: left;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .pbox::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .box1{
+            background-color: aqua;
+        }
+        .box2{
+            background-color: blueviolet;
+        }
+        .box3{
+            background-color: antiquewhite;
+        }
+        
+
+        
+     </style>
+</head>
+<body>
+    <div class="pbox">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

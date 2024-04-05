@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>board</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="board.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+</head>
+
+<body id="top">
+    <div class="wrapper">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="headArea">
+                <div class="hLogo">
+                    <a href="main.html"><img src="../image/KakaoTalk_20240402_110010059.png" alt="메인로고"></a>
+                </div>
+                <!-- 메뉴 -->
+                <nav class="hMenu">
+                    <div class="menu">
+                        <ul class="depth1">
+                            <li><a href="menu.html" class="dth1 ">주문하기</a></li>
+                            <li><a href="" class="dth1 ">나만의 메뉴</a></li>
+                            <li><a href="event.html" class="dth1  ">이벤트</a></li>
+                            <li><a href="board.html" class="dth1  ">고객지원</a></li>
+                        </ul>
+                    </div>
+                    <!-- 유틸 -->
+                    <div class="util">
+                        <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                        <a href="#" class="logoutButton" onclick="logout()">로그아웃</a>
+                        <a href="" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                        <a href="" class="lang" title="영문사이트로 이동">ENG</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <div class="subtitle">
+            <div class="inner">
+                <h1>문의</h1>
+                <ul>
+                    <li><a href="main.html">홈</a></li>
+                    <li>●</li>
+                    <li><a href="board.html">문의</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mainboard">
+            <div class="inner">
+                <div class="search">
+                    <p class="boardcnt"></p>
+                    <div class="searchinner">
+                        <input type="text" placeholder="검색어(작성자명 또는 제목)를 입력하세요." class="searchinput">
+                        <button type="button" class="searchBtn"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+            <ul class="boardlist">
+                <li class="mainlist" onclick="opencontent(1)" id="list1">
+                    <a href="#list1" class="openbtn">
+                        <span class="listnum"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-megaphone-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06" />
+                            </svg></span>
+                        <span class="boardtitle">딜리버리 서비스를 제공하기 위한 맞춤형 광고 수신 동의 및 거부에 대한 고지</span>
+                        <span class="day">2024. 3. 28.</span>
+                        <span class="id">관리자</span>
+                    </a>
+                <li class="ctopen" id="contentopen 1" style="display: none;">
+맞춤형 광고수신 동의 및 거부 (이용자 통제권) 에 대한 고지
+
+한국 맥도날드유한회사가 운영하는 “맥딜리버리 McDelivery 서비스” 를 제공하며 수행되는 “맞춤형 광고” 에 대한 수신 동의 및 거부 (이용자 통제권) 에 대해 안내말씀
+드립니다.
+
+“맞춤형 광고” 는 서비스에 대한이용자의 주문 기록, 활동 로그 등 (이하 ‘행태 정보’) 을 이용하여 이용자에게 유용한 광고를 제공하기 위해 수행됩니다. 맥도날드가“맥딜리버리
+McDelivery 서비스”를 통하여 수집하는 행태정보와 관련한 구체적인 사항은 아래와 같습니다.
+
+1. 수집하는행태정보의 항목
+- 이용자의 서비스 이용 기록, 활동로그 및 주문 내역
+
+2. 행태정보의수집 방법
+- 이용자의 서비스 이용 시 자동 수집
+
+3. 행태정보수집 목적
+- 이용자의 주문 내역을 통한 관심, 흥미, 기호를 분석하여 맞춤형 광고 ,컨텐츠 제공, 프로모션 내용 고지 및 쿠폰 제공
+
+4. 행태정보보유 이용기간
+- 회원 탈퇴 시 복구할 수 없는 방법으로 완전히 파기 또는 분리보관
+
+5. 이용자 통제권행사 방법
+· Android 설정 > Google 광고 > 광고 맞춤 설정 선택
+· iOS설정 > 개인정보보호 > Apple 광고 > 맞춤형 광고끄기
+· 맞춤형 광고 (이메일, 문자) 수신 시, 포함된URL 의 별도 페이지에서 수신 거부 가능
+(단, 수신거부를 선택하셨더라도, 맥도날드 관련 정보와 프로모션에 대해 수신 동의하신 경우, 광고 및정보 메시지가 수신될 수 있습니다. )
+
+6. 이용자 피해구제방법
+본 맞춤형 광고 관련하여 문의 또는 불만사항 등이 있으실 경우, 아래로연락 주시면 적극적으로 대응 및 회신하겠습니다.
+
+
+고객센터: 080-000-1588
+이메일: DPrivacy@kr.mdd.com
+                </li>
+                </li>
+                <li class="mainlist" onclick="opencontent(2)" id="list2">
+                    <a href="#list1" class="openbtn">
+                        <span class="listnum"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-megaphone-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06" />
+                            </svg></span>
+                        <span class="boardtitle">주방 공개 행사 잠정 중단 안내의 건</span>
+                        <span class="day">2024. 3. 27.</span>
+                        <span class="id">관리자</span>
+                    </a>
+                <li class="ctopen" id="contentopen 2" style="display: none;">content</li>
+                </li>
+                <li class="mainlist" onclick="opencontent(3)" id="list3">
+                    <a href="#list1" class="openbtn">
+                        <span class="listnum"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-megaphone-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06" />
+                            </svg></span>
+                        <span class="boardtitle">디카페인 커피 미판매 매장 안내</span>
+                        <span class="day">2024. 3. 24.</span>
+                        <span class="id">관리자</span>
+                    </a>
+                <li class="ctopen" id="contentopen 3" style="display: none;">content</li>
+                </li>
+            </ul>
+            <div class="addbtn">
+                <a href="boardwrite.html" class="boardwrite">글쓰기</a>
+                <button type="button" class="readmore" onclick="morebtn()">+</button>
+            </div>
+        </div>
+        <!-- <div class="subbox">
+            <a href="" class="newpage1">새창</a>
+            <a href="" class="newpage2">새창</a>
+            <a href="#top" class="topbtn"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-up-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537"/>
+              </svg></a>
+        </div> -->
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footArea">
+            <div class="info">
+                <ul>
+                    <li>인천광역시 남동구 인주대로 593 엔타스 12층</li>
+                    <li>대표자 EZEN</li>
+                    <li>사업자등록번호 000-00-00000</li>
+                    <li>ezen@ezen.com</li>
+                </ul>
+                <p>COPYRIGHT ⓒ 2024 ALL RIGHTS RESERVED BY EZEN</p>
+            </div>
+            <div class="sns">
+                <a href="" target="_blank" class="ico-inst">인스타그램</a>
+                <a href="" target="_blank" class="ico-fb">페이스북</a>
+                <a href="" target="_blank" class="ico-you">유튜브</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 로그인한 경우? : https://alisyabob.tistory.com/224 -->
+    <!-- localstorage 사용 : https://cloudcoke.tistory.com/31 -->
+    <!-- 
+    *1. 로컬 스토리지에서 JSON타입(key:value 값)의 데이터를 받아오도록 설정
+    *2. 게시글 등록하면, 게시판 페이지를 싱핼 후 domcontentloaded(문서 로드, 파싱) 시 출력, 등록되도록 설정
+    *3. 게시글 작성, 등록 / 게시글 넘버링
+    *4. 게시글 클릭 시 출력화면 설정
+    *5. 검색(검색 후 재검색 시 열린목록 닫기 및 검색입력창 초기화)
+    
+    8. 더보기 기능 X
+    
+ -->
+
+    <script>
+        let today = new Date();
+        let day = today.toLocaleDateString();
+        let count = 3;
+        const boardlist = document.querySelector('.boardlist');
+        let posts = [];
+        const writedata = localStorage.getItem('post2');
+        const searchinput = document.querySelector('.searchinput');
+
+        // 실행 시 로컬스토리지에 등록한 값 게시판 리스트로 출력
+        document.addEventListener('DOMContentLoaded', function () {
+            if (writedata !== null) {
+                posts = JSON.parse(writedata);
+            }
+            posts.forEach(function (post) {
+                count++;
+                boardlist.innerHTML +=
+                    `<li class="mainlist" id="list${count}" onclick="opencontent(${count})">
+            <a href="#list${count - 2}" class="openbtn">    
+                <span class="listnum">${count - 3}</span>
+                <span class="boardtitle">${post.title2}</span>
+                <span class="day">${day}</span>
+                <span class="id">${post.writername}</span>
+            </a>           
+            <li class="ctopen" id="contentopen ${count}" style="display: none;">${post.content2}</li>                
+        </li>`;
+            })
+            document.querySelector('.boardcnt').innerHTML = `총 ${count} 건의 게시글이 있습니다.`;
+        });
+
+
+        // 클릭 시 content 보이기 (.mainlist 에서 onclick 사용)
+        function opencontent(count) {
+            let a = document.getElementById(`contentopen ${count}`);
+            let b = document.getElementById(`list${count}`);
+            if (a.style.display == "none") {
+                a.style.display = "block";
+                b.style.fontSize = "17px";
+            } else if (a.style.display == "block") {
+                a.style.display = "none";
+                b.style.fontSize = "15px";
+            };
+        };
+
+
+        // 검색
+        document.querySelector('.searchBtn').addEventListener('click', () => {
+            for (let i = 1; i <= posts.length + 3; i++) {
+                console.log(posts[i].writername + ":" + posts[i].title2 + "=" + searchinput.value);
+                if (searchinput.value == posts[i].writername || searchinput.value == posts[i].title2) {
+                    let a = document.getElementById(`contentopen ${i + 4}`);
+                    a.style.display = "block";
+                    location.href = `#list${i - 1}`;
+                    searchinput.value = "";
+                };
+            };
+
+        });
+
+
+        // input클릭 시 input창 초기화 / 열린 목록 모두 닫기
+        document.querySelector('.searchinput').addEventListener('click', () => {
+            for (let i = 1; i <= posts.length + 3; i++) {
+                let a = document.getElementById(`contentopen ${i}`);
+                a.style.display = "none";
+                searchinput.value = "";
+            }
+            // console.log(posts.length);
+        });
+
+
+        function logout() {
+        
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('username');
+        
+        window.location.href = 'board.html';
+    }
+
+        window.onload = function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+
+            if (isLoggedIn === 'true' && username) {
+                const userUtility = document.querySelector('.util');
+                userUtility.innerHTML = `
+                    <span id="welcomeMessage">${username}님, 환영합니다!</span>
+                    <a href="#" class="logoutButton" onclick="logout()">로그아웃</a>
+                `;
+            } else { 
+                const userUtility = document.querySelector('.util');
+                userUtility.innerHTML = `
+                    <a href="login.html" class="mLogin" title="임차문의로 이동">로그인</a>
+                    <a href="signUp.html" class="mSignin" title="인재채용으로 이동">회원가입</a>
+                    <a href="main_eng.html" class="lang" title="영문사이트로 이동">ENG</a>
+                `;
+            }
+        };
+
+
+
+    </script>
+</body>
+
+</html>

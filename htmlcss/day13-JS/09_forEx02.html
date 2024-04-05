@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="st" href="../day13js/st.css">
+    <style>
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="btn" onclick="gugu()">구구단</button>
+   
+
+    <div id="gugu">
+        <!-- 테이블 추가
+        2*1=2 ... 81까지 
+
+        incre = 1 일 경우 tr 하나 생성 
+        for 단 2-9까지 반복 td생성
+
+        incre 하나 증가
+        incre = 2 tr생성
+
+
+        만들어서 div안에 넣는다.
+    
+    
+    -->  
+    </div>
+
+
+    <script>
+
+        function gugu(){
+            let gugu = document.getElementById('gugu');
+           
+            let incre = 1;//증가값
+
+            let str = '<table>';
+
+            while(incre < 10){
+
+                let dan = 2; //단
+
+                str += '<tr>';
+                    while(dan < 10){
+                        str+= `<td>${dan}*${incre}=${dan*incre}</td>`;
+                        dan++;
+                    }
+                    incre++;
+
+                    str+= '</tr>';
+
+            }
+
+            str+= '</table>';
+            gugu.innerHTML = str;
+        }
+        document.getElementById('btn').addEventListener('click',()=>{
+            gugu();
+        })
+
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야구 게임</title>
+</head>
+<body>
+    <h1>야구 게임</h1>
+    <ul>
+        <li>컴퓨터가 숫자 0~9까지 중복되지 않는 정수 3개를 랜덤으로 출제합니다.</li>
+        <li>세 자리의 숫자는 중복되면 안됩니다. (각 숫자는 자리수를 가지고 있음)</li>
+        <li>각 자리수와 입력한 숫자가 일치하면 1 stk(스트라이크)</li>
+        <li>숫자만 포함되어 있으면 1 Ball(볼)</li>
+        <li>숫자가 전혀 없으면 Out(아웃)</li>
+        <li>3 stk(스트라이크)면 게임 종료</li>
+    </ul>
+    <hr>
+    <button type="button" id="startBtn">게임 시작</button><br>
+
+    숫자 입력: <input type="text" id="numberInput">
+    <button type="button" id="checkBtn">게임 확인</button>
+    <div id="result"></div>
+
+    <script>
+        let answer;
+        let resultPage = document.getElementById('result');
+
+        document.getElementById('startBtn').addEventListener('click', startGame);
+        document.getElementById('checkBtn').addEventListener('click', checkInput);
+
+        function startGame() {
+            answer = randomNum();
+            alert("야구게임을 시작합니다."); 
+        }
+
+        function randomNum() {
+            const numbers = new Set();
+            while (numbers.size < 3) {
+                const num = Math.floor(Math.random() * 10);
+                numbers.add(num);
+            }
+            
+            let result = '';
+            for (let num of numbers) {
+                result += num;
+            }
+            
+            return result;
+        }
+
+        function comNum(inputNum) {
+            let stk = 0;
+            let ball = 0;
+            inputNum = inputNum.split('');
+            for (let i = 0; i < 3; i++) {
+                if (answer.indexOf(inputNum[i]) !== -1) {
+                    if (answer[i] === inputNum[i]) {
+                        stk++;
+                    } else {
+                        ball++;
+                    }
+                }
+            }
+            if (stk === 3) {
+                return "3 stk - 게임 종료";
+            } else if (stk > 0 || ball > 0) {
+                return `${stk} stk ${ball} Ball`;
+            } else {
+                return "Out";
+            }
+        }
+
+        function checkInput() {
+            if (!answer) {
+                alert("게임 시작 버튼을 먼저 누르세요.");
+                return;
+            }
+
+            const inputNum = document.getElementById('numberInput').value;
+            if (!validCheck(inputNum)) {
+                return;
+            }
+
+            const result = comNum(inputNum);
+            resultPage.innerHTML += result + "<br>";
+
+            if (result === "3 stk - 게임 종료") {
+                alert("게임 종료");
+            }
+        }
+
+        function validCheck(inputNum) {
+            if (dupliCheck(inputNum)) {
+                alert("숫자는 중복될 수 없습니다.");
+                return false;
+            }
+            if (isNaN(inputNum) || inputNum.length !== 3) {
+                alert("3자리 숫자를 입력하세요.");
+                return false;
+            }
+            return true;
+        }
+
+        function dupliCheck(inputNum) {
+            for (let i = 0; i < inputNum.length; i++) {
+                for (let j = i + 1; j < inputNum.length; j++) {
+                    if (inputNum[i] === inputNum[j]) {
+                        return true; 
+                    }
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

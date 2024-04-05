@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <button type="button" id="startBtn">문제출제</button>
+    </h1>
+    <ol id="q"></ol>
+    <h1>
+        <button type="button" id="compareBtn">정답 확인</button>
+    </h1>
+    <h3 id="printRatio"></h3>
+
+    <script>
+        const ansObj = {};
+
+        // ansObj[`ans${i}`] = dan * incre;
+        // userInput.style.backgroundColor = 'green';
+        const quizArea = document.getElementById('q');
+        let count = 0; // 전체개수
+        let correct = 0; // 맞춘 개수
+
+        document.getElementById('startBtn').addEventListener('click', () =>{
+            // 문제가 출제되는 부분
+            quizArea.innerHTML = ''; // 지난 문제 제거
+            do{
+                count++;
+                let dan = makeRandom(9,2);
+                let incre = makeRandom(9,1);
+                let answer = dan * incre; // 정답
+                ansObj[`ans${count}`] = answer; // Object에 정답을 추가
+                // quiz 영역에 뿌리기
+                let q = `<li>${dan} * ${incre} = `;
+                    q+= `<input type = "text" id = "userAns${count}">`;
+                    q+= `</li>`;
+                    quizArea.innerHTML +=q;
+            }
+            while(count<10);
+            console.log(ansObj);
+            count=0;
+        });
+        // dan * incre
+        function makeRandom(max, min){
+            return Math.floor(Math.random()*(max-min+1)) + min;
+        }
+
+        document.getElementById('compareBtn').addEventListener('click', () => {
+            while(count<10){
+                count++; // count는 0부터 시작이라 1부터 시작하게 증가
+                let userInput = document.getElementById('userAns' + count);
+                if(Number(userInput.value) == ansObj[`ans${count}`]){
+                    correct++; // 정답개수
+                    userInput.value += ": 정답";
+                    // 스타ㅣㄹ을 속성으로 직접 지정할 경우 - 를 지우고 카멜레이스로 변경
+                    userInput.style.backgroundColor = "green";
+                }
+                else{
+                    userInput.value += ": 오답";
+                    userInput.style.backgroundColor = "red";
+                }
+                document.getElementById('printRatio').innerText=
+                `정답개수: ${correct}, 정답률: ${(correct / count).toFixed(2)*100}%`;
+            }
+        })
+        
+    </script>
+</body>
+</html>

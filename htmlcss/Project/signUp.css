@@ -1,0 +1,340 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-width: 1280px;
+    height: 125px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    background: #fff;
+    z-index: 2;
+    line-height: 50px;
+}
+
+.headArea,
+.footArea {
+    width: 1168px;
+    margin: 0 auto;
+}
+
+/* 로고 */
+.header .hLogo {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 20px;
+    float: left;
+    z-index: 1;
+}
+
+.header .hLogo a {
+    display: block;
+}
+
+.header .hLogo img {
+    width: 100px;
+    height: 100px;
+}
+
+/* 메뉴 */
+.header .hMenu {
+    height: 100%;
+    padding: 52px 0;
+}
+
+.header .hMenu .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.header .hMenu .menu .depth1 {
+    display: inline-block;
+    padding-left: 0;
+    text-align: left;
+    vertical-align: top;
+    margin-left: -136px;
+}
+
+.header .hMenu .menu .depth1 a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.header .hMenu .menu .depth1>li {
+    float: left;
+}
+
+.header .hMenu .menu .depth1>li .dth1 {
+    position: relative;
+    margin-right: 85px;
+    padding: 0 10px;
+    color: #292929;
+    font-size: 20px;
+    line-height: 140px;
+    font-weight: 600;
+}
+
+/* 유틸 */
+.header .hMenu .util {
+    position: relative;
+    float: right;
+    margin: 0 0 0 50px;
+}
+
+/* 로그인 */
+.header .hMenu .util .mLogin {
+    display: inline-block;
+    width: 80px;
+    padding-top: 2px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 48px;
+    border: 1px solid black;
+}
+
+.header .hMenu .util .mLogin:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* 언어 */
+.header .hMenu .util .lang {
+    display: inline-block;
+    width: 80px;
+    padding-top: 2px;
+    color: #fff;
+    background: #000;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 48px;
+    border: 1px solid black;
+}
+
+.header .hMenu .util .lang:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* 회원가입 */
+.header .hMenu .util .mSignin {
+    display: inline-block;
+    width: 80px;
+    padding-top: 2px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 48px;
+    border: 1px solid black;
+}
+
+.header .hMenu .util .mSignin:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* 추가된 CSS */
+
+@keyframes snowflake {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.snowflake {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: snowflake linear infinite;
+    pointer-events: none;
+}
+
+.input-field:focus {
+    border-color: #8A2BE2;
+    box-shadow: 0 0 10px #8A2BE2;
+}
+
+.zoom-effect {
+    transition: transform 0.3s;
+}
+
+.zoom-effect:hover {
+    transform: scale(1.1);
+}
+
+body {
+    font-family: 'Bagel Fat One', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1711330980173-f308124e153d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMzR8fHxlbnwwfHx8fHw%3D');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    font-size: 12px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 100px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.input-field {
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #8A2BE2;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.submit-btn {
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: gray;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: purple;
+}
+
+.link {
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.link a {
+    color: blue;
+    text-decoration: none;
+    margin: 5px 10px;
+    font-size: 30px;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+.alternative-login {
+    margin-top: -10px;
+}
+
+.alternative-login p {
+    margin-bottom: 10px;
+}
+
+.alternative-login a {
+    margin: 10px;
+}
+
+.input-field:not(:placeholder-shown) {
+    border-color: green;
+}
+
+.input-field:invalid {
+    border-color: red;
+}
+
+.input-field:valid {
+    border-color: green;
+}
+
+.submit-btn:active {
+    transform: translateY(15px);
+}
+
+.submit-btn:focus {
+    background-color: mediumslateblue;
+}
+
+.check-duplicate-btn {
+    width: 120px;
+    margin-left: 10px;
+    padding: 15px;
+    background-color: palegoldenrod;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.check-duplicate-btn:hover {
+    background-color: pink;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+}
+
+.username-container input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">
+        DOM : Document Object Model : html 문서 객체 모델
+    </h1>
+    <ul>
+        <li class="list">
+            html 하위 태그는 각각의 기능(method), 속성(properties)을 가지고 있는 둔
+        </li>
+        <li class="list">
+            element 가져오기 : byID, byClassName, byTagName
+        </li>
+        <li class="list">
+            document.getElementById('idName') : 단일 엘리먼트 리턴
+        </li>
+        <li>
+            document.getElementByClassName('className') : 복수 엘리먼트 리턴
+            => HTMLCollection 타입으로 리턴
+        </li>
+        <li>
+            document.getElementByTagName('TagName') : 복수 엘리먼트 리턴
+            => HTMLCollection 타입으로 리턴 
+        </li>
+        <li>
+            복수 엘리먼트를 가져오게 되면 index를 선택하여 사용
+        </li>
+    </ul>
+    <script>
+        const h1 = document.getElementById('h1');
+        const list = document.getElementsByClassName('list');
+        const ul = document.getElementsByTagName('ul');
+        console.log(h1);
+        console.log(list);
+        console.log(list[0]);
+        console.log(ul[0]); // ul 객체
+        console.log(ul[0].children); // ul 하위 객체
+        console.log(ul[0].children[0]); //ul 하위객체
+    </script>
+</body>
+</html>

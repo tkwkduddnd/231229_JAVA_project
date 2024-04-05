@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            이름: <input type="text" id="name"><br>
+            국어: <input type="text" id="kor"><br>
+            영어: <input type="text" id="eng"><br>
+            수학: <input type="text" id="math"><br>
+            <button type="button" onclick="clickEvent()">성적계산</button>
+        </fieldset>
+    </form>
+    <h3 id="result">
+        <!-- 이름, 합계 평균, 합격여부 (60이상이면 pass / fail) -->
+        <!-- 입력한 성적의 점수값이 0~100 사이의 값이 아니면 alert 창 띄워서 안내 -->
+        <!-- alert 창이 뜨는 조건은 성적계산 버튼을 눌렀을 때 창이 띄워짐 -->
+    </h3>
+
+    <script>
+        function calculateGrade(){
+            let name = document.getElementById('name').value;
+            let kor = parseFloat(document.getElementById('kor').value);
+            let eng = parseFloat(document.getElementById('eng').value);
+            let math = parseFloat(document.getElementById('math').value);
+
+            // 입력한 점수가 유효한지 확인
+            if(isNaN(kor) || isNaN(eng) || isNaN(math) || kor < 0 || kor > 100 || eng < 0 || eng > 100 || math < 0 || math > 100){
+                alert("성적은 0부터 100까지의 숫자로 입력해주세요.");
+                return;
+            }
+
+            let sum = kor + eng + math;
+            let avg = (sum / 3).toFixed(2);
+            let passFail = sum >= 180 ? "pass" : "fail";
+
+            let resultElement = document.getElementById('result');
+            resultElement.innerHTML = `<li>이름: ${name}</li>
+                                        <li>합계: ${sum}</li>
+                                        <li>평균: ${avg}</li>
+                                        <li>합격여부: ${passFail}</li>`;
+        }
+    </script>
+    
+</body>
+</html>
